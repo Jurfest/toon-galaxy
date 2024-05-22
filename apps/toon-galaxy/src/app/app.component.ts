@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   standalone: true,
   imports: [RouterModule],
-  selector: 'app-root',
+  selector: 'toon-galaxy-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
