@@ -73,5 +73,6 @@
       "style": "scss",
       "unitTestRunner": "jest"
     }
-  }
+  },
+  "defaultProject": "toon-galaxy"
 }
