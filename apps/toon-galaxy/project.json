@@ -8,19 +8,26 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/toon-galaxy/browser",
         "index": "apps/toon-galaxy/src/index.html",
         "main": "apps/toon-galaxy/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/toon-galaxy/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/toon-galaxy/src/favicon.ico",
           "apps/toon-galaxy/src/assets"
         ],
-        "styles": ["apps/toon-galaxy/src/styles.scss"],
+        "styles": [
+          "@angular/material/prebuilt-themes/purple-green.css",
+          "apps/toon-galaxy/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -73,7 +80,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/toon-galaxy/jest.config.ts"
       }
@@ -87,7 +96,9 @@
       }
     },
     "server": {
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "executor": "@angular-devkit/build-angular:server",
       "options": {
         "outputPath": "dist/apps/toon-galaxy/server",
@@ -126,7 +137,9 @@
     "prerender": {
       "executor": "@angular-devkit/build-angular:prerender",
       "options": {
-        "routes": ["/"]
+        "routes": [
+          "/"
+        ]
       },
       "configurations": {
         "development": {
