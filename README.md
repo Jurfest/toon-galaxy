@@ -43,7 +43,7 @@ The Storybook for this project can be found at [design-insights.toongalaxy.toon]
 
 This project is licensed under the [MIT License](LICENSE).
 
-## More Information about the Toon Galaxy monorepo
+## Additional information about the Toon Galaxy monorepo
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
