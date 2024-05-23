@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@toon-galaxy/shared/ui-design-system": [
+        "libs/shared/ui-design-system/src/index.ts"
+      ],
       "@toon-galaxy/toon-galaxy/domain": [
         "libs/toon-galaxy/domain/src/index.ts"
       ]
