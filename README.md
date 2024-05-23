@@ -1,3 +1,44 @@
+# Toon Galaxy
+
+## 🔬 Toon Galaxy Atomic Design System
+
+The Toon Galaxy Atomic Design System is an integral part of the Toon Galaxy project. It follows the principles of Atomic Design for it's Components, ensuring a scalable and maintainable UI component library.
+
+Here is a quick link for Atomic Design:
+
+- [Atomic Design by Brad Frost](https://bradfrost.com/blog/post/atomic-web-design/)
+
+### Principles
+
+1. Atoms: The smallest building blocks of the design system, such as buttons, inputs, and labels.
+2. Molecules: Combinations of atoms that form more complex components, like form fields with labels and inputs.
+3. Organisms: Groups of molecules that function together as a distinct section of the interface, such as a character list or a search form.
+4. Templates: Layouts that combine organisms and define the structure of the application.
+5. Pages: Specific instances of templates with real content, representing the final UI.
+
+### 📙 Storybook Integration
+
+To visualize and test UI components in isolation, the Toon Galaxy Atomic Design System integrates with Storybook:
+
+1. Start Storybook:
+
+```bash
+nx run ui-design-system:storybook
+```
+
+2. Access Storybook Locally:
+   Open your browser and navigate to http://localhost:6006.
+
+To access Toon Galaxy Atomic Design System in production please visit [Production Links](#production-links) section
+
+## Production Links
+
+The Storybook for this project can be found at [design-insights.toongalaxy.toon](http://localhost:6006).
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
 # ToonGalaxy
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
