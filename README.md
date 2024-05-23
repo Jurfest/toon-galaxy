@@ -10,7 +10,7 @@ Here is a quick link for Atomic Design:
 
 > [!NOTE]
 > This Design System can be divided into UiKits to share UI elements across just
-> a few applications rather than across all organizational applications.
+> a few applications rather than across all applications in the organization.
 
 ### Principles
 
