@@ -37,7 +37,7 @@ The Storybook for this project can be found at [design-insights.toongalaxy.toon]
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the [MIT License](LICENSE).
 
 ## More Information about the Toon Galaxy monorepo
 
