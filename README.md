@@ -8,6 +8,10 @@ Here is a quick link for Atomic Design:
 
 - [Atomic Design by Brad Frost](https://bradfrost.com/blog/post/atomic-web-design/)
 
+> [!NOTE]
+> This Design System can be divided into UiKits to share UI elements across just
+> a few applications rather than across all organizational applications.
+
 ### Principles
 
 1. Atoms: The smallest building blocks of the design system, such as buttons, inputs, and labels.
