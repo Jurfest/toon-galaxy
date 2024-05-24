@@ -1,24 +1,26 @@
 // Core
-$color-core-background: #ffffff;
-$color-core-foreground: #ffffff;
-$color-core-content: #ffffff;
-$color-core-content-low: #ffffff;
-$color-core-border: #ffffff;
+$color-core-background: #1f1f1f;
+$color-core-foreground: #0a0a0a;
+$color-core-content: #fafafa;
+
+$color-core-content-low: #a4a4a4;
+$color-core-border: #3d3d3d;
 
 // Neutral
 $color-neutral-foreground: #ffffff;
-$color-neutral-surface-lower: #ffffff;
+$color-neutral-surface-lower: #1f1f1f;
 $color-neutral-surface: #ffffff;
-$color-neutral-content: #ffffff;
-$color-neutral-content-high: #ffffff;
-$color-neutral-content-higher: #ffffff;
-$color-neutral-border: #ffffff;
 
-// TODO: - Add meaningfull names to colors below
+$color-neutral-content: #a4a4a4;
+$color-neutral-content-high: #cacaca;
+$color-neutral-content-higher: #f2f2f2;
+
+$color-neutral-border: #3d3d3d;
+
 // Secondary
-$a: #0a0a0a;
-$b: #ffffff;
-$c: #3d3d3d;
-$d: #00b5cc;
-$e: #b2df28;
-$f: #5d5d5d;
+$color-secondary-background: #0a0a0a;
+$color-secondary-foreground-light: rgba(255, 255, 255, 0.01);
+$color-secondary-border: #3d3d3d;
+$color-secondary-accent: #00b5cc;
+$color-secondary-highlight: #b2df28;
+$color-secondary-surface: #5d5d5d;
