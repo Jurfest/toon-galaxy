@@ -1,9 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import { expect, within } from '@storybook/test';
+
 import { TextComponent } from './text.component';
 
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
-
+import type { Meta, StoryObj } from '@storybook/angular';
 const meta: Meta<TextComponent> = {
   component: TextComponent,
   title: 'TextComponent',
