@@ -13,7 +13,12 @@ describe('ButtonComponent', () => {
 
     fixture = TestBed.createComponent(ButtonComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('label', 'button');
     fixture.detectChanges();
+
+    // TODO: Zoneless
+    // component.label = input('button');
+    // await fixture.whenStable();
   });
 
   it('should create', () => {
