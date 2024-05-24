@@ -23,21 +23,17 @@ const meta: Meta<ButtonComponent> = {
       ],
     }),
   ],
+  args: {
+    label: 'Button',
+  },
 };
 export default meta;
 
 type Story = StoryObj<ButtonComponent>;
 
-export const Primary: Story = {
-  args: {
-    label: 'Button',
-  },
-};
+export const Primary: Story = {};
 
 export const Heading: Story = {
-  args: {
-    label: 'Button',
-  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     expect(canvas.getByText(/Button/gi)).toBeTruthy();

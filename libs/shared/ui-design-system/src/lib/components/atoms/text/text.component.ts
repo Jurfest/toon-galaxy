@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'design-system-text',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './text.component.html',
   styleUrl: './text.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextComponent {}
