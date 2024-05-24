@@ -15,7 +15,9 @@ export const Primary: Story = {
 };
 
 export const Heading: Story = {
-  args: {},
+  args: {
+    font: 'creepster',
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     expect(canvas.getByText(/text works!/gi)).toBeTruthy();
