@@ -3,10 +3,16 @@ import {
   BrowserAnimationsModule,
   provideAnimations,
 } from '@angular/platform-browser/animations';
-import { applicationConfig, Meta, StoryObj } from '@storybook/angular';
+import {
+  applicationConfig,
+  Meta,
+  moduleMetadata,
+  StoryObj,
+} from '@storybook/angular';
 import { expect, within } from '@storybook/test';
 
 import { ButtonComponent } from './button.component';
+import { MatButtonModule } from '@angular/material/button';
 
 // const meta: Meta<ButtonComponent> = {
 //   component: ButtonComponent,
@@ -41,12 +47,32 @@ import { ButtonComponent } from './button.component';
 // };
 
 const Template = (args: ButtonComponent) => ({
-  component: ButtonComponent,
   props: args,
 });
 
 export default {
   title: 'Design System/Atoms/Button',
+  component: ButtonComponent,
+
+  // decorators: [
+  //   moduleMetadata({
+  //     imports: [MatButtonModule],
+  //   }),
+
+  //   // Apply application config to all stories
+  //   applicationConfig({
+  //     // List of providers and environment providers that should be available to the root component and all its children.
+  //     providers: [
+  //       // Import application-wide providers from a module
+  //       importProvidersFrom(BrowserAnimationsModule),
+  //       // Or use provide-style functions if available instead, e.g.
+  //       provideAnimations(),
+  //     ],
+  //   }),
+  // ],
 };
 
-export const Default = Template.bind({});
+export const DefaultButton = Template.bind({});
+DefaultButton.args = {
+  label: 'Button label',
+};

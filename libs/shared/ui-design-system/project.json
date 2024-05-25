@@ -45,7 +45,11 @@
         "port": 4400,
         "configDir": "libs/shared/ui-design-system/.storybook",
         "browserTarget": "shared-ui-design-system:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "styles": [
+          "@angular/material/prebuilt-themes/indigo-pink.css",
+          "scss/_global-styles.scss"
+        ]
       },
       "configurations": {
         "ci": {
@@ -60,7 +64,11 @@
         "outputDir": "dist/storybook/shared-ui-design-system",
         "configDir": "libs/shared/ui-design-system/.storybook",
         "browserTarget": "shared-ui-design-system:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "styles": [
+          "@angular/material/prebuilt-themes/indigo-pink.css",
+          "scss/_global-styles.scss"
+        ]
       },
       "configurations": {
         "ci": {

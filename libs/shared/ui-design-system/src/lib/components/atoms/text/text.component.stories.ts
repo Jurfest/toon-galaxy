@@ -5,7 +5,7 @@ import { TextComponent } from './text.component';
 import type { Meta, StoryObj } from '@storybook/angular';
 const meta: Meta<TextComponent> = {
   component: TextComponent,
-  title: 'Design System/Atoms/Button',
+  title: 'Design System/Atoms/Text',
 };
 export default meta;
 type Story = StoryObj<TextComponent>;
