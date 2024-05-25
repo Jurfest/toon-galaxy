@@ -6,9 +6,13 @@
   <div
     [ngStyle]="{ '--dynamic-color': colorObj.color }"
     class="dynamic-background"
-    [style]="'background-color: {{colorObj.color}};'"
   >
-    <div class="color-description">
+    <div
+      class="color-description"
+      [ngClass]="{
+        custom: colorObj.labelColor === '#000'
+      }"
+    >
       <strong>${{ colorObj.key }}</strong>
       <span>{{ colorObj.color }}</span>
     </div>
