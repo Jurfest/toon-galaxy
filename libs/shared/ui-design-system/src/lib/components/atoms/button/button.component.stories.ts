@@ -10,7 +10,7 @@ import { ButtonComponent } from './button.component';
 
 const meta: Meta<ButtonComponent> = {
   component: ButtonComponent,
-  title: 'ButtonComponent',
+  title: 'Design System/Atoms/Button',
   decorators: [
     // Apply application config to all stories
     applicationConfig({
