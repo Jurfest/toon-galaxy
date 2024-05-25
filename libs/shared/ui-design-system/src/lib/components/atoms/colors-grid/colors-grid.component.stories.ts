@@ -4,7 +4,7 @@ import { expect, within } from '@storybook/test';
 
 const meta: Meta<ColorsGridComponent> = {
   component: ColorsGridComponent,
-  title: 'ColorsGridComponent',
+  title: 'Design System/Tokens/Colors',
 };
 export default meta;
 type Story = StoryObj<ColorsGridComponent>;
@@ -17,6 +17,6 @@ export const Heading: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/colors-grid works!/gi)).toBeTruthy();
+    expect(canvas.getByText(/color_core_background/gi)).toBeTruthy();
   },
 };
