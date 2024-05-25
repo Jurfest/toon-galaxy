@@ -4,6 +4,13 @@
   "sourceRoot": "libs/shared/ui-design-system/src",
   "prefix": "design-system",
   "projectType": "library",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "displayBlock": true
+    }
+  },
   "tags": ["domain:shared", "type:ui"],
   "targets": {
     "build": {
