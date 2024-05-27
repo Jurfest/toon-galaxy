@@ -3,3 +3,7 @@
 @forward 'vars';
 @forward 'typography';
 @forward 'mixins';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
