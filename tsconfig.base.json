@@ -20,7 +20,8 @@
       ],
       "@toon-galaxy/toon-galaxy/domain": [
         "libs/toon-galaxy/domain/src/index.ts"
-      ]
+      ],
+      "@toon-galaxy/styles": ["scss/_global-styles.scss"]
     }
   },
   "exclude": ["node_modules", "tmp"]

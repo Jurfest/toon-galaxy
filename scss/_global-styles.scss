@@ -1,8 +1,8 @@
 /* Global workspace styles */
 
-@forward 'vars';
+@forward 'colors';
 @forward 'typography';
-@forward 'mixins';
+@forward 'effects';
 
 @tailwind base;
 @tailwind components;
