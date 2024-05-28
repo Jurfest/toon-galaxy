@@ -53,7 +53,7 @@ const Template = (args: ButtonComponent) => ({
 export default {
   title: 'Design System/Atoms/Button',
   component: ButtonComponent,
-
+  tags: ['autodocs'],
   // decorators: [
   //   moduleMetadata({
   //     imports: [MatButtonModule],
@@ -72,7 +72,7 @@ export default {
   // ],
 };
 
-export const DefaultButton = Template.bind({});
-DefaultButton.args = {
+export const Default = Template.bind({});
+Default.args = {
   label: 'Button label',
 };
