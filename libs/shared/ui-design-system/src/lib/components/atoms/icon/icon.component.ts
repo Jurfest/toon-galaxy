@@ -41,7 +41,7 @@ import {
 export class IconComponent {
   iconName = input<IconNameFas | IconNameFar>('heart');
 
-  heartIcon = farHeart;
+  faIcon: ['fas' | 'far', IconNameFas | IconNameFar] = ['fas', this.iconName()];
   isFavorite = false;
 
   constructor(library: FaIconLibrary) {
@@ -50,6 +50,8 @@ export class IconComponent {
 
   toggleIconState(): void {
     this.isFavorite = !this.isFavorite;
-    this.heartIcon = this.heartIcon === fasHeart ? farHeart : fasHeart;
+    this.faIcon = this.isFavorite
+      ? ['far', this.iconName()]
+      : ['fas', this.iconName()];
   }
 }
