@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  model,
+} from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserModule } from '@angular/platform-browser';
 import {
@@ -10,12 +16,10 @@ import {
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
 import {
-  faHeart as farHeart,
   far,
   IconName as IconNameFar,
 } from '@fortawesome/free-regular-svg-icons';
 import {
-  faHeart as fasHeart,
   fas,
   IconName as IconNameFas,
 } from '@fortawesome/free-solid-svg-icons';
@@ -24,6 +28,7 @@ import {
   selector: 'design-system-icon',
   standalone: true,
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatIconModule,
@@ -40,17 +45,23 @@ import {
 })
 export class IconComponent {
   iconName = input<IconNameFas | IconNameFar>('heart');
+  isClickable = input<boolean>(false);
+  initialIconPrefix = input<'far' | 'fas'>('fas');
+  isSelected = model<boolean>(false);
 
-  faIcon: ['fas' | 'far', IconNameFas | IconNameFar] = ['fas', this.iconName()];
-  isFavorite = false;
+  faIcon: ['fas' | 'far', IconNameFas | IconNameFar] = [
+    this.initialIconPrefix(),
+    this.iconName(),
+  ];
 
   constructor(library: FaIconLibrary) {
     library.addIconPacks(fas, far);
   }
 
   toggleIconState(): void {
-    this.isFavorite = !this.isFavorite;
-    this.faIcon = this.isFavorite
+    if (!this.isClickable()) return;
+    this.isSelected.set(!this.isSelected());
+    this.faIcon = this.isSelected()
       ? ['far', this.iconName()]
       : ['fas', this.iconName()];
   }

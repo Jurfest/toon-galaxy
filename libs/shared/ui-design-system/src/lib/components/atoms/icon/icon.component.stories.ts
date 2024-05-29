@@ -9,8 +9,23 @@ const meta: Meta<IconComponent> = {
 export default meta;
 type Story = StoryObj<IconComponent>;
 
-export const Primary: Story = {
+export const Heart: Story = {
   args: {
     iconName: 'heart',
+  },
+};
+
+export const Home: Story = {
+  args: {
+    iconName: 'home',
+    isSelected: true,
+  },
+};
+
+export const Interactive: Story = {
+  args: {
+    iconName: 'heart',
+    isClickable: true,
+    initialIconPrefix: 'far',
   },
 };

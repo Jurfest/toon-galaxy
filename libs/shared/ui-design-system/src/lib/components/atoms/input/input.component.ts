@@ -7,7 +7,11 @@ import {
   viewChild,
 } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {
+  MAT_FORM_FIELD_DEFAULT_OPTIONS,
+  MatFormFieldModule,
+} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 export enum InputType {
   button = 'button',
@@ -43,9 +47,15 @@ export interface InputApi {
 @Component({
   selector: 'design-system-input',
   standalone: true,
-  imports: [CommonModule, MatFormFieldModule, MatInputModule],
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
+  providers: [
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { appearance: 'outline' },
+    },
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent {
@@ -54,9 +64,9 @@ export class InputComponent {
   value = input<string>();
   id = input<string>();
 
-  input = viewChild<ElementRef>('input');
+  // input = viewChild<ElementRef>('input');
 
-  get text(): string {
-    return this.input().nativeElement.value;
-  }
+  // get text(): string {
+  //   return this.input().nativeElement.value;
+  // }
 }

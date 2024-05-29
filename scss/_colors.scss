@@ -1,61 +1,63 @@
 /** Dark Theme **/
+:root {
+  // Color Aliases
 
-// Color Aliases
+  // Core
+  --color-core-background: #1f1f1f;
+  --color-core-foreground: #0a0a0a;
+  --color-core-content: #fafafa;
 
-// Core
-$color-core-background: #1f1f1f;
-$color-core-foreground: #0a0a0a;
-$color-core-content: #fafafa;
+  --color-core-content-low: #a4a4a4;
+  --color-core-border: #3d3d3d;
 
-$color-core-content-low: #a4a4a4;
-$color-core-border: #3d3d3d;
+  // Neutral
+  --color-neutral-foreground: #ffffff;
+  --color-neutral-surface-lower: #1f1f1f;
+  --color-neutral-surface: #ffffff;
 
-// Neutral
-$color-neutral-foreground: #ffffff;
-$color-neutral-surface-lower: #1f1f1f;
-$color-neutral-surface: #ffffff;
+  --color-neutral-content: #a4a4a4;
+  --color-neutral-content-high: #cacaca;
+  --color-neutral-content-higher: #f2f2f2;
 
-$color-neutral-content: #a4a4a4;
-$color-neutral-content-high: #cacaca;
-$color-neutral-content-higher: #f2f2f2;
+  --color-neutral-border: #3d3d3d;
 
-$color-neutral-border: #3d3d3d;
-
-// Color Tokens
-$green-300: #b2df28;
-$blue-300: #00b5cc;
-$gray-500: #5d5d5d;
-$gray-600: #3d3d3d;
-$black-100: rgba(255, 255, 255, 0.01);
-$black-700: #0a0a0a;
+  // Color Tokens
+  --green-300: #b2df28;
+  --blue-300: #00b5cc;
+  --gray-500: #5d5d5d;
+  --gray-600: #3d3d3d;
+  --black-100: rgba(255, 255, 255, 0.01);
+  --black-700: #0a0a0a;
+}
 
 /** Light Theme **/
+[data-theme='dark'] {
+  // Color Aliases
 
-// Color Aliases
+  // Core
+  --color-core-background: #fafafa; // Light background
+  --color-core-foreground: #ffffff; // Light foreground
+  --color-core-content: #1f1f1f; // Dark text content
 
-// Core
-$color-core-background: #fafafa; // Light background
-$color-core-foreground: #ffffff; // Light foreground
-$color-core-content: #1f1f1f; // Dark text content
+  --color-core-content-low: #6e6e6e; // Lower contrast dark content
+  --color-core-border: #d1d1d1; // Light border
 
-$color-core-content-low: #6e6e6e; // Lower contrast dark content
-$color-core-border: #d1d1d1; // Light border
+  // Neutral
+  --color-neutral-foreground: #000000; // Dark text for high contrast
+  --color-neutral-surface-lower: #ffffff; // Light surface lower
+  --color-neutral-surface: #1f1f1f; // Dark surface for contrast
 
-// Neutral
-$color-neutral-foreground: #000000; // Dark text for high contrast
-$color-neutral-surface-lower: #ffffff; // Light surface lower
-$color-neutral-surface: #1f1f1f; // Dark surface for contrast
+  --color-neutral-content: #6e6e6e; // Neutral dark content
+  --color-neutral-content-high: #3d3d3d; // Higher contrast dark content
+  --color-neutral-content-higher: #1f1f1f; // Highest contrast dark content
 
-$color-neutral-content: #6e6e6e; // Neutral dark content
-$color-neutral-content-high: #3d3d3d; // Higher contrast dark content
-$color-neutral-content-higher: #1f1f1f; // Highest contrast dark content
+  --color-neutral-border: #d1d1d1; // Light border
 
-$color-neutral-border: #d1d1d1; // Light border
-
-// Color Tokens
-$green-300: #93b123;
-$blue-300: #007b8c;
-$gray-500: #d1d1d1;
-$gray-600: #dfdfef;
-$black-100: rgba(0, 0, 0, 0.01);
-$black-700: #ffffff;
+  // Color Tokens
+  --green-300: #93b123;
+  --blue-300: #007b8c;
+  --gray-500: #d1d1d1;
+  --gray-600: #dfdfef;
+  --black-100: rgba(0, 0, 0, 0.01);
+  --black-700: #ffffff;
+}

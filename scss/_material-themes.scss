@@ -1,0 +1,210 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use 'colors' as colors;
+@use '@angular/material' as mat;
+
+mat.$theme-ignore-duplication-warnings: true;
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the dark theme palettes
+$dark-primary-palette: (
+  50: var(--color-core-background),
+  100: var(--color-core-foreground),
+  200: var(--color-core-content),
+  300: var(--blue-300),
+  400: var(--green-300),
+  500: var(--color-core-background),
+  600: var(--color-core-foreground),
+  700: var(--color-core-content),
+  800: var(--color-core-content-low),
+  900: var(--color-core-border),
+  A100: #84ffff,
+  A200: #18ffff,
+  A400: #00e5ff,
+  A700: #00b8d4,
+  contrast: (
+    50: var(--color-neutral-foreground),
+    100: var(--color-neutral-foreground),
+    200: var(--color-neutral-foreground),
+    300: var(--color-neutral-foreground),
+    400: var(--color-neutral-foreground),
+    500: var(--color-core-content),
+    600: var(--color-core-content),
+    700: var(--color-core-content),
+    800: var(--color-core-content),
+    900: var(--color-core-content),
+    A100: var(--color-neutral-foreground),
+    A200: var(--color-neutral-foreground),
+    A400: var(--color-neutral-foreground),
+    A700: var(--color-neutral-foreground),
+  ),
+);
+
+$dark-accent-palette: (
+  50: var(--color-core-background),
+  100: var(--color-core-foreground),
+  200: var(--color-core-content),
+  300: var(--blue-300),
+  400: var(--green-300),
+  500: var(--color-core-background),
+  600: var(--color-core-foreground),
+  700: var(--color-core-content),
+  800: var(--color-core-content-low),
+  900: var(--color-core-border),
+  A100: #84ffff,
+  A200: #18ffff,
+  A400: #00e5ff,
+  A700: #00b8d4,
+  contrast: (
+    50: var(--color-neutral-foreground),
+    100: var(--color-neutral-foreground),
+    200: var(--color-neutral-foreground),
+    300: var(--color-neutral-foreground),
+    400: var(--color-neutral-foreground),
+    500: var(--color-core-content),
+    600: var(--color-core-content),
+    700: var(--color-core-content),
+    800: var(--color-core-content),
+    900: var(--color-core-content),
+    A100: var(--color-neutral-foreground),
+    A200: var(--color-neutral-foreground),
+    A400: var(--color-neutral-foreground),
+    A700: var(--color-neutral-foreground),
+  ),
+);
+
+$light-primary-palette: (
+  50: var(--color-core-background),
+  100: var(--color-core-foreground),
+  200: var(--color-core-content),
+  300: var(--blue-300),
+  400: var(--green-300),
+  500: var(--color-core-content),
+  600: var(--color-core-content-low),
+  700: var(--color-core-border),
+  800: #6e6e6e,
+  900: #3d3d3d,
+  A100: #82b1ff,
+  A200: #448aff,
+  A400: #2979ff,
+  A700: #2962ff,
+  contrast: (
+    50: var(--color-neutral-foreground),
+    100: var(--color-neutral-foreground),
+    200: var(--color-neutral-foreground),
+    300: var(--color-neutral-foreground),
+    400: var(--color-neutral-foreground),
+    500: var(--color-core-content),
+    600: var(--color-core-content),
+    700: var(--color-core-content),
+    800: var(--color-core-content),
+    900: var(--color-core-content),
+    A100: var(--color-neutral-foreground),
+    A200: var(--color-neutral-foreground),
+    A400: var(--color-neutral-foreground),
+    A700: var(--color-neutral-foreground),
+  ),
+);
+
+$light-accent-palette: (
+  50: var(--color-core-background),
+  100: var(--color-core-foreground),
+  200: var(--color-core-content),
+  300: var(--blue-300),
+  400: var(--green-300),
+  500: var(--color-core-content),
+  600: var(--color-core-content-low),
+  700: var(--color-core-border),
+  800: #6e6e6e,
+  900: #3d3d3d,
+  A100: #82b1ff,
+  A200: #448aff,
+  A400: #2979ff,
+  A700: #2962ff,
+  contrast: (
+    50: var(--color-neutral-foreground),
+    100: var(--color-neutral-foreground),
+    200: var(--color-neutral-foreground),
+    300: var(--color-neutral-foreground),
+    400: var(--color-neutral-foreground),
+    500: var(--color-core-content),
+    600: var(--color-core-content),
+    700: var(--color-core-content),
+    800: var(--color-core-content),
+    900: var(--color-core-content),
+    A100: var(--color-neutral-foreground),
+    A200: var(--color-neutral-foreground),
+    A400: var(--color-neutral-foreground),
+    A700: var(--color-neutral-foreground),
+  ),
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+// Dark theme
+$toon-galaxy-primary-dark: mat.define-palette($dark-primary-palette);
+$toon-galaxy-accent-dark: mat.define-palette($dark-accent-palette);
+
+// Light theme
+$toon-galaxy-primary-light: mat.define-palette($light-primary-palette);
+$toon-galaxy-accent-light: mat.define-palette($light-accent-palette);
+
+// The warn palette is optional (defaults to red).
+$toon-galaxy-warn: mat.define-palette(mat.$red-palette);
+
+$toon-galaxy-typography: mat.define-typography-config(
+  $font-family: 'Poppins, sans-serif',
+  // $headline:
+  //   mat.typography-level(96px, 112px, 300, $font-family: 'Poppins, sans-serif'),
+  // $subtitle-1:
+  //   mat.typography-level(60px, 72px, 300, $font-family: 'Poppins, sans-serif'),
+  // $subtitle-2:
+  //   mat.typography-level(48px, 56px, 400, $font-family: 'Poppins, sans-serif'),
+  // $body-1:
+  //   mat.typography-level(24px, 32px, 400, $font-family: 'Poppins, sans-serif'),
+  // $body-2:
+  //   mat.typography-level(20px, 28px, 400, $font-family: 'Poppins, sans-serif'),
+  // $button:
+  //   mat.typography-level(14px, 14px, 500, $font-family: 'Poppins, sans-serif'),
+  // $caption:
+  //   mat.typography-level(12px, 12px, 400, $font-family: 'Poppins, sans-serif'),
+  // $overline:
+  //   mat.typography-level(10px, 10px, 500, $font-family: 'Poppins, sans-serif'),
+);
+
+// Create the theme object. A theme consists of configurations for individual theming systems
+// such as "color" or "typography".
+$toon-galaxy-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $toon-galaxy-primary-dark,
+      accent: $toon-galaxy-accent-dark,
+      warn: $toon-galaxy-warn,
+    ),
+    typography: $toon-galaxy-typography,
+    density: 0,
+  )
+);
+
+// Light theme
+$theme-light: mat.define-light-theme(
+  (
+    color: (
+      primary: $toon-galaxy-primary-light,
+      accent: $toon-galaxy-accent-light,
+      warn: $toon-galaxy-warn,
+    ),
+    typography: $toon-galaxy-typography,
+    density: 0,
+  )
+);
+
+// Include the theme styles for the components in your project.
+@include mat.all-component-themes($toon-galaxy-theme);
+@include mat.all-component-themes($theme-light);
