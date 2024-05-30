@@ -1,4 +1,6 @@
 export const colors = {
+  // Color Aliases
+
   // Core
   color_core_background: '#1F1F1F',
   color_core_foreground: '#0A0A0A',
@@ -18,11 +20,11 @@ export const colors = {
 
   color_neutral_border: '#3D3D3D',
 
-  // Secondary
-  color_secondary_background: '#0A0A0A',
-  color_secondary_foreground_light: 'rgba(255, 255, 255, 0.01)',
-  color_secondary_border: '#3D3D3D',
-  color_secondary_accent: '#00B5CC',
-  color_secondary_highlight: '#B2DF28',
-  color_secondary_surface: '#5D5D5D',
+  // Color Tokens
+  green_300: '#b2df28',
+  blue_300: '#00b5cc',
+  gray_500: '#5d5d5d',
+  gray_600: '#3d3d3d',
+  black_100: 'rgba(255, 255, 255, 0.01)',
+  black_700: '#0a0a0a',
 };
