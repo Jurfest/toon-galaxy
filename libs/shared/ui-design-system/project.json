@@ -47,6 +47,7 @@
         "configDir": "libs/shared/ui-design-system/.storybook",
         "browserTarget": "shared-ui-design-system:build-storybook",
         "compodoc": false,
+        "assets": ["libs/shared/ui-design-system/src/assets"],
         "styles": [
           "@angular/material/prebuilt-themes/indigo-pink.css",
           "scss/_global-styles.scss"
@@ -69,6 +70,7 @@
         "configDir": "libs/shared/ui-design-system/.storybook",
         "browserTarget": "shared-ui-design-system:build-storybook",
         "compodoc": false,
+        "assets": ["libs/shared/ui-design-system/src/assets"],
         "styles": [
           "@angular/material/prebuilt-themes/indigo-pink.css",
           "scss/_global-styles.scss"

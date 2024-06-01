@@ -1,13 +1,13 @@
 const { createGlobPatternsForDependencies } = require('@nx/angular/tailwind');
 const { join } = require('path');
 
-const { space } = require('./tokens/space');
-const { radii } = require('./tokens/radii');
-const { lineHeights } = require('./tokens/line-heights');
-const { fonts } = require('./tokens/fonts');
-const { fontWeights } = require('./tokens/font-weights');
-const { fontSizes } = require('./tokens/font-sizes');
-const { colors } = require('./tokens/colors');
+const { space } = require('./src/lib/tokens/space');
+const { radii } = require('./src/lib/tokens/radii');
+const { lineHeights } = require('./src/lib/tokens/line-heights');
+const { fonts } = require('./src/lib/tokens/fonts');
+const { fontWeights } = require('./src/lib/tokens/font-weights');
+const { fontSizes } = require('./src/lib/tokens/font-sizes');
+const { colors } = require('./src/lib/tokens/colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

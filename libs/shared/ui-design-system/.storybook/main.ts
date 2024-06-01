@@ -15,10 +15,9 @@ const config: StorybookConfig = {
   },
 
   docs: {},
-
-  webpackFinal: async (config) => {
-    return config;
-  },
+  // webpackFinal: async (config) => {
+  //   return config;
+  // },
 };
 
 export default config;
