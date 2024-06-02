@@ -32,11 +32,11 @@ import {
     MatIconModule,
     FontAwesomeModule,
   ],
-  providers: [
-    // Import application-wide providers from a module
-    // Or use provide-style functions if available instead, e.g.
-    provideAnimations(),
-  ],
+  // providers: [
+  //   // Import application-wide providers from a module
+  //   // Or use provide-style functions if available instead, e.g.
+  //   provideAnimations(),
+  // ],
   templateUrl: './icon.component.html',
   styleUrl: './icon.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

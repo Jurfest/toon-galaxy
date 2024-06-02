@@ -13,7 +13,12 @@ describe('TextComponent', () => {
 
     fixture = TestBed.createComponent(TextComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('label', 'text works!');
     fixture.detectChanges();
+
+    // TODO: Zoneless
+    // component.label = input('text works!');
+    // await fixture.whenStable();
   });
 
   it('should create', () => {

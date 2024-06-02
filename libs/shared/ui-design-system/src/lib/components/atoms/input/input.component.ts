@@ -1,18 +1,11 @@
 import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  input,
-  viewChild,
-} from '@angular/core';
-import { MatInputModule } from '@angular/material/input';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
   MatFormFieldModule,
 } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
 
 export enum InputType {
   button = 'button',
@@ -48,13 +41,7 @@ export interface InputApi {
 @Component({
   selector: 'design-system-input',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-  ],
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
   providers: [
