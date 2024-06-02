@@ -1,0 +1,10 @@
+/* Global workspace styles */
+
+@forward 'colors';
+@forward 'typography';
+@forward 'effects';
+@forward 'material-themes';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

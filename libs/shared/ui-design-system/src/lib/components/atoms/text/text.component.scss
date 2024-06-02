@@ -1,0 +1,28 @@
+@import '@toon-galaxy/styles';
+
+.poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.creepster {
+  font-family: 'Creepster', cursive;
+}
+
+.text-with-border {
+  font-size: 40px;
+  color: #00b5cc;
+  text-shadow:
+    -1px -1px 0 var(--green-300),
+    2px -2px 0 var(--green-300),
+    -2px 2px 0 var(--green-300),
+    2px 2px 0 var(--green-300);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+span {
+  color: var(var(--dynamic-color));
+}

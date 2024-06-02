@@ -1,0 +1,9 @@
+<fa-icon
+  [icon]="faIcon"
+  (click)="toggleIconState()"
+  class="custom-icon"
+  [ngClass]="{
+    selected: isSelected(),
+    clickable: isClickable()
+  }"
+></fa-icon>

@@ -3,18 +3,20 @@ import {
   withFetch,
   withInterceptors,
 } from '@angular/common/http';
-import { ApplicationConfig, isDevMode } from '@angular/core';
+import {
+  ApplicationConfig,
+  ENVIRONMENT_INITIALIZER,
+  isDevMode,
+} from '@angular/core';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
-import { provideState, provideStore } from '@ngrx/store';
+import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { ENVIRONMENT_INITIALIZER } from '@angular/core';
+import { provideToonGalaxyDomain } from '@toon-galaxy/toon-galaxy/domain';
 
 import { appRoutes } from './app.routes';
-
-import { provideToonGalaxyDomain } from '@toon-galaxy/toon-galaxy/domain';
 
 export const appConfig: ApplicationConfig = {
   providers: [

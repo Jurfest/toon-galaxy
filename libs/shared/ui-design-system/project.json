@@ -1,0 +1,108 @@
+{
+  "name": "shared-ui-design-system",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/ui-design-system/src",
+  "prefix": "design-system",
+  "projectType": "library",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "displayBlock": true
+    }
+  },
+  "tags": ["domain:shared", "type:ui"],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/shared/ui-design-system/ng-package.json",
+        "tailwindConfig": "libs/shared/ui-design-system/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/ui-design-system/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/shared/ui-design-system/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/shared/ui-design-system/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/shared/ui-design-system/.storybook",
+        "browserTarget": "shared-ui-design-system:build-storybook",
+        "compodoc": false,
+        "assets": ["libs/shared/ui-design-system/src/assets"],
+        "styles": [
+          "@angular/material/prebuilt-themes/indigo-pink.css",
+          "scss/_global-styles.scss"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["scss"]
+        }
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/shared-ui-design-system",
+        "configDir": "libs/shared/ui-design-system/.storybook",
+        "browserTarget": "shared-ui-design-system:build-storybook",
+        "compodoc": false,
+        "assets": ["libs/shared/ui-design-system/src/assets"],
+        "styles": [
+          "@angular/material/prebuilt-themes/indigo-pink.css",
+          "scss/_global-styles.scss"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["scss"]
+        }
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/shared/ui-design-system/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "shared-ui-design-system:build-storybook",
+        "staticFilePath": "dist/storybook/shared-ui-design-system",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "shared-ui-design-system:build-storybook:ci"
+        }
+      }
+    }
+  }
+}

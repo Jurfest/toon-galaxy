@@ -1,0 +1,20 @@
+<h1>Colors</h1>
+
+<p>These are the colors used in Toon Galaxy UI</p>
+
+@for (colorObj of colorObjList; track colorObj.key) {
+  <div
+    [ngStyle]="{ '--dynamic-color': colorObj.color }"
+    class="dynamic-background"
+  >
+    <div
+      class="color-description"
+      [ngClass]="{
+        custom: colorObj.labelColor === '#000'
+      }"
+    >
+      <strong>${{ colorObj.key }}</strong>
+      <span>{{ colorObj.color }}</span>
+    </div>
+  </div>
+}

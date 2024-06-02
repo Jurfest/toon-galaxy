@@ -2,6 +2,13 @@
   "name": "toon-galaxy",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "displayBlock": true
+    }
+  },
   "prefix": "toon-galaxy",
   "sourceRoot": "apps/toon-galaxy/src",
   "tags": ["domain:toon-galaxy", "type:app"],

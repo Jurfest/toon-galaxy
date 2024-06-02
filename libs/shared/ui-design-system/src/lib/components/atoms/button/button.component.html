@@ -1,0 +1,25 @@
+<button
+  mat-flat-button
+  color="primary"
+  class="custom w-36 h-10 bg-red-500 text-white rounded-l-lg rounded-r-none p-2 font-bold hover:bg-red-600"
+>
+  {{ label() }}
+</button>
+<button
+  mat-flat-button
+  class="w-36 h-10 bg-red-500 text-white rounded-l-lg rounded-r-none p-2 font-bold hover:bg-red-600"
+>
+  {{ label() }}
+</button>
+
+<button
+  class="w-36 h-10 bg-red-500 text-white rounded-l-lg rounded-r-none p-2 font-bold hover:bg-red-600"
+>
+  @if (hasIconAfter()) {
+    <design-system-icon></design-system-icon>
+  }
+  {{ label() }}
+  @if (hasIconBefore()) {
+    <design-system-icon></design-system-icon>
+  }
+</button>
