@@ -7,10 +7,6 @@ import {
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import {
-  BrowserAnimationsModule,
-  provideAnimations,
-} from '@angular/platform-browser/animations';
-import {
   FaIconLibrary,
   FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
@@ -26,12 +22,7 @@ import {
 @Component({
   selector: 'design-system-icon',
   standalone: true,
-  imports: [
-    CommonModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    FontAwesomeModule,
-  ],
+  imports: [CommonModule, MatIconModule, FontAwesomeModule],
   // providers: [
   //   // Import application-wide providers from a module
   //   // Or use provide-style functions if available instead, e.g.

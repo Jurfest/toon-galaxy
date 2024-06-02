@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { LogoComponent } from './logo.component';
-import { NgOptimizedImage } from '@angular/common';
 
 describe('LogoComponent', () => {
   let component: LogoComponent;
@@ -8,7 +8,7 @@ describe('LogoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LogoComponent, NgOptimizedImage],
+      imports: [LogoComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LogoComponent);

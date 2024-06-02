@@ -1,3 +1,4 @@
+import { animate, transition } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -6,6 +7,7 @@ import {
   MatFormFieldModule,
 } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export enum InputType {
   button = 'button',
@@ -42,6 +44,7 @@ export interface InputApi {
   selector: 'design-system-input',
   standalone: true,
   imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule],
+  // animations: [transition, animate],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
   providers: [
