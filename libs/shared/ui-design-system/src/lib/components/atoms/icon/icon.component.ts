@@ -6,7 +6,6 @@ import {
   model,
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { BrowserModule } from '@angular/platform-browser';
 import {
   BrowserAnimationsModule,
   provideAnimations,
@@ -29,7 +28,6 @@ import {
   standalone: true,
   imports: [
     CommonModule,
-    BrowserModule,
     BrowserAnimationsModule,
     MatIconModule,
     FontAwesomeModule,

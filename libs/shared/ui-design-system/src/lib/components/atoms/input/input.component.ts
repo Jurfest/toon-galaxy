@@ -12,6 +12,7 @@ import {
   MatFormFieldModule,
 } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export enum InputType {
   button = 'button',
@@ -47,7 +48,13 @@ export interface InputApi {
 @Component({
   selector: 'design-system-input',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
   providers: [
