@@ -21,6 +21,9 @@
       "@toon-galaxy/styles": ["scss/_global-styles.scss"],
       "@toon-galaxy/toon-galaxy/domain": [
         "libs/toon-galaxy/domain/src/index.ts"
+      ],
+      "@toon-galaxy/toon-galaxy/feature-character": [
+        "libs/toon-galaxy/feature-character/src/index.ts"
       ]
     }
   },

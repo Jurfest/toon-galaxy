@@ -1,0 +1,9 @@
+<h1>toon-galaxy-character</h1>
+
+<table class="table">
+  <tr *ngFor="let character of characterList$ | async">
+    <td>{{ character.id }}</td>
+    <td>{{ character.name }}</td>
+    <td>{{ character.description }}</td>
+  </tr>
+</table>
