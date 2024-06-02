@@ -22,3 +22,5 @@ export class CharacterComponent implements OnInit {
     this.characterFacade.load();
   }
 }
+
+export default CharacterComponent;
