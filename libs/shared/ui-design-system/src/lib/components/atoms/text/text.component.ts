@@ -10,5 +10,9 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextComponent {
+  label = input.required<string>();
   font = input<'poppins' | 'creepster'>('poppins');
+  withBorder = input<boolean>(false);
+  size = input<'sm' | 'md' | 'lg'>('md');
+  color = input<string>('--green-300');
 }

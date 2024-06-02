@@ -10,16 +10,31 @@ const meta: Meta<TextComponent> = {
 export default meta;
 type Story = StoryObj<TextComponent>;
 
-export const Primary: Story = {
-  args: {},
+export const Poppins: Story = {
+  args: {
+    label: 'Human',
+  },
 };
 
-export const Heading: Story = {
+export const CreepsterNormal: Story = {
   args: {
+    label: 'RICK SANCHEZ',
     font: 'creepster',
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/text works!/gi)).toBeTruthy();
+    expect(canvas.getByText(/RICK SANCHEZ/gi)).toBeTruthy();
+  },
+};
+
+export const CreepsterWithBorder: Story = {
+  args: {
+    label: 'Início',
+    font: 'creepster',
+    withBorder: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText(/Início/gi)).toBeTruthy();
   },
 };

@@ -1,9 +1,15 @@
 <span
   [ngClass]="{
     poppins: font() === 'poppins',
-    creepster: font() === 'creepster'
+    creepster: font() === 'creepster',
+    'text-with-border': withBorder(),
+    'text-xs': size() === 'sm',
+    'text-sm': size() === 'md',
+    'text-md': size() === 'lg'
   }"
+  [ngStyle]="{ '--dynamic-color': color() }"
 >
-  <!-- <ng-content></ng-content> -->
-  Text works!
+  {{ label() }}
 </span>
+
+<p>text3</p>
