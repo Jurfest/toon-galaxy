@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
 import { CharacterFacade } from '@toon-galaxy/toon-galaxy/domain';
 
 @Component({
@@ -10,9 +10,9 @@ import { CharacterFacade } from '@toon-galaxy/toon-galaxy/domain';
   styleUrls: ['./character.component.scss'],
 })
 export class CharacterComponent implements OnInit {
-  characterList$ = this.characterFacade.characterList$;
+  private characterFacade = inject(CharacterFacade);
 
-  constructor(private characterFacade: CharacterFacade) {}
+  characterList$ = this.characterFacade.characterList$;
 
   ngOnInit() {
     this.load();

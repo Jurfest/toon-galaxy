@@ -1,11 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+
 import { Character } from '../entities/character';
 
 @Injectable({ providedIn: 'root' })
 export class CharacterDataService {
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  constructor() {}
 
   load(): Observable<Character[]> {
     // Uncomment if needed

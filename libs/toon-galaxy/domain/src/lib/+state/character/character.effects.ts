@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
@@ -8,6 +8,9 @@ import * as CharacterActions from './character.actions';
 
 @Injectable()
 export class CharacterEffects {
+  private actions$ = inject(Actions);
+  private characterDataService = inject(CharacterDataService);
+
   loadCharacter$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CharacterActions.loadCharacter),
@@ -24,8 +27,6 @@ export class CharacterEffects {
     ),
   );
 
-  constructor(
-    private actions$: Actions,
-    private characterDataService: CharacterDataService,
-  ) {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  constructor() {}
 }

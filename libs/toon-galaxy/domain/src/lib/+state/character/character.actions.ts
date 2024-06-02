@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+
 import { Character } from '../../entities/character';
 
 export const loadCharacter = createAction('[Character] Load Character');
