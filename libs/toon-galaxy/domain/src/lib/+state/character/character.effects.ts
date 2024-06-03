@@ -4,23 +4,23 @@ import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { CharacterDataService } from '../../infrastructure/character.data.service';
-import * as CharacterActions from './character.actions';
+import { CharacterPageActions, CharacterApiActions } from './character.actions';
 
 @Injectable()
 export class CharacterEffects {
   private actions$ = inject(Actions);
   private characterDataService = inject(CharacterDataService);
 
-  loadCharacter$ = createEffect(() =>
+  loadCharacters$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(CharacterActions.loadCharacter),
+      ofType(CharacterPageActions.loadCharacters),
       switchMap((action) =>
-        this.characterDataService.load().pipe(
-          map((character) =>
-            CharacterActions.loadCharacterSuccess({ character }),
+        this.characterDataService.load(action.characterName).pipe(
+          map((characters) =>
+            CharacterApiActions.loadCharactersSuccess({ characters }),
           ),
           catchError((error) =>
-            of(CharacterActions.loadCharacterFailure({ error })),
+            of(CharacterApiActions.loadCharactersFailure({ error })),
           ),
         ),
       ),

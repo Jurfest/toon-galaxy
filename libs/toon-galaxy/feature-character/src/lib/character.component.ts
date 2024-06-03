@@ -19,7 +19,7 @@ export class CharacterComponent implements OnInit {
   }
 
   load(): void {
-    this.characterFacade.load();
+    this.characterFacade.load('');
   }
 }
 

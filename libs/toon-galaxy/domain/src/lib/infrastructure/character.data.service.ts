@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
-import { Character } from '../entities/character';
+import { CharacterEntity } from '../entities/character.models';
 
 @Injectable({ providedIn: 'root' })
 export class CharacterDataService {
@@ -11,7 +11,7 @@ export class CharacterDataService {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}
 
-  load(): Observable<Character[]> {
+  load(characterName: string | undefined): Observable<CharacterEntity[]> {
     // Uncomment if needed
     /*
         const url = '...';
