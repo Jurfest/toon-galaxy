@@ -58,8 +58,8 @@
           "namedChunks": true,
           "fileReplacements": [
             {
-              "replace": "apps/toon-galaxy/src/environments/environment.ts",
-              "with": "apps/toon-galaxy/src/environments/environment.development.ts"
+              "replace": "environments/environment.ts",
+              "with": "environments/environment.development.ts"
             }
           ]
         }
@@ -123,8 +123,8 @@
           "vendorChunk": true,
           "fileReplacements": [
             {
-              "replace": "apps/toon-galaxy/src/environments/environment.ts",
-              "with": "apps/toon-galaxy/src/environments/environment.development.ts"
+              "replace": "environments/environment.ts",
+              "with": "environments/environment.development.ts"
             }
           ]
         }

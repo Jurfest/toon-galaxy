@@ -24,7 +24,8 @@
       ],
       "@toon-galaxy/toon-galaxy/feature-character": [
         "libs/toon-galaxy/feature-character/src/index.ts"
-      ]
+      ],
+      "@toon-galaxy/env*": ["environments/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
