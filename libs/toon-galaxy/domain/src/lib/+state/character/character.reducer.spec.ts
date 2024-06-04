@@ -8,7 +8,8 @@ describe('Character Reducer', () => {
   const createCharacterEntity = (id: number, name = ''): CharacterEntity => ({
     id,
     name: name || `name-${id}`,
-    description: 'description',
+    species: 'species',
+    image: `image-${id}`,
   });
 
   describe('valid Character actions', () => {

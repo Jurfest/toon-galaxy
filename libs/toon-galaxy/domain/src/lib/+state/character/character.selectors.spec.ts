@@ -17,12 +17,14 @@ describe('Character Selectors', () => {
   const character1: CharacterEntity = {
     id: 1,
     name: 'Rick Sanchez',
-    description: 'Human',
+    species: 'Human',
+    image: 'image-1',
   };
   const character2: CharacterEntity = {
     id: 2,
     name: 'Morty Smith',
-    description: 'Human',
+    species: 'Human',
+    image: 'image-2',
   };
 
   // State with characters loaded and a selected character

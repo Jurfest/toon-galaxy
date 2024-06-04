@@ -39,7 +39,12 @@ describe('CharacterEffects', () => {
   it('should dispatch loadCharactersSuccess action when loadCharacters$ is successful', () => {
     const characterName = 'Summer Smith';
     const characters: CharacterEntity[] = [
-      { id: 3, name: 'Summer Smith', description: 'Human' },
+      {
+        id: 3,
+        name: 'Summer Smith',
+        species: 'Human',
+        image: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg',
+      },
     ];
     const action = CharacterPageActions.loadCharacters({ characterName });
     const completion = CharacterApiActions.loadCharactersSuccess({
