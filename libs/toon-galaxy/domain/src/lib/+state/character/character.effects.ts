@@ -15,7 +15,7 @@ export class CharacterEffects {
     this.actions$.pipe(
       ofType(CharacterPageActions.loadCharacters),
       switchMap((action) =>
-        this.characterDataService.load(action.characterName).pipe(
+        this.characterDataService.loadCharacters(action.characterName).pipe(
           map((characters) =>
             CharacterApiActions.loadCharactersSuccess({ characters }),
           ),

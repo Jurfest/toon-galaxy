@@ -1,9 +1,34 @@
-<h1>toon-galaxy-character</h1>
+@if (true) {
+  <h1 class="title">Início</h1>
+  <form [formGroup]="searchCharactersForm">
+    <!-- <p class="character"> -->
+    <mat-form-field appearance="outline">
+      <mat-label>Pesquisar</mat-label>
+      <input formControlName="search" matInput placeholder="" />
+    </mat-form-field>
+    <!-- </p> -->
+  </form>
 
-<table class="table">
-  <tr *ngFor="let character of characterList$ | async">
-    <td>{{ character.id }}</td>
-    <td>{{ character.name }}</td>
-    <td>{{ character.species }}</td>
-  </tr>
-</table>
+  @if (characterList$ | async; as characterList) {
+    <table class="table">
+      <tr *ngFor="let character of characterList">
+        <td>{{ character.id }}</td>
+        <td>{{ character.name }}</td>
+        <td>{{ character.species }}</td>
+      </tr>
+    </table>
+    <!-- <toon-galaxy-card-list
+    [cards]="characterList"
+    (cardChange)="toggleFavoriteCharacter($event)"
+  ></toon-galaxy-card-list> -->
+  } @else {
+    <h2>Nada foi encontrado</h2>
+    <h3>Tente realizar uma nova busca.</h3>
+    <!-- <toon-galaxy-empty-banner
+    [cards]="characterList"
+    (cardChange)="toggleFavoriteCharacter($event)"
+  ></toon-galaxy-empty-banner> -->
+  }
+} @else {
+  <h1 class="title">Favoritos</h1>
+}

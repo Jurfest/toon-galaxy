@@ -32,15 +32,12 @@ const characterReducer = createReducer(
     loaded: false,
     error: null,
   })),
-  on(
-    CharacterApiActions.loadCharactersSuccess,
-    (state, { characters }) =>
-      characterAdapter.upsertMany(characters, {
-        ...state,
-        loaded: true,
-        error: null,
-      }),
-    // obs: characterAdapter.setAll(users, state); // when there is no search terms
+  on(CharacterApiActions.loadCharactersSuccess, (state, { characters }) =>
+    characterAdapter.setAll(characters, {
+      ...state,
+      loaded: true,
+      error: null,
+    }),
   ),
   on(CharacterApiActions.loadCharactersFailure, (state, { error }) => ({
     ...state,
