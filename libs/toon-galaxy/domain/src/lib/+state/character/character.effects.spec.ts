@@ -15,7 +15,7 @@ describe('CharacterEffects', () => {
 
   beforeEach(() => {
     const characterDataServiceMock = {
-      load: jest.fn(),
+      loadCharacters: jest.fn(),
     };
 
     TestBed.configureTestingModule({
