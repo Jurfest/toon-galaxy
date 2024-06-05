@@ -28,7 +28,7 @@
           "apps/toon-galaxy/src/assets"
         ],
         "styles": [
-          "@angular/material/prebuilt-themes/purple-green.css",
+          "@angular/material/prebuilt-themes/cyan-orange.css",
           "apps/toon-galaxy/src/styles.scss"
         ],
         "scripts": []
