@@ -51,7 +51,7 @@ describe('CharacterEffects', () => {
       characters,
     });
 
-    characterDataService.load.mockReturnValueOnce(of(characters));
+    characterDataService.loadCharacters.mockReturnValueOnce(of(characters));
 
     // Subscribe on the loadCharacters effect to catch emitted actions, which
     // are used to assert the effect output
@@ -70,7 +70,7 @@ describe('CharacterEffects', () => {
     const action = CharacterPageActions.loadCharacters({ characterName });
     const completion = CharacterApiActions.loadCharactersFailure({ error });
 
-    characterDataService.load.mockReturnValueOnce(
+    characterDataService.loadCharacters.mockReturnValueOnce(
       throwError(() => new Error(error)),
     );
 
