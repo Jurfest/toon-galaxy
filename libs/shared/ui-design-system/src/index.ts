@@ -5,3 +5,5 @@ export * from './lib/tokens/fonts';
 export * from './lib/tokens/line-heights';
 export * from './lib/tokens/radii';
 export * from './lib/tokens/space';
+
+export * from './lib/components/organisms/navbar/navbar.component';

@@ -14,3 +14,5 @@ export class NavbarComponent {
     this.active = tab;
   }
 }
+
+export default NavbarComponent;

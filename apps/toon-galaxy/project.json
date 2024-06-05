@@ -29,8 +29,12 @@
         ],
         "styles": [
           "@angular/material/prebuilt-themes/cyan-orange.css",
-          "apps/toon-galaxy/src/styles.scss"
+          "apps/toon-galaxy/src/styles.scss",
+          "scss/_global-styles.scss"
         ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["scss"]
+        },
         "scripts": []
       },
       "configurations": {

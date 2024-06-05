@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@toon-galaxy/env*": ["environments/*"],
       "@toon-galaxy/shared/ui-design-system": [
         "libs/shared/ui-design-system/src/index.ts"
       ],
@@ -24,8 +25,7 @@
       ],
       "@toon-galaxy/toon-galaxy/feature-character": [
         "libs/toon-galaxy/feature-character/src/index.ts"
-      ],
-      "@toon-galaxy/env*": ["environments/*"]
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
