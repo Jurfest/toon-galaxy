@@ -73,19 +73,27 @@ export const selectCharacterIds = createSelector(
  * Favorite Character List
  */
 
-const { selectAll: selectAllFavorites } = favoriteAdapter.getSelectors();
+// Get the built-in selectors from the favorite characters
+const {
+  selectAll: selectAllFavorites,
+  selectEntities: selectFavoriteEntities,
+  selectTotal: selectTotalFavorites,
+} = favoriteAdapter.getSelectors();
 
+// Select all favorite characters as an array
+export const getAllFavorites = createSelector(
+  getCharacterState,
+  (state: State) => selectAllFavorites(state.favorites),
+);
+
+// Select favorite characters as a dictionary (key-value pairs)
 export const getFavoriteEntities = createSelector(
   getCharacterState,
-  (state: State) => state.favorites,
+  (state: State) => selectFavoriteEntities(state.favorites),
 );
 
-export const getAllFavorites = createSelector(
-  getFavoriteEntities,
-  selectAllFavorites,
-);
-
-export const getFavoriteCharacters = createSelector(
-  getAllFavorites,
-  (favorites) => favorites,
+// Select the total number of favorite characters
+export const getFavoriteTotal = createSelector(
+  getCharacterState,
+  (state: State) => selectTotalFavorites(state.favorites),
 );

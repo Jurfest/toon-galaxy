@@ -20,7 +20,7 @@ export class CharacterFacade {
   characterList$ = this.store.pipe(select(CharacterSelectors.getAllCharacter));
   selectedCharacter$ = this.store.pipe(select(CharacterSelectors.getSelected));
   favoriteCharacterList$ = this.store.pipe(
-    select(CharacterSelectors.getFavoriteCharacters),
+    select(CharacterSelectors.getAllFavorites),
   );
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
