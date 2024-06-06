@@ -2,6 +2,7 @@ import { CharacterEntity } from '../../entities/character.models';
 import {
   CHARACTER_FEATURE_KEY,
   characterAdapter,
+  favoriteAdapter,
   State,
 } from './character.reducer';
 import * as CharacterSelectors from './character.selectors';
@@ -12,6 +13,7 @@ describe('Character Selectors', () => {
     loaded: false,
     error: null,
     selectedId: null,
+    favorites: favoriteAdapter.getInitialState(),
   });
 
   const character1: CharacterEntity = {
@@ -36,6 +38,12 @@ describe('Character Selectors', () => {
       selectedId: 1,
     },
   );
+
+  // State with a favorite character added
+  const populatedStateWithFavorites: State = {
+    ...populatedState,
+    favorites: favoriteAdapter.setAll([character1], initialState.favorites),
+  };
 
   describe('getCharacterState', () => {
     it('should select the feature state', () => {
@@ -130,6 +138,49 @@ describe('Character Selectors', () => {
       const result =
         CharacterSelectors.selectCharacterIds.projector(populatedState);
       expect(result).toEqual([1, 2]);
+    });
+  });
+
+  // Favorite characters selectors
+  // describe('getFavoriteEntities', () => {
+  //   it('should return the favorite entities', () => {
+  //     const result =
+  //       CharacterSelectors.getFavoriteEntities.projector(populatedState);
+  //     expect(result).toEqual(populatedState.favorites);
+  //   });
+  // });
+
+  //
+  //
+  // New tests for favorites
+  describe('Favorites', () => {
+    describe('getAllFavorites', () => {
+      it('should return all favorite characters as an array', () => {
+        const result = CharacterSelectors.getAllFavorites.projector(
+          populatedStateWithFavorites,
+        );
+        expect(result).toEqual([character1]);
+      });
+    });
+
+    describe('getFavoriteEntities', () => {
+      it('should return favorite characters as a dictionary', () => {
+        const result = CharacterSelectors.getFavoriteEntities.projector(
+          populatedStateWithFavorites,
+        );
+        expect(result).toEqual({
+          1: character1,
+        });
+      });
+    });
+
+    describe('selectFavoriteTotal', () => {
+      it('should return the total number of favorite characters', () => {
+        const result = CharacterSelectors.getFavoriteTotal.projector(
+          populatedStateWithFavorites,
+        );
+        expect(result).toBe(1);
+      });
     });
   });
 });

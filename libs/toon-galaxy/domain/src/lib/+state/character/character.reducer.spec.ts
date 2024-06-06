@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 
 import { CharacterEntity } from '../../entities/character.models';
 import { CharacterApiActions, CharacterPageActions } from './character.actions';
-import { initialState, reducer } from './character.reducer';
+import { initialState, reducer, favoriteAdapter } from './character.reducer';
 
 describe('Character Reducer', () => {
   const createCharacterEntity = (id: number, name = ''): CharacterEntity => ({
@@ -45,6 +45,31 @@ describe('Character Reducer', () => {
       const result = reducer(initialState, action);
 
       expect(result.error).toBe(error);
+    });
+
+    // New tests for favorites
+    it('addToFavorites should add a character to the favorites list', () => {
+      const character = createCharacterEntity(1, 'Rick Sanchez');
+      const action = CharacterPageActions.addToFavorites({ character });
+
+      const result = reducer(initialState, action);
+
+      expect(result.favorites.ids.length).toBe(1);
+      expect(result.favorites.entities[1]).toEqual(character);
+    });
+
+    it('removeFromFavorites should remove a character from the favorites list', () => {
+      const character = createCharacterEntity(1, 'Rick Sanchez');
+      const initialStateWithFavorite = {
+        ...initialState,
+        favorites: favoriteAdapter.addOne(character, initialState.favorites),
+      };
+      const action = CharacterPageActions.removeFromFavorites({ id: 1 });
+
+      const result = reducer(initialStateWithFavorite, action);
+
+      expect(result.favorites.ids.length).toBe(0);
+      expect(result.favorites.entities[1]).toBeUndefined();
     });
   });
 

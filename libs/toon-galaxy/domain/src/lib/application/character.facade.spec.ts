@@ -18,13 +18,13 @@ describe('Character Facade', () => {
     id: 1,
     name: 'Rick Sanchez',
     species: 'Human',
-    image: 'image-1',
+    image: 'image_url-1',
   };
   const character2: CharacterEntity = {
     id: 2,
     name: 'Morty Smith',
     species: 'Human',
-    image: 'image-2',
+    image: 'image_url-2',
   };
   const characters: CharacterEntity[] = [character1, character2];
 
@@ -47,6 +47,7 @@ describe('Character Facade', () => {
     store.overrideSelector(CharacterSelectors.getCharacterLoaded, true);
     store.overrideSelector(CharacterSelectors.getAllCharacter, characters);
     store.overrideSelector(CharacterSelectors.getSelected, character1);
+    store.overrideSelector(CharacterSelectors.getAllFavorites, [character2]);
   });
 
   it('should be created', () => {
@@ -59,6 +60,9 @@ describe('Character Facade', () => {
       done();
     });
   });
+
+  //
+  //
 
   it('characterList$ should return the list of characters', (done) => {
     facade.characterList$.subscribe((list) => {
@@ -122,5 +126,43 @@ describe('Character Facade', () => {
 
     expect(list.length).toBe(2);
     expect(isLoaded).toBe(true);
+  });
+
+  // Favorites
+  it('favoriteCharacterList$ should return the list of favorite characters', (done) => {
+    facade.favoriteCharacterList$.subscribe((list) => {
+      expect(list).toEqual([character2]);
+      done();
+    });
+
+    store.dispatch(
+      CharacterPageActions.addToFavorites({ character: character1 }),
+    );
+
+    facade.favoriteCharacterList$.subscribe((list) => {
+      expect(list).toEqual([character1, character2]);
+      done();
+    });
+  });
+
+  it('addToFavorites should dispatch addToFavorites action', () => {
+    const dispatchSpy = jest.spyOn(store, 'dispatch');
+
+    facade.addToFavorites(character1);
+
+    expect(dispatchSpy).toHaveBeenCalledWith(
+      CharacterPageActions.addToFavorites({ character: character1 }),
+    );
+  });
+
+  it('removeFromFavorites should dispatch removeFromFavorites action', () => {
+    const dispatchSpy = jest.spyOn(store, 'dispatch');
+
+    facade.addToFavorites(character1);
+    facade.removeFromFavorites(character1.id);
+
+    expect(dispatchSpy).toHaveBeenCalledWith(
+      CharacterPageActions.removeFromFavorites({ id: character1.id }),
+    );
   });
 });
