@@ -39,10 +39,13 @@ const characterReducer = createReducer(
       error: null,
     }),
   ),
-  on(CharacterApiActions.loadCharactersFailure, (state, { error }) => ({
-    ...state,
-    error,
-  })),
+  on(CharacterApiActions.loadCharactersFailure, (state, { error }) =>
+    characterAdapter.setAll([], {
+      ...state,
+      loaded: true,
+      error,
+    }),
+  ),
 );
 
 export function reducer(state: State | undefined, action: Action) {

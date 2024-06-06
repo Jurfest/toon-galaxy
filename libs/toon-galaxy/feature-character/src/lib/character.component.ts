@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 import {
   debounceTime,
   distinctUntilChanged,
+  filter,
   Observable,
+  shareReplay,
   startWith,
   switchMap,
   tap,
@@ -52,7 +54,9 @@ export class CharacterComponent implements OnInit {
   ngOnInit(): void {
     const debounceSearchInput$ = this.searchCharactersForm.controls[
       'search'
-    ].valueChanges.pipe(debounceTime(300));
+    ].valueChanges.pipe(
+      debounceTime(300),
+    );
 
     this.characterList$ = debounceSearchInput$.pipe(
       startWith(''),
@@ -60,6 +64,7 @@ export class CharacterComponent implements OnInit {
       tap(() => (this.loading = true)),
       switchMap((input) => this.loadCharacters(input || '')),
       tap(() => (this.loading = false)),
+      shareReplay({ bufferSize: 1, refCount: true }),
     );
   }
 
