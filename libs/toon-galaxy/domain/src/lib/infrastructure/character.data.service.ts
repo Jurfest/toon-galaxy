@@ -1,9 +1,12 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '@toon-galaxy/envenvironment';
-import { Observable, map, tap } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
-import { CharacterEntity } from '../entities/character.models';
+import {
+  CharacterEntity,
+  CharacterApiResponse,
+} from '../entities/character.models';
 
 const characterBaseApiUrl = `${environment.BASE_API_URL}/character`;
 
@@ -31,9 +34,13 @@ export class CharacterDataService {
 
     const params = new HttpParams().set('name', characterName || '');
 
-    return this.http.get<any>(characterBaseApiUrl, { params }).pipe(
-      tap((res) => console.log(res)),
-      map((res) => res.results),
-    );
+    return this.http
+      .get<
+        CharacterApiResponse<CharacterEntity[]>
+      >(characterBaseApiUrl, { params })
+      .pipe(
+        tap((res) => console.log(res)),
+        map((res) => res.results),
+      );
   }
 }
