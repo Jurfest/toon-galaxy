@@ -3,8 +3,13 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import {
   CHARACTER_FEATURE_KEY,
   characterAdapter,
+  favoriteAdapter,
   State,
 } from './character.reducer';
+
+/**
+ * Character List
+ */
 
 // Lookup the 'Character' feature state managed by NgRx
 export const getCharacterState = createFeatureSelector<State>(
@@ -62,4 +67,25 @@ export const selectCharacterTotal = createSelector(
 export const selectCharacterIds = createSelector(
   getCharacterState,
   (state: State) => selectIds(state),
+);
+
+/**
+ * Favorite Character List
+ */
+
+const { selectAll: selectAllFavorites } = favoriteAdapter.getSelectors();
+
+export const getFavoriteEntities = createSelector(
+  getCharacterState,
+  (state: State) => state.favorites,
+);
+
+export const getAllFavorites = createSelector(
+  getFavoriteEntities,
+  selectAllFavorites,
+);
+
+export const getFavoriteCharacters = createSelector(
+  getAllFavorites,
+  (favorites) => favorites,
 );

@@ -11,6 +11,10 @@ export const CharacterPageActions = createActionGroup({
   source: 'Character/Page',
   events: {
     'Load Characters': props<{ characterName: string | undefined }>(),
+    'Add to Favorites': props<{
+      character: CharacterEntity;
+    }>(),
+    'Remove from Favorites': props<{ id: number }>(),
   },
 });
 

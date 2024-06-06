@@ -1,10 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 import { CharacterPageActions } from '../+state/character/character.actions';
 import * as fromCharacter from '../+state/character/character.reducer';
 import * as CharacterSelectors from '../+state/character/character.selectors';
-import { Observable } from 'rxjs';
 import { CharacterEntity } from '../entities/character.models';
 
 @Injectable({ providedIn: 'root' })
@@ -19,6 +19,9 @@ export class CharacterFacade {
   loaded$ = this.store.pipe(select(CharacterSelectors.getCharacterLoaded));
   characterList$ = this.store.pipe(select(CharacterSelectors.getAllCharacter));
   selectedCharacter$ = this.store.pipe(select(CharacterSelectors.getSelected));
+  favoriteCharacterList$ = this.store.pipe(
+    select(CharacterSelectors.getFavoriteCharacters),
+  );
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}
@@ -26,5 +29,13 @@ export class CharacterFacade {
   load(characterName: string): Observable<CharacterEntity[]> {
     this.store.dispatch(CharacterPageActions.loadCharacters({ characterName }));
     return this.characterList$;
+  }
+
+  addToFavorites(character: CharacterEntity): void {
+    this.store.dispatch(CharacterPageActions.addToFavorites({ character }));
+  }
+
+  removeFromFavorites(id: number): void {
+    this.store.dispatch(CharacterPageActions.removeFromFavorites({ id }));
   }
 }
