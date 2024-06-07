@@ -22,6 +22,9 @@ export class CharacterFacade {
   favoriteCharacterList$ = this.store.pipe(
     select(CharacterSelectors.getAllFavorites),
   );
+  totalFavoriteCharacters$ = this.store.pipe(
+    select(CharacterSelectors.getFavoriteTotal),
+  );
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}
