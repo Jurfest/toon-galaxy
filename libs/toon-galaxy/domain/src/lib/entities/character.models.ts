@@ -6,6 +6,7 @@ export interface CharacterEntity {
   name: string;
   species: string;
   image: string;
+  type: string;
   // Currently unused:
   created?: string; // ISO 8601 string
   episode?: string[];
@@ -19,7 +20,6 @@ export interface CharacterEntity {
     url?: string;
   };
   status?: 'Dead' | 'Alive' | 'unknown';
-  type?: string;
   url?: string;
 }
 
