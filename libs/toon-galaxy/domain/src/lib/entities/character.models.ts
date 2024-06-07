@@ -1,6 +1,4 @@
-/**
- * Interface for the 'Character' data
- */
+// Interface for the 'Character' data entity
 export interface CharacterEntity {
   id: number; // Primary ID
   name: string;
@@ -23,6 +21,7 @@ export interface CharacterEntity {
   url?: string;
 }
 
+// Interface for the API response when fetching characters
 export interface CharacterApiResponse<T> {
   info?: {
     count: number;
@@ -31,4 +30,9 @@ export interface CharacterApiResponse<T> {
     prev: string | null;
   };
   results: T;
+}
+
+// Interface extending CharacterEntity to include a favorite flag
+export interface CharacterViewModel extends CharacterEntity {
+  isFavorite: boolean;
 }

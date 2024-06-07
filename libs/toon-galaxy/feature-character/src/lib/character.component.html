@@ -7,14 +7,16 @@
     </mat-form-field>
   </form>
 
-  @if (characterList$ | async; as characterList) {
-    @switch (characterList.length > 0) {
+  @if (characterViewModelList$ | async; as characterViewModelList) {
+    @switch (characterViewModelList.length > 0) {
       @case (true) {
         <table class="table">
-          <tr *ngFor="let character of characterList">
+          <tr *ngFor="let character of characterViewModelList">
             <td>{{ character.id }}</td>
             <td>{{ character.name }}</td>
             <td>{{ character.species }}</td>
+            <td>{{ character.type }}</td>
+            <td>{{ character.isFavorite }}</td>
           </tr>
         </table>
         <!-- <toon-galaxy-card-list

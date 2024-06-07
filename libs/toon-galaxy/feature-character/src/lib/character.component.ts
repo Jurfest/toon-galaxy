@@ -3,13 +3,20 @@ import { Component, inject, OnInit } from '@angular/core';
 import {
   CharacterFacade,
   CharacterEntity,
+  CharacterViewModel,
 } from '@toon-galaxy/toon-galaxy/domain';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
+  catchError,
+  combineLatest,
   debounceTime,
   distinctUntilChanged,
+  EMPTY,
+  filter,
+  map,
   Observable,
+  of,
   startWith,
   switchMap,
   tap,
@@ -34,9 +41,11 @@ export class CharacterComponent implements OnInit {
   private characterFacade = inject(CharacterFacade);
   private fb = inject(FormBuilder);
 
-  // characterList$: Observable<CharacterEntity[]> | undefined;
-  characterList$: Observable<CharacterEntity[]> | undefined =
+  characterList$: Observable<CharacterEntity[]> =
     this.characterFacade.characterList$;
+  favCharacterList$: Observable<CharacterEntity[]> =
+    this.characterFacade.favoriteCharacterList$;
+  characterViewModelList$: Observable<CharacterViewModel[]> = of([]);
 
   searchCharactersForm = this.fb.group({
     search: [''],
@@ -61,10 +70,31 @@ export class CharacterComponent implements OnInit {
       switchMap((input) => this.loadCharacters(input || '')),
       tap(() => (this.loading = false)),
     );
+
+    this.loadCharacterViewModelList();
   }
 
   private loadCharacters(characterName: string): Observable<CharacterEntity[]> {
     return this.characterFacade.load(characterName);
+  }
+
+  private loadCharacterViewModelList(): void {
+    this.characterViewModelList$ = combineLatest([
+      this.characterList$,
+      this.favCharacterList$,
+    ]).pipe(
+      map(([characterList, favCharacterList]) => {
+        return characterList.map((searchedCharacter: any) => {
+          return {
+            ...searchedCharacter,
+            isFavorite: favCharacterList.some(
+              (favoriteCharacter: any) =>
+                favoriteCharacter.id === searchedCharacter.id,
+            ),
+          };
+        });
+      }),
+    );
   }
 
   toggleFavoriteCharacter(character: CharacterEntity): void {
