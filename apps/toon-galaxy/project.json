@@ -25,7 +25,12 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/toon-galaxy/src/favicon.ico",
-          "apps/toon-galaxy/src/assets"
+          "apps/toon-galaxy/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/shared/ui-design-system/src/assets",
+            "output": "assets"
+          }
         ],
         "styles": [
           "@angular/material/prebuilt-themes/cyan-orange.css",

@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
+import { LogoComponent } from '../../atoms/logo/logo.component';
+
 @Component({
   selector: 'design-system-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LogoComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
