@@ -50,6 +50,7 @@ describe('Character Facade', () => {
     store.overrideSelector(CharacterSelectors.getAllCharacter, characters);
     store.overrideSelector(CharacterSelectors.getSelected, character1);
     store.overrideSelector(CharacterSelectors.getAllFavorites, [character2]);
+    store.overrideSelector(CharacterSelectors.getFavoriteTotal, 1);
   });
 
   it('should be created', () => {
@@ -166,5 +167,21 @@ describe('Character Facade', () => {
     expect(dispatchSpy).toHaveBeenCalledWith(
       CharacterPageActions.removeFromFavorites({ id: character1.id }),
     );
+  });
+
+  it('totalFavoriteCharacters$ should return the number of favorite characters', (done) => {
+    facade.totalFavoriteCharacters$.subscribe((favCharacters: number) => {
+      expect(favCharacters).toEqual(1);
+      done();
+    });
+
+    store.dispatch(
+      CharacterPageActions.addToFavorites({ character: character1 }),
+    );
+
+    facade.totalFavoriteCharacters$.subscribe((favCharacters: number) => {
+      expect(favCharacters).toEqual(2);
+      done();
+    });
   });
 });
