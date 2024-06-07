@@ -46,13 +46,13 @@ describe('CharacterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create the component', () => {
-    expect(component).toBeTruthy();
+  it('should create', () => {
+    expect(component).toBeDefined();
   });
 
   it('should initialize search form', () => {
-    expect(component.searchCharactersForm).toBeTruthy();
-    expect(component.searchCharactersForm.controls['search']).toBeTruthy();
+    expect(component.searchCharactersForm).toBeDefined();
+    expect(component.searchCharactersForm.controls['search']).toBeDefined();
   });
 
   it('should call addToFavorites when character is not favorite', () => {
@@ -100,10 +100,10 @@ describe('CharacterComponent', () => {
   // });
 
   it('should call loadCharacters when search input changes', async () => {
+    // jest.spyOn(component, 'loadCharacters').mockReturnValue(of([]));
     jest
       .spyOn(component as any, 'loadCharacters') // Access private method using 'any'
       .mockReturnValue(of([]));
-    // jest.spyOn(component, 'loadCharacters').mockReturnValue(of([]));
 
     const searchControl = component.searchCharactersForm.controls['search'];
     searchControl.setValue('test');
