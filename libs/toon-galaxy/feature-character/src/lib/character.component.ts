@@ -1,19 +1,18 @@
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import {
-  CharacterFacade,
   CharacterEntity,
+  CharacterFacade,
   CharacterViewModel,
 } from '@toon-galaxy/toon-galaxy/domain';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
 import {
-  catchError,
   combineLatest,
   debounceTime,
   distinctUntilChanged,
-  EMPTY,
-  filter,
   map,
   Observable,
   of,
@@ -21,8 +20,6 @@ import {
   switchMap,
   tap,
 } from 'rxjs';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 
 @Component({
   standalone: true,
@@ -41,19 +38,16 @@ export class CharacterComponent implements OnInit {
   private characterFacade = inject(CharacterFacade);
   private fb = inject(FormBuilder);
 
-  characterList$: Observable<CharacterEntity[]> =
-    this.characterFacade.characterList$;
+  characterList$!: Observable<CharacterEntity[]>;
   favCharacterList$: Observable<CharacterEntity[]> =
     this.characterFacade.favoriteCharacterList$;
-  characterViewModelList$: Observable<CharacterViewModel[]> = of([]);
+  characterViewModelList$!: Observable<CharacterViewModel[]>;
 
   searchCharactersForm = this.fb.group({
     search: [''],
   });
 
   loading: boolean | undefined;
-
-  // characterGroups: CharacterGroup[] = [];
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}
@@ -84,11 +78,11 @@ export class CharacterComponent implements OnInit {
       this.favCharacterList$,
     ]).pipe(
       map(([characterList, favCharacterList]) => {
-        return characterList.map((searchedCharacter: any) => {
+        return characterList.map((searchedCharacter: CharacterEntity) => {
           return {
             ...searchedCharacter,
             isFavorite: favCharacterList.some(
-              (favoriteCharacter: any) =>
+              (favoriteCharacter: CharacterEntity) =>
                 favoriteCharacter.id === searchedCharacter.id,
             ),
           };
