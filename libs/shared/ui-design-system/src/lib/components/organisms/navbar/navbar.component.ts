@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 import { LogoComponent } from '../../atoms/logo/logo.component';
 
@@ -11,7 +11,9 @@ import { LogoComponent } from '../../atoms/logo/logo.component';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
+  totalFavoriteCharacters = input.required<number | null>();
   active = 'home';
+
   toggleActive(tab: string): void {
     this.active = tab;
   }

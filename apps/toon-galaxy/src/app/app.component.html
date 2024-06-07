@@ -1,3 +1,4 @@
-<design-system-navbar></design-system-navbar>
-<p>Favorites: {{ totalFavoriteCharacters$ | async }}</p>
+<design-system-navbar
+  [totalFavoriteCharacters]="totalFavoriteCharacters$ | async"
+></design-system-navbar>
 <router-outlet></router-outlet>
