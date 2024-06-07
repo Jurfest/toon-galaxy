@@ -10,6 +10,7 @@ describe('Character Reducer', () => {
     name: name || `name-${id}`,
     species: 'species',
     image: `image-${id}`,
+    type: `type-${id}`,
   });
 
   describe('valid Character actions', () => {

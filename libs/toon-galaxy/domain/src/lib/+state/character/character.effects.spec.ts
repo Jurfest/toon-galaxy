@@ -44,6 +44,7 @@ describe('CharacterEffects', () => {
         name: 'Summer Smith',
         species: 'Human',
         image: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg',
+        type: '',
       },
     ];
     const action = CharacterPageActions.loadCharacters({ characterName });

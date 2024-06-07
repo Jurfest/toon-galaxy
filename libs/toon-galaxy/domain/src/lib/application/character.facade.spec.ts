@@ -19,12 +19,14 @@ describe('Character Facade', () => {
     name: 'Rick Sanchez',
     species: 'Human',
     image: 'image_url-1',
+    type: '',
   };
   const character2: CharacterEntity = {
     id: 2,
     name: 'Morty Smith',
     species: 'Human',
     image: 'image_url-2',
+    type: '',
   };
   const characters: CharacterEntity[] = [character1, character2];
 
