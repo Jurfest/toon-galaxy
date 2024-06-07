@@ -17,6 +17,11 @@ describe('ButtonComponent', () => {
     fixture.detectChanges();
 
     // TODO: Zoneless
+    // TestBed.configureTestingModule({
+    //   providers: [provideExperimentalZonelessChangeDetection()],
+    // });
+    //
+    // const fixture = TestBed.createComponent(ButtonComponent);
     // component.label = input('button');
     // await fixture.whenStable();
   });
