@@ -38,13 +38,10 @@ describe('CharacterComponent', () => {
       CharacterFacade,
     ) as jest.Mocked<CharacterFacade>;
     characterFacade.load.mockReturnValue(of([]));
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(CharacterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeDefined();
