@@ -17,6 +17,9 @@
             <td>{{ character.species }}</td>
             <td>{{ character.type }}</td>
             <td>{{ character.isFavorite }}</td>
+            <td>
+              <button (click)="updateFavorites(character)">Favorite</button>
+            </td>
           </tr>
         </table>
         <!-- <toon-galaxy-card-list

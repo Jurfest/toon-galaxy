@@ -15,7 +15,6 @@ import {
   distinctUntilChanged,
   map,
   Observable,
-  of,
   startWith,
   switchMap,
   tap,
@@ -91,8 +90,13 @@ export class CharacterComponent implements OnInit {
     );
   }
 
-  toggleFavoriteCharacter(character: CharacterEntity): void {
-    // TODO: - Perform actions after a character is selected/unselected as favorite
+  updateFavorites(character: CharacterViewModel): void {
+    const { isFavorite, ...characterEntity } = character;
+    if (isFavorite) {
+      this.characterFacade.removeFromFavorites(character.id);
+    } else {
+      this.characterFacade.addToFavorites(characterEntity);
+    }
   }
 }
 
