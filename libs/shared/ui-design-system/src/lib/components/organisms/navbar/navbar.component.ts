@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { MatRippleModule } from '@angular/material/core';
@@ -11,6 +12,24 @@ import { LogoComponent } from '../../atoms/logo/logo.component';
   imports: [CommonModule, LogoComponent, IconComponent, MatRippleModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
+  animations: [
+    trigger('numberChange', [
+      transition(':increment', [
+        style({ transform: 'translateY(-20%)', opacity: 0 }),
+        animate(
+          '300ms ease-out',
+          style({ transform: 'translateY(0)', opacity: 1 }),
+        ),
+      ]),
+      transition(':decrement', [
+        style({ transform: 'translateY(20%)', opacity: 0 }),
+        animate(
+          '300ms ease-out',
+          style({ transform: 'translateY(0)', opacity: 1 }),
+        ),
+      ]),
+    ]),
+  ],
 })
 export class NavbarComponent {
   totalFavoriteCharacters = input.required<number | null>();

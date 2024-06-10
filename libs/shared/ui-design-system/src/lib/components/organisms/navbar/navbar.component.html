@@ -35,7 +35,9 @@
       <span
         class="flex justify-center items-center w-5 h-5 font-bold bg-white border border-solid border-neutral-700 rounded-full text-neutral-950 p-0.5 my-0 mx-auto z-10"
       >
-        {{ totalFavoriteCharacters() }}
+        <span [@numberChange]="totalFavoriteCharacters()">
+          {{ totalFavoriteCharacters() }}
+        </span>
       </span>
     </button>
   </nav>
