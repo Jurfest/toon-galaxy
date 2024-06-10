@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
+import { MatRippleModule } from '@angular/material/core';
 
-import { LogoComponent } from '../../atoms/logo/logo.component';
 import { IconComponent } from '../../atoms/icon/icon.component';
+import { LogoComponent } from '../../atoms/logo/logo.component';
 
 @Component({
   selector: 'design-system-navbar',
   standalone: true,
-  imports: [CommonModule, LogoComponent, IconComponent],
+  imports: [CommonModule, LogoComponent, IconComponent, MatRippleModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })

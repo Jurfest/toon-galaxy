@@ -7,6 +7,8 @@
   >
     <button
       (click)="toggleActive('home')"
+      matRipple
+      [matRippleColor]="'#eeeeee'"
       [ngClass]="{
         'bg-white text-neutral-950 rounded-l-measure-radius-s':
           active === 'home',
@@ -14,11 +16,13 @@
       }"
       class="flex gap-2 justify-between px-4 py-1 text-sm font-semibold"
     >
-      <design-system-icon iconName="home"></design-system-icon>
-      <span class="self-stretch my-auto leading-[100%]">Início</span>
+      <design-system-icon iconName="home" class="z-10"></design-system-icon>
+      <span class="self-stretch my-auto leading-[100%] z-10">Início</span>
     </button>
     <button
       (click)="toggleActive('favorites')"
+      matRipple
+      [matRippleColor]="'#eeeeee'"
       [ngClass]="{
         'bg-white text-neutral-950 rounded-r-measure-radius-s':
           active === 'favorites',
@@ -26,11 +30,10 @@
       }"
       class="flex gap-2 justify-between items-center px-4 py-1 text-sm font-semibold"
     >
-      <design-system-icon iconName="heart"></design-system-icon>
-      <span class="self-stretch my-auto leading-[100%]">Favoritos</span>
+      <design-system-icon iconName="heart" class="z-10"></design-system-icon>
+      <span class="self-stretch my-auto leading-[100%] z-10">Favoritos</span>
       <span
-        class="flex justify-center items-center w-5 h-5 font-bold bg-white border border-solid border-neutral-700 rounded-full text-neutral-950"
-        style="padding: 2px; margin: auto 0"
+        class="flex justify-center items-center w-5 h-5 font-bold bg-white border border-solid border-neutral-700 rounded-full text-neutral-950 p-0.5 my-0 mx-auto z-10"
       >
         {{ totalFavoriteCharacters() }}
       </span>
