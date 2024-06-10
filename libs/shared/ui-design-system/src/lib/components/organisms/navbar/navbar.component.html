@@ -3,7 +3,7 @@
 >
   <design-system-logo></design-system-logo>
   <nav
-    class="flex gap-0 my-auto rounded-xl border border-solid border-color-core-border"
+    class="hidden md:flex gap-0 my-auto rounded-xl border border-solid border-color-core-border"
   >
     <button
       (click)="toggleActive('home')"
@@ -42,5 +42,29 @@
         </span>
       </span>
     </button>
+  </nav>
+
+  <!--  -->
+  <nav class="md:hidden">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="toggleActive('home')">
+        <design-system-icon iconName="home" class="z-10"></design-system-icon>
+        <span class="self-stretch my-auto leading-[100%] z-10">Início</span>
+      </button>
+      <button mat-menu-item (click)="toggleActive('favorites')">
+        <design-system-icon iconName="heart" class="z-10"></design-system-icon>
+        <span class="self-stretch my-auto leading-[100%] z-10">Favoritos</span>
+        <span
+          class="flex justify-center items-center w-5 h-5 font-bold bg-color-neutral-foreground border border-solid border-color-core-border rounded-full text-color-core-foreground p-0.5 my-0 mx-auto z-10 group-hover:bg-gray-800 group-hover:text-color-neutral-content"
+        >
+          <span [@numberChange]="totalFavoriteCharacters()">
+            {{ totalFavoriteCharacters() }}
+          </span>
+        </span>
+      </button>
+    </mat-menu>
   </nav>
 </header>
