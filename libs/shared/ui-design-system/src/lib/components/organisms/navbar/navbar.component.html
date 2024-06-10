@@ -12,7 +12,8 @@
       [ngClass]="{
         'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200 rounded-l-measure-radius-s transition-colors duration-300 ease-in-out':
           active === 'home',
-        'text-color-neutral-content hover:bg-gray-800': active !== 'home',
+        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+          active !== 'home',
       }"
       class="flex gap-2 justify-between px-4 py-1 text-sm font-semibold hover:rounded-l-xl"
     >
@@ -26,7 +27,8 @@
       [ngClass]="{
         'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200 rounded-r-measure-radius-s transition-colors duration-300 ease-in-out':
           active === 'favorites',
-        'text-color-neutral-content hover:bg-gray-800': active !== 'favorites',
+        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+          active !== 'favorites',
       }"
       class="flex gap-2 justify-between items-center px-4 py-1 text-sm font-semibold hover:rounded-r-xl"
     >
