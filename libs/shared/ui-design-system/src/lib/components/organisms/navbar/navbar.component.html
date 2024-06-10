@@ -10,7 +10,7 @@
       matRipple
       [matRippleColor]="'#eeeeee'"
       [ngClass]="{
-        'bg-white text-neutral-950 rounded-l-measure-radius-s transition-colors duration-300':
+        'bg-white text-neutral-950 rounded-l-measure-radius-s transition-colors duration-300 ease-in-out':
           active === 'home',
         'text-neutral-400': active !== 'home',
       }"
@@ -24,7 +24,7 @@
       matRipple
       [matRippleColor]="'#eeeeee'"
       [ngClass]="{
-        'bg-white text-neutral-950 rounded-r-measure-radius-s transition-colors duration-300':
+        'bg-white text-neutral-950 rounded-r-measure-radius-s transition-colors duration-300 ease-in-out':
           active === 'favorites',
         'text-neutral-400': active !== 'favorites',
       }"
