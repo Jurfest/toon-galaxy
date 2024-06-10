@@ -10,11 +10,11 @@
       matRipple
       [matRippleColor]="'#eeeeee'"
       [ngClass]="{
-        'bg-white text-neutral-950 rounded-l-measure-radius-s transition-colors duration-300 ease-in-out':
+        'bg-white text-neutral-950 hover:bg-gray-200 rounded-l-measure-radius-s transition-colors duration-300 ease-in-out':
           active === 'home',
-        'text-neutral-400': active !== 'home',
+        'text-neutral-400 hover:bg-gray-800': active !== 'home',
       }"
-      class="flex gap-2 justify-between px-4 py-1 text-sm font-semibold"
+      class="flex gap-2 justify-between px-4 py-1 text-sm font-semibold hover:rounded-l-xl"
     >
       <design-system-icon iconName="home" class="z-10"></design-system-icon>
       <span class="self-stretch my-auto leading-[100%] z-10">Início</span>
@@ -24,11 +24,11 @@
       matRipple
       [matRippleColor]="'#eeeeee'"
       [ngClass]="{
-        'bg-white text-neutral-950 rounded-r-measure-radius-s transition-colors duration-300 ease-in-out':
+        'bg-white text-neutral-950 hover:bg-gray-200 rounded-r-measure-radius-s transition-colors duration-300 ease-in-out':
           active === 'favorites',
-        'text-neutral-400': active !== 'favorites',
+        'text-neutral-400 hover:bg-gray-800': active !== 'favorites',
       }"
-      class="flex gap-2 justify-between items-center px-4 py-1 text-sm font-semibold"
+      class="flex gap-2 justify-between items-center px-4 py-1 text-sm font-semibold hover:rounded-r-xl"
     >
       <design-system-icon iconName="heart" class="z-10"></design-system-icon>
       <span class="self-stretch my-auto leading-[100%] z-10">Favoritos</span>
@@ -42,3 +42,7 @@
     </button>
   </nav>
 </header>
+<!--
+  hover:bg-neutral-300
+  hover:bg-gray-200
+ -->
