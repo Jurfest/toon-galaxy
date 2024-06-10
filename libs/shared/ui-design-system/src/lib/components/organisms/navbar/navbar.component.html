@@ -8,18 +8,20 @@
     <button
       (click)="toggleActive('home')"
       [ngClass]="{
-        'bg-white text-neutral-950': active === 'home',
+        'bg-white text-neutral-950 rounded-l-measure-radius-s':
+          active === 'home',
         'text-neutral-400': active !== 'home',
       }"
       class="flex gap-2 justify-between px-4 py-1 text-sm font-semibold"
     >
       <design-system-icon iconName="home"></design-system-icon>
-      <span class="leading-4">Início</span>
+      <span class="self-stretch my-auto leading-[100%]">Início</span>
     </button>
     <button
       (click)="toggleActive('favorites')"
       [ngClass]="{
-        'bg-white text-neutral-950': active === 'favorites',
+        'bg-white text-neutral-950 rounded-r-measure-radius-s':
+          active === 'favorites',
         'text-neutral-400': active !== 'favorites',
       }"
       class="flex gap-2 justify-between items-center px-4 py-1 text-sm font-semibold"
@@ -27,7 +29,8 @@
       <design-system-icon iconName="heart"></design-system-icon>
       <span class="self-stretch my-auto leading-[100%]">Favoritos</span>
       <span
-        class="justify-center items-center self-stretch p-0.5 w-5 h-5 font-bold bg-white border border-solid border-neutral-700 leading-[140%] rounded-[100px] text-neutral-950"
+        class="flex justify-center items-center w-5 h-5 font-bold bg-white border border-solid border-neutral-700 rounded-full text-neutral-950"
+        style="padding: 2px; margin: auto 0"
       >
         {{ totalFavoriteCharacters() }}
       </span>
