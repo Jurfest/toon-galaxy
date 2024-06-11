@@ -5,6 +5,7 @@ import { map, shareReplay } from 'rxjs';
 
 import { LogoComponent } from '../../atoms/logo/logo.component';
 import { ToggleButtonComponent } from '../../molecules/toggle-button/toggle-button.component';
+import { TabName } from '../../../models/tab-name';
 
 @Component({
   selector: 'design-system-navbar',
@@ -15,7 +16,7 @@ import { ToggleButtonComponent } from '../../molecules/toggle-button/toggle-butt
 })
 export class NavbarComponent {
   totalFavoriteCharacters = input.required<number | null>();
-  active = 'home';
+  active: TabName = TabName.Home;
 
   private breakpointObserver = inject(BreakpointObserver);
 
@@ -28,7 +29,7 @@ export class NavbarComponent {
     shareReplay(),
   );
 
-  toggleActive(tab: string): void {
+  toggleActive(tab: TabName): void {
     this.active = tab;
   }
 }

@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { IconComponent } from '../../atoms/icon/icon.component';
+import { TabName } from '../../../models/tab-name';
 
 @Component({
   selector: 'design-system-toggle-button',
@@ -43,10 +44,11 @@ import { IconComponent } from '../../atoms/icon/icon.component';
 export class ToggleButtonComponent {
   totalFavoriteCharacters = input.required<number | null>();
   isHandset = input.required<boolean | null>();
-  activeTab = input.required<string | null>();
-  toggleActive = output<string>();
+  activeTab = input.required<TabName | null>();
+  toggleActive = output<TabName>();
+  readonly TabName = TabName;
 
-  onToggle(tabName: string): void {
+  onToggle(tabName: TabName): void {
     this.toggleActive.emit(tabName);
   }
 
