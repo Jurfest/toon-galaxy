@@ -16,7 +16,7 @@ import { TabName } from '../../../models/tab-name';
 })
 export class NavbarComponent {
   totalFavoriteCharacters = input.required<number | null>();
-  active: TabName = TabName.Home;
+  active = TabName.Home;
 
   private breakpointObserver = inject(BreakpointObserver);
 

@@ -46,6 +46,8 @@ export class ToggleButtonComponent {
   isHandset = input.required<boolean | null>();
   activeTab = input.required<TabName | null>();
   toggleActive = output<TabName>();
+
+  // To use the enum values in the template
   readonly TabName = TabName;
 
   onToggle(tabName: TabName): void {
