@@ -24,6 +24,9 @@ module.exports = {
         slideIn: 'slideIn 0.4s ease-out',
         slideOut: 'slideOut 0.4s ease-out',
       },
+      letterSpacing: {
+        '-0.02em': '-0.02em',
+      },
       spacing: {
         ...space,
       },
