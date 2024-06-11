@@ -26,7 +26,7 @@
     "help": "nx help",
     "test:all": "nx run-many --all --target=test --parallel -- --collectCoverage --coverage",
     "pretty-quick": "pretty-quick --staged",
-    "dev-storybook:ds": "npx nx run shared-ui-design-system:static-storybook --watch=true ",
+    "dev-storybook:ds": "npx nx run shared-ui-design-system:static-storybook --port=4400 --watch=true",
     "build-storybook:ds": "npx nx run shared-ui-design-system:build-storybook"
   },
   "private": true,
