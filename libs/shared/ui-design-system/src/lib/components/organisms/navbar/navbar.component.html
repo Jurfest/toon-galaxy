@@ -2,8 +2,14 @@
   class="flex items-center gap-2 justify-between px-6 text-center whitespace-nowrap border-b border-solid bg-color-core-foreground border-color-core-border max-md:flex-wrap max-md:px-5"
 >
   <design-system-logo></design-system-logo>
-  <design-system-toggle-button
-    [totalFavoriteCharacters]="totalFavoriteCharacters()"
-    [isHandset]="isHandset$ | async"
-  ></design-system-toggle-button>
+  <nav>
+    <design-system-toggle-button
+      [ngClass]="{
+        'flex gap-0 my-auto rounded-xl border border-solid border-color-core-border':
+          (isHandset$ | async) === false,
+      }"
+      [totalFavoriteCharacters]="totalFavoriteCharacters()"
+      [isHandset]="isHandset$ | async"
+    ></design-system-toggle-button>
+  </nav>
 </header>
