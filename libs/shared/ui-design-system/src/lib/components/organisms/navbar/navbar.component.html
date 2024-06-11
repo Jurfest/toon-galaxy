@@ -2,123 +2,36 @@
   class="flex items-center gap-2 justify-between px-6 text-center whitespace-nowrap border-b border-solid bg-color-core-foreground border-color-core-border max-md:flex-wrap max-md:px-5"
 >
   <design-system-logo></design-system-logo>
-  <nav
-    class="hidden md:flex gap-0 my-auto rounded-xl border border-solid border-color-core-border"
-  >
-    <button
-      (click)="toggleActive('home')"
-      matRipple
-      [matRippleColor]="'#D4D4D4'"
-      [ngClass]="{
-        'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200 rounded-l-measure-radius-s transition-colors duration-300 ease-in-out':
-          active === 'home',
-        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
-          active !== 'home',
-      }"
-      class="flex gap-2 justify-between px-4 py-1 text-sm font-semibold hover:rounded-l-xl"
+  @if ((isHandset$ | async) === false) {
+    <nav
+      class="flex gap-0 my-auto rounded-xl border border-solid border-color-core-border"
     >
-      <design-system-icon iconName="home" class="z-10"></design-system-icon>
-      <span class="self-stretch my-auto leading-[100%] z-10">Início</span>
-    </button>
-    <button
-      (click)="toggleActive('favorites')"
-      matRipple
-      [matRippleColor]="'#D4D4D4'"
-      [ngClass]="{
-        'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200 rounded-r-measure-radius-s transition-colors duration-300 ease-in-out':
-          active === 'favorites',
-        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
-          active !== 'favorites',
-      }"
-      class="flex gap-2 justify-between items-center px-4 py-1 text-sm font-semibold hover:rounded-r-xl"
-    >
-      <design-system-icon iconName="heart" class="z-10"></design-system-icon>
-      <span class="self-stretch my-auto leading-[100%] z-10">Favoritos</span>
-      <span
-        class="flex justify-center items-center w-5 h-5 font-bold bg-color-neutral-foreground border border-solid border-color-core-border rounded-full text-color-core-foreground p-0.5 my-0 mx-auto z-10"
-      >
-        <span [@numberChange]="totalFavoriteCharacters()">
-          {{ totalFavoriteCharacters() }}
-        </span>
-      </span>
-    </button>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <!-- <nav class="md:hidden">
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button
-        mat-menu-item
-        (click)="toggleActive('home')"
-        [ngClass]="{
-          'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200':
-            active === 'home',
-          'text-color-neutral-content hover:bg-color-neutral-surface-lower':
-            active !== 'home',
-        }"
-        class="flex gap-2 justify-between px-4 py-2 text-sm font-semibold"
-      >
-        <design-system-icon iconName="home" class="z-10"></design-system-icon>
-        <span class="self-stretch my-auto leading-[100%] z-10">Início</span>
-      </button>
-      <button
-        mat-menu-item
-        (click)="toggleActive('favorites')"
-        [ngClass]="{
-          'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200':
-            active === 'favorites',
-          'text-color-neutral-content hover:bg-color-neutral-surface-lower':
-            active !== 'favorites',
-        }"
-        class="flex gap-2 justify-between items-center px-4 py-2 text-sm font-semibold"
-      >
-        <design-system-icon iconName="heart" class="z-10"></design-system-icon>
-        <span class="self-stretch my-auto leading-[100%] z-10">Favoritos</span>
-        <span
-          class="flex justify-center items-center w-5 h-5 font-bold bg-color-neutral-foreground border border-solid border-color-core-border rounded-full text-color-core-foreground p-0.5 my-0 mx-auto z-10 group-hover:bg-gray-800 group-hover:text-color-neutral-content"
-        >
-          <span [@numberChange]="totalFavoriteCharacters()">
-            {{ totalFavoriteCharacters() }}
-          </span>
-        </span>
-      </button>
-    </mat-menu>
-  </nav> -->
-  <nav class="md:hidden">
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
       <button
         (click)="toggleActive('home')"
         matRipple
         [matRippleColor]="'#D4D4D4'"
         [ngClass]="{
-          'bg-color-neutral-foreground text-color-core-foreground transition-colors duration-300 ease-in-out':
+          'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200 rounded-l-measure-radius-s transition-colors duration-300 ease-in-out':
             active === 'home',
           'text-color-neutral-content hover:bg-color-neutral-surface-lower':
             active !== 'home',
         }"
-        class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
+        class="flex gap-2 justify-between px-4 py-1 text-sm font-semibold hover:rounded-l-xl"
       >
         <design-system-icon iconName="home" class="z-10"></design-system-icon>
         <span class="self-stretch my-auto leading-[100%] z-10">Início</span>
       </button>
-
       <button
         (click)="toggleActive('favorites')"
         matRipple
         [matRippleColor]="'#D4D4D4'"
         [ngClass]="{
-          'bg-color-neutral-foreground text-color-core-foreground transition-colors duration-300 ease-in-out':
+          'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200 rounded-r-measure-radius-s transition-colors duration-300 ease-in-out':
             active === 'favorites',
           'text-color-neutral-content hover:bg-color-neutral-surface-lower':
             active !== 'favorites',
         }"
-        class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
+        class="flex gap-2 justify-between items-center px-4 py-1 text-sm font-semibold hover:rounded-r-xl"
       >
         <design-system-icon iconName="heart" class="z-10"></design-system-icon>
         <span class="self-stretch my-auto leading-[100%] z-10">Favoritos</span>
@@ -130,6 +43,58 @@
           </span>
         </span>
       </button>
-    </mat-menu>
-  </nav>
+    </nav>
+  } @else {
+    <!-- Handset Menu -->
+    <nav>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button
+          (click)="toggleActive('home')"
+          matRipple
+          [matRippleColor]="'#D4D4D4'"
+          [ngClass]="{
+            'bg-color-neutral-foreground text-color-core-foreground transition-colors duration-300 ease-in-out':
+              active === 'home',
+            'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+              active !== 'home',
+          }"
+          class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
+        >
+          <design-system-icon iconName="home" class="z-10"></design-system-icon>
+          <span class="self-stretch my-auto leading-[100%] z-10">Início</span>
+        </button>
+
+        <button
+          (click)="toggleActive('favorites')"
+          matRipple
+          [matRippleColor]="'#D4D4D4'"
+          [ngClass]="{
+            'bg-color-neutral-foreground text-color-core-foreground transition-colors duration-300 ease-in-out':
+              active === 'favorites',
+            'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+              active !== 'favorites',
+          }"
+          class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
+        >
+          <design-system-icon
+            iconName="heart"
+            class="z-10"
+          ></design-system-icon>
+          <span class="self-stretch my-auto leading-[100%] z-10"
+            >Favoritos</span
+          >
+          <span
+            class="flex justify-center items-center w-5 h-5 font-bold bg-color-neutral-foreground border border-solid border-color-core-border rounded-full text-color-core-foreground p-0.5 my-0 mx-auto z-10"
+          >
+            <span [@numberChange]="totalFavoriteCharacters()">
+              {{ totalFavoriteCharacters() }}
+            </span>
+          </span>
+        </button>
+      </mat-menu>
+    </nav>
+  }
 </header>
