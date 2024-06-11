@@ -20,9 +20,11 @@
   </header>
 
   <section class="mt-12 max-w-full w-[720px] max-md:mt-10">
-    <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+    <div class="flex flex-wrap gap-5 max-md:flex-col max-md:gap-0">
       @for (character of characterList(); track character.id) {
-        <article class="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
+        <article
+          class="flex flex-col w-[calc(33.333%-1.25rem)] max-md:ml-0 max-md:w-full"
+        >
           <div
             class="flex flex-col grow w-full rounded-xl border border-solid bg-neutral-950 border-neutral-700 max-w-[224px] max-md:mt-6"
           >
@@ -54,7 +56,9 @@
               @if (character.type) {
                 <p
                   class="mt-1 text-base leading-6 text-ellipsis text-neutral-400"
-                ></p>
+                >
+                  {{ character.type }}
+                </p>
               }
             </div>
           </div>
