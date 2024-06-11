@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+
+import { Card } from '../../../models/card';
 
 @Component({
   selector: 'design-system-card-list',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
   templateUrl: './card-list.component.html',
   styleUrl: './card-list.component.scss',
 })
-export class CardListComponent {}
+export class CardListComponent {
+  // @Input() cards: Card[] = [];
+
+  characterList = input.required<Card[]>();
+}

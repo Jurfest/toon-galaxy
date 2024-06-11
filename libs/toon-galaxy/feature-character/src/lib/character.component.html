@@ -10,7 +10,9 @@
   @if (characterViewModelList$ | async; as characterViewModelList) {
     @switch (characterViewModelList.length > 0) {
       @case (true) {
-        <design-system-card-list></design-system-card-list>
+        <design-system-card-list
+          [characterList]="characterViewModelList"
+        ></design-system-card-list>
         <table class="table">
           <tr *ngFor="let character of characterViewModelList">
             <td>{{ character.id }}</td>
