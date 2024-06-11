@@ -1,6 +1,11 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { Component, inject, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+} from '@angular/core';
 import { map, shareReplay } from 'rxjs';
 
 import { LogoComponent } from '../../atoms/logo/logo.component';
@@ -13,6 +18,7 @@ import { TabName } from '../../../models/tab-name';
   imports: [CommonModule, LogoComponent, ToggleButtonComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
   totalFavoriteCharacters = input.required<number | null>();
@@ -21,7 +27,8 @@ export class NavbarComponent {
   private breakpointObserver = inject(BreakpointObserver);
 
   /**
-   * Matches small viewport or handset in portrait mode
+   * The Breakpoints.Handset media query matches small viewport
+   * or handset in portrait mode
    *
    */
   isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
