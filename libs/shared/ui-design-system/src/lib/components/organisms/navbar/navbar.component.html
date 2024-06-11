@@ -4,10 +4,6 @@
   <design-system-logo></design-system-logo>
   <nav>
     <design-system-toggle-button
-      [ngClass]="{
-        'flex gap-0 my-auto rounded-xl border border-solid border-color-core-border':
-          (isHandset$ | async) === false,
-      }"
       [totalFavoriteCharacters]="totalFavoriteCharacters()"
       [isHandset]="isHandset$ | async"
     ></design-system-toggle-button>
