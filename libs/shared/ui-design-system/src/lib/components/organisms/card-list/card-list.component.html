@@ -21,7 +21,7 @@
 
   <section class="mt-12 max-w-full w-[720px] max-md:mt-10">
     <div class="flex flex-wrap gap-5 max-md:flex-col max-md:gap-0">
-      @for (character of characterList(); track character.id) {
+      @for (character of cardList(); track character.id) {
         <article
           class="flex flex-col w-[calc(33.333%-1.25rem)] max-md:ml-0 max-md:w-full"
         >
@@ -39,8 +39,14 @@
               />
               <span
                 class="relative justify-center items-center px-3.5 mb-16 w-12 h-12 bg-white rounded-none backdrop-blur max-md:mb-10"
-                >heart</span
               >
+                <design-system-icon
+                  iconName="heart"
+                  class="z-10"
+                  (click)="onToggleFavCard(character)"
+                ></design-system-icon>
+                <!-- character.isFavorite -->
+              </span>
             </div>
             <div class="flex flex-col p-3">
               <h2

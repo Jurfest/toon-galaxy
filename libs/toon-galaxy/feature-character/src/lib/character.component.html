@@ -11,20 +11,10 @@
     @switch (characterViewModelList.length > 0) {
       @case (true) {
         <design-system-card-list
-          [characterList]="characterViewModelList"
+          [cardList]="characterViewModelList"
+          (favCardUpdate)="updateFavorites($event)"
         ></design-system-card-list>
-        <table class="table">
-          <tr *ngFor="let character of characterViewModelList">
-            <td>{{ character.id }}</td>
-            <td>{{ character.name }}</td>
-            <td>{{ character.species }}</td>
-            <td>{{ character.type }}</td>
-            <td>{{ character.isFavorite }}</td>
-            <td>
-              <button (click)="updateFavorites(character)">Favorite</button>
-            </td>
-          </tr>
-        </table>
+
         <!-- <toon-galaxy-card-list
         [cards]="characterList"
         (cardChange)="toggleFavoriteCharacter($event)"
