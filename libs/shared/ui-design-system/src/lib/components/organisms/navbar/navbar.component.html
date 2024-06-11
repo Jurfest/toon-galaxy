@@ -6,6 +6,8 @@
     <design-system-toggle-button
       [totalFavoriteCharacters]="totalFavoriteCharacters()"
       [isHandset]="isHandset$ | async"
+      (toggleActive)="toggleActive($event)"
+      [activeTab]="active"
     ></design-system-toggle-button>
   </nav>
 </header>

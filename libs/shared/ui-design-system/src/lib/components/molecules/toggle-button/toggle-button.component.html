@@ -3,14 +3,14 @@
     class="flex gap-0 my-auto rounded-xl border border-solid border-color-core-border"
   >
     <button
-      (click)="toggleActive('home')"
+      (click)="onToggle('home')"
       matRipple
       [matRippleColor]="'#D4D4D4'"
       [ngClass]="{
         'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200 rounded-l-measure-radius-s transition-colors duration-300 ease-in-out':
-          active === 'home',
+          activeTab() === 'home',
         'text-color-neutral-content hover:bg-color-neutral-surface-lower':
-          active !== 'home',
+          activeTab() !== 'home',
       }"
       class="flex gap-2 justify-between px-4 py-1 text-sm font-semibold hover:rounded-l-xl"
     >
@@ -18,14 +18,14 @@
       <span class="self-stretch my-auto leading-[100%] z-10">Início</span>
     </button>
     <button
-      (click)="toggleActive('favorites')"
+      (click)="onToggle('favorites')"
       matRipple
       [matRippleColor]="'#D4D4D4'"
       [ngClass]="{
         'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200 rounded-r-measure-radius-s transition-colors duration-300 ease-in-out':
-          active === 'favorites',
+          activeTab() === 'favorites',
         'text-color-neutral-content hover:bg-color-neutral-surface-lower':
-          active !== 'favorites',
+          activeTab() !== 'favorites',
       }"
       class="flex gap-2 justify-between items-center px-4 py-1 text-sm font-semibold hover:rounded-r-xl"
     >
@@ -47,14 +47,14 @@
   </button>
   <mat-menu #menu="matMenu">
     <button
-      (click)="toggleActive('home')"
+      (click)="onToggle('home')"
       matRipple
       [matRippleColor]="'#D4D4D4'"
       [ngClass]="{
         'bg-color-neutral-foreground text-color-core-foreground transition-colors duration-300 ease-in-out':
-          active === 'home',
+          activeTab() === 'home',
         'text-color-neutral-content hover:bg-color-neutral-surface-lower':
-          active !== 'home',
+          activeTab() !== 'home',
       }"
       class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
     >
@@ -63,14 +63,14 @@
     </button>
 
     <button
-      (click)="toggleActive('favorites')"
+      (click)="onToggle('favorites')"
       matRipple
       [matRippleColor]="'#D4D4D4'"
       [ngClass]="{
         'bg-color-neutral-foreground text-color-core-foreground transition-colors duration-300 ease-in-out':
-          active === 'favorites',
+          activeTab() === 'favorites',
         'text-color-neutral-content hover:bg-color-neutral-surface-lower':
-          active !== 'favorites',
+          activeTab() !== 'favorites',
       }"
       class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
     >
