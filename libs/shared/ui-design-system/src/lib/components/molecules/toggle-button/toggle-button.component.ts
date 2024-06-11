@@ -50,30 +50,9 @@ export class ToggleButtonComponent {
     this.toggleActive.emit(tabName);
   }
 
-  //
-  //
-  // // Old
-  // // @Input() checked = false;
-  // // // For two way binding the output property had to have same name of the input
-  // // // plus 'change' and emit same type of data
-  // // @Output() checkedChange = new EventEmitter<boolean>();
+  // activeTab = model.required<string>();
 
-  // // New
-  // checked = model(false);
-
-  // activeTabName = model.required<string>();
-
-  // handleClick(tabName: string): void {
-  //   this.activeTabName.update(() => tabName);
-  // }
-
-  // // Other properties
-  // indeterminate = false;
-  // labelPosition: 'before' | 'after' = 'after';
-  // disabled = false;
-
-  // // Example of utilization of ModelSignal as an Writable Signal
-  // handleClick(): void {
-  //   this.checked.update((c) => !c);
+  // onToggle(tabName: string): void {
+  //   this.activeTab.update(() => tabName);
   // }
 }
