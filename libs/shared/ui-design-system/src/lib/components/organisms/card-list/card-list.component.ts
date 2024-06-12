@@ -23,7 +23,7 @@ import { IconComponent } from '../../atoms/icon/icon.component';
       state(
         'false',
         style({
-          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+          backgroundColor: 'rgba(255, 255, 255, 0.01)',
         }),
       ),
       state(
