@@ -1,58 +1,56 @@
-<section class="flex flex-col items-center px-6 py-12 bg-stone-900 max-md:px-5">
-  <section class="mt-12 max-w-full w-[720px] max-md:mt-10">
-    <div class="flex flex-wrap gap-6 max-md:flex-col max-md:gap-0">
-      @for (card of cardList(); track card.id) {
-        <article
-          class="flex flex-col w-[calc(33.333%-1rem)] max-md:ml-0 max-md:w-full w-56"
+<section class="mt-12 max-w-full w-[720px] max-md:mt-10">
+  <div class="flex flex-wrap gap-6 max-md:flex-col max-md:gap-0">
+    @for (card of cardList(); track card.id) {
+      <article
+        class="flex flex-col w-[calc(33.333%-1rem)] max-md:ml-0 max-md:w-full w-56"
+      >
+        <div
+          class="flex flex-col grow w-full rounded-xl border border-solid bg-neutral-950 border-neutral-700 max-w-[224px] max-md:mt-6 rounded-[12px]"
         >
           <div
-            class="flex flex-col grow w-full rounded-xl border border-solid bg-neutral-950 border-neutral-700 max-w-[224px] max-md:mt-6 rounded-[12px]"
+            class="flex overflow-hidden relative flex-col items-end px-16 pb-20 w-full text-xl font-black text-center whitespace-nowrap aspect-square text-neutral-950 max-md:pl-5"
           >
-            <div
-              class="flex overflow-hidden relative flex-col items-end px-16 pb-20 w-full text-xl font-black text-center whitespace-nowrap aspect-square text-neutral-950 max-md:pl-5"
+            <img
+              loading="lazy"
+              [src]="card.image"
+              [alt]="card.name + ' picture'"
+              class="object-cover absolute inset-0 size-full rounded-t-[12px]"
+            />
+            <span
+              class="absolute top-0 right-0 flex justify-center items-center -w--measure-sizing-xxxl -h--measure-sizing-xxxl gap-0 !-rounded-bl--measure-radius-circle !rounded-tr-[24px] bg-white backdrop-blur max-md:mb-10"
+              [@toggleHeartBackground]="card.isFavorite"
             >
-              <img
-                loading="lazy"
-                [src]="card.image"
-                [alt]="card.name + ' picture'"
-                class="object-cover absolute inset-0 size-full rounded-t-[12px]"
-              />
-              <span
-                class="absolute top-0 right-0 flex justify-center items-center -w--measure-sizing-xxxl -h--measure-sizing-xxxl gap-0 !-rounded-bl--measure-radius-circle !rounded-tr-[24px] bg-white backdrop-blur max-md:mb-10"
-                [@toggleHeartBackground]="card.isFavorite"
-              >
-                <design-system-icon
-                  iconName="heart"
-                  class="z-10"
-                  [isClickable]="true"
-                  initialIconPrefix="far"
-                  (click)="onToggleFavCard(card)"
-                ></design-system-icon>
-                <!-- card.isFavorite -->
-              </span>
-            </div>
-            <div class="flex flex-col p-3">
-              <p
-                class="!font-creepster !text-2xl !leading-6 tracking-[-0.02em] !mb-2 text-color-core-content text-ellipsis overflow-hidden whitespace-nowrap"
-              >
-                {{ card?.name }}
-              </p>
-              <p
-                class="mt-1 text-base leading-6 !mb-2 text-ellipsis text-neutral-400"
-              >
-                {{ card.species }}
-              </p>
-              @if (card.type) {
-                <p
-                  class="mt-1 text-base leading-6 text-ellipsis text-neutral-400"
-                >
-                  {{ card.type }}
-                </p>
-              }
-            </div>
+              <design-system-icon
+                iconName="heart"
+                class="z-10"
+                [isClickable]="true"
+                initialIconPrefix="far"
+                (click)="onToggleFavCard(card)"
+              ></design-system-icon>
+              <!-- card.isFavorite -->
+            </span>
           </div>
-        </article>
-      }
-    </div>
-  </section>
+          <div class="flex flex-col p-3">
+            <p
+              class="!font-creepster !text-2xl !leading-6 tracking-[-0.02em] !mb-2 text-color-core-content text-ellipsis overflow-hidden whitespace-nowrap"
+            >
+              {{ card?.name }}
+            </p>
+            <p
+              class="mt-1 text-base leading-6 !mb-2 text-ellipsis text-neutral-400"
+            >
+              {{ card.species }}
+            </p>
+            @if (card.type) {
+              <p
+                class="mt-1 text-base leading-6 text-ellipsis text-neutral-400"
+              >
+                {{ card.type }}
+              </p>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </div>
 </section>
