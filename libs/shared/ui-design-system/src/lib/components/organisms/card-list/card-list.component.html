@@ -39,6 +39,7 @@
               />
               <span
                 class="relative justify-center items-center px-3.5 mb-16 w-12 h-12 bg-white rounded-none backdrop-blur max-md:mb-10"
+                [@toggleHeartBackground]="character.isFavorite"
               >
                 <design-system-icon
                   iconName="heart"
@@ -73,91 +74,3 @@
     </div>
   </section>
 </section>
-<!-- <div class="flex flex-wrap gap-5 mt-5 max-md:flex-col max-md:gap-0">
-      @for (card of cardList(); track card.id) {
-        <mat-card
-          class="flex flex-col w-[calc(33.333%-1.25rem)] max-md:ml-0 max-md:w-full"
-        >
-          <mat-card-content
-            class="flex flex-col grow w-full rounded-xl border border-solid bg-neutral-950 border-neutral-700 max-w-[224px] max-md:mt-6 rounded-[12px]"
-          >
-            <img
-              mat-card-image
-              [src]="card.image"
-              [alt]="card.name + ' picture'"
-              class="object-cover absolute inset-0 size-full"
-            />
-            <mat-card-title
-              class="text-2xl tracking-tight leading-6 text-ellipsis text-neutral-50 overflow-hidden whitespace-nowrap"
-            >
-              {{ card.name }}
-            </mat-card-title>
-            <mat-card-subtitle
-              class="mt-1 text-base leading-6 text-ellipsis text-neutral-400"
-            >
-              {{ card.species }}
-            </mat-card-subtitle>
-            <p class="mt-1 text-base leading-6 text-ellipsis text-neutral-400">
-              {{ card.type }}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      }
-    </div> -->
-<div class="flex flex-col items-center px-6 py-12 bg-stone-900 max-md:px-5">
-  <div
-    class="flex gap-2 justify-between max-w-full whitespace-nowrap w-[720px] max-md:flex-wrap"
-  >
-    <div
-      class="text-5xl tracking-tighter leading-10 text-cyan-500 border-2 border-lime-400 border-solid text-ellipsis max-md:text-4xl"
-    >
-      Início
-    </div>
-    <div
-      class="justify-center self-start px-4 py-3.5 text-base leading-6 rounded-xl border border-solid bg-stone-900 border-neutral-700 text-ellipsis text-stone-300"
-    >
-      Pesquisar
-    </div>
-  </div>
-  <div class="mt-12 max-w-full w-[720px] max-md:mt-10">
-    <div class="flex gap-5 max-md:flex-col max-md:gap-0">
-      <div class="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-        <div
-          class="flex flex-col grow w-full rounded-xl border border-solid bg-neutral-950 border-neutral-700 max-w-[224px] max-md:mt-6"
-        >
-          <div
-            class="flex overflow-hidden relative flex-col items-end px-16 pb-20 w-full text-xl font-black text-center whitespace-nowrap aspect-square text-neutral-950 max-md:pl-5"
-          >
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/b4d6eaa1b26cc94aac79d3d234cd9d18a1cbe6b5184ec5346029ce92c300267a?apiKey=a95f3f5d0c8f491eb3bd2f0feef189ba&"
-              class="object-cover absolute inset-0 size-full"
-            />
-            <div
-              class="relative justify-center items-center px-3.5 mb-16 w-12 h-12 bg-opacity-5 rounded-full backdrop-blur max-md:mb-10"
-              [@toggleHeart]="heartState"
-              (click)="toggleHeart()"
-            >
-              heart
-            </div>
-          </div>
-          <div class="flex flex-col p-3">
-            <div
-              class="text-2xl tracking-tight leading-6 text-ellipsis text-neutral-50"
-            >
-              Rick Sanchez
-            </div>
-            <div
-              class="mt-1 text-base leading-6 text-ellipsis text-neutral-400"
-            >
-              Human
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--  -->
-<!--  -->

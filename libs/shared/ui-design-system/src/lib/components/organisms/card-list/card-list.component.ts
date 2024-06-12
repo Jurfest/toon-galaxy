@@ -19,15 +19,15 @@ import { IconComponent } from '../../atoms/icon/icon.component';
   templateUrl: './card-list.component.html',
   styleUrl: './card-list.component.scss',
   animations: [
-    trigger('toggleHeart', [
+    trigger('toggleHeartBackground', [
       state(
-        'transparent',
+        'false',
         style({
           backgroundColor: 'rgba(255, 255, 255, 0.05)',
         }),
       ),
       state(
-        'white',
+        'true',
         style({
           backgroundColor: '#ffffff',
         }),
@@ -42,12 +42,5 @@ export class CardListComponent {
 
   onToggleFavCard(card: Card): void {
     this.favCardUpdate.emit(card);
-  }
-
-  heartState: 'transparent' | 'white' = 'transparent';
-
-  toggleHeart() {
-    this.heartState =
-      this.heartState === 'transparent' ? 'white' : 'transparent';
   }
 }
