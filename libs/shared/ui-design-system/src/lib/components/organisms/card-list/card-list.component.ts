@@ -10,12 +10,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
 import { Card } from '../../../models/card';
+import { HeadingComponent } from '../../atoms/heading/heading.component';
 import { IconComponent } from '../../atoms/icon/icon.component';
+import { TextComponent } from '../../atoms/text/text.component';
+import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'design-system-card-list',
   standalone: true,
-  imports: [IconComponent, MatCardModule, MatButtonModule],
+  imports: [
+    TextComponent,
+    HeadingComponent,
+    IconComponent,
+    MatCardModule,
+    MatButtonModule,
+    MatInput,
+  ],
   templateUrl: './card-list.component.html',
   styleUrl: './card-list.component.scss',
   animations: [

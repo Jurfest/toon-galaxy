@@ -2,20 +2,26 @@
   <header
     class="flex gap-2 justify-between max-w-full whitespace-nowrap w-[720px] max-md:flex-wrap"
   >
-    <h1
+    <!-- <h1
       class="text-5xl tracking-tighter leading-10 text-cyan-500 border-2 border-lime-400 border-solid text-ellipsis max-md:text-4xl"
     >
       Início
-    </h1>
+    </h1> -->
+
+    <design-system-heading label="Início" [withBorder]="true" font="creepster">
+    </design-system-heading>
+
     <form
       class="justify-center self-start px-4 py-3.5 text-base leading-6 rounded-xl border border-solid bg-stone-900 border-neutral-700 text-ellipsis text-stone-300"
     >
-      <input
+      <!-- <input
         class="label"
         type="search"
         placeholder="Pesquisar"
         aria-label="Pesquisar"
-      />
+      /> -->
+
+      <input formControlName="search" matInput placeholder="" />
     </form>
   </header>
 
@@ -58,7 +64,7 @@
                 {{ card?.name }}
               </p>
               <p
-                class="mt-1 text-base leading-6 !mb-2 text-ellipsis text-neutral-400 tracking-tighter"
+                class="mt-1 text-base leading-6 !mb-2 text-ellipsis text-neutral-400"
               >
                 {{ card.species }}
               </p>

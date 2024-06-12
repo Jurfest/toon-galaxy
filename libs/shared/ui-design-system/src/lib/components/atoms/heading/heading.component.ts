@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,4 +9,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './heading.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeadingComponent {}
+export class HeadingComponent {
+  label = input<string>();
+  font = input<'poppins' | 'creepster'>('poppins');
+  withBorder = input<boolean>(false);
+  size = input<'sm' | 'md' | 'lg'>('md');
+  color = input<string>('--green-300');
+}

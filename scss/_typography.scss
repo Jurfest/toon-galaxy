@@ -21,10 +21,40 @@
   font-weight: 700;
 }
 
-body {
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+li,
+blockquote,
+input,
+textarea,
+button,
+.mat-typography {
   font-family: 'Poppins', sans-serif;
 }
 
-.creepster {
-  font-family: 'Creepster', cursive;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+li,
+blockquote,
+input,
+textarea,
+button,
+.mat-typography {
+  &.creepster {
+    font-family: 'Creepster', cursive;
+  }
 }

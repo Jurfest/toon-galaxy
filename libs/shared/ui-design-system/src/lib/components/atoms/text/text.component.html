@@ -1,7 +1,7 @@
 <span
   [ngClass]="{
-    poppins: font() === 'poppins',
-    creepster: font() === 'creepster',
+    'font-default': font() === 'poppins',
+    '!font-creepster': font() === 'creepster',
     'text-with-border': withBorder(),
     'text-xs': size() === 'sm',
     'text-sm': size() === 'md',
@@ -11,5 +11,3 @@
 >
   {{ label() }}
 </span>
-
-<p>text3</p>

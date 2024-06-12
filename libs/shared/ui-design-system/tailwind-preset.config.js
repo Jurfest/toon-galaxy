@@ -76,10 +76,26 @@ module.exports = {
         'black-100': colors.black_100,
         'black-700': colors.black_700,
       },
+      textShadow: {
+        heading: `-1px -1px 0 var(--green-300),
+                 2px -2px 0 var(--green-300),
+                 -2px 2px 0 var(--green-300),
+                 2px 2px 0 var(--green-300)`,
+      },
     },
   },
   plugins: [
     // require('@tailwindcss/typography'),
     // require('@tailwindcss/aspect-ratio'),
+    function ({ addUtilities }) {
+      addUtilities({
+        '.text-shadow-heading': {
+          textShadow: `-1px -1px 0 var(--green-300),
+                       2px -2px 0 var(--green-300),
+                       -2px 2px 0 var(--green-300),
+                       2px 2px 0 var(--green-300)`,
+        },
+      });
+    },
   ],
 };
