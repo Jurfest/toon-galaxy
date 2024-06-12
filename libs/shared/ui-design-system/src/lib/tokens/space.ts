@@ -8,6 +8,7 @@ export const space = {
   7: '1.75rem',
   8: '2rem',
   '--measure-sizing-xxl': '40px',
+  '--measure-sizing-xxxl': '48px',
   12: '3rem',
   16: '4rem',
   20: '5rem',
