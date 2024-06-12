@@ -33,6 +33,7 @@ import {
 })
 export class IconComponent implements OnInit {
   library = inject(FaIconLibrary);
+
   iconName = input.required<IconNameFas | IconNameFar>();
   isClickable = input<boolean>(false);
   initialIconPrefix = input<'far' | 'fas'>('fas');
@@ -53,7 +54,7 @@ export class IconComponent implements OnInit {
     this.isSelected.set(!this.isSelected());
 
     this.faIcon = computed(() =>
-      this.isSelected() ? ['far', this.iconName()] : ['fas', this.iconName()],
+      this.isSelected() ? ['fas', this.iconName()] : ['far', this.iconName()],
     );
   }
 }

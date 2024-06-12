@@ -21,7 +21,7 @@
 
   <section class="mt-12 max-w-full w-[720px] max-md:mt-10">
     <div class="flex flex-wrap gap-6 max-md:flex-col max-md:gap-0">
-      @for (character of cardList(); track character.id) {
+      @for (card of cardList(); track card.id) {
         <article
           class="flex flex-col w-[calc(33.333%-1rem)] max-md:ml-0 max-md:w-full w-56"
         >
@@ -33,38 +33,40 @@
             >
               <img
                 loading="lazy"
-                [src]="character.image"
-                [alt]="character.name + ' picture'"
+                [src]="card.image"
+                [alt]="card.name + ' picture'"
                 class="object-cover absolute inset-0 size-full rounded-t-[12px]"
               />
               <span
                 class="absolute top-0 right-0 flex justify-center items-center -w--measure-sizing-xxxl -h--measure-sizing-xxxl gap-0 !-rounded-bl--measure-radius-circle !rounded-tr-[24px] bg-white backdrop-blur max-md:mb-10"
-                [@toggleHeartBackground]="character.isFavorite"
+                [@toggleHeartBackground]="card.isFavorite"
               >
                 <design-system-icon
                   iconName="heart"
                   class="z-10"
-                  (click)="onToggleFavCard(character)"
+                  [isClickable]="true"
+                  initialIconPrefix="far"
+                  (click)="onToggleFavCard(card)"
                 ></design-system-icon>
-                <!-- character.isFavorite -->
+                <!-- card.isFavorite -->
               </span>
             </div>
             <div class="flex flex-col p-3">
               <p
                 class="!font-creepster !text-2xl !leading-6 tracking-[-0.02em] !mb-2 text-color-core-content text-ellipsis overflow-hidden whitespace-nowrap"
               >
-                {{ character?.name }}
+                {{ card?.name }}
               </p>
               <p
                 class="mt-1 text-base leading-6 !mb-2 text-ellipsis text-neutral-400 tracking-tighter"
               >
-                {{ character.species }}
+                {{ card.species }}
               </p>
-              @if (character.type) {
+              @if (card.type) {
                 <p
                   class="mt-1 text-base leading-6 text-ellipsis text-neutral-400"
                 >
-                  {{ character.type }}
+                  {{ card.type }}
                 </p>
               }
             </div>
