@@ -1,35 +1,52 @@
-@if (true) {
-  <h1 class="title">Início</h1>
-  <form [formGroup]="searchCharactersForm">
-    <mat-form-field appearance="outline">
-      <mat-label>Pesquisar</mat-label>
-      <input formControlName="search" matInput placeholder="" />
-    </mat-form-field>
-  </form>
+<section class="flex flex-col items-center px-6 py-12 max-md:px-5">
+  @if (true) {
+    <header
+      class="flex gap-2 justify-between max-w-full whitespace-nowrap w-[720px] max-md:flex-wrap"
+    >
+      <design-system-heading
+        label="Início"
+        [withBorder]="true"
+        font="creepster"
+      >
+      </design-system-heading>
 
-  @if (characterViewModelList$ | async; as characterViewModelList) {
-    @switch (characterViewModelList.length > 0) {
-      @case (true) {
-        <design-system-card-list
-          [cardList]="characterViewModelList"
-          (favCardUpdate)="updateFavorites($event)"
-        ></design-system-card-list>
+      <form [formGroup]="searchCharactersForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Pesquisar</mat-label>
+          <input formControlName="search" matInput placeholder="" />
+        </mat-form-field>
+      </form>
+      <!-- <form
+        class="justify-center self-start px-4 py-3.5 text-base leading-6 rounded-xl border border-solid bg-stone-900 border-neutral-700 text-ellipsis text-stone-300"
+      >
+        <input formControlName="search" matInput placeholder="" />
+      </form> -->
+    </header>
 
-        <!-- <toon-galaxy-card-list
+    @if (characterViewModelList$ | async; as characterViewModelList) {
+      @switch (characterViewModelList.length > 0) {
+        @case (true) {
+          <design-system-card-list
+            [cardList]="characterViewModelList"
+            (favCardUpdate)="updateFavorites($event)"
+          ></design-system-card-list>
+
+          <!-- <toon-galaxy-card-list
         [cards]="characterList"
         (cardChange)="toggleFavoriteCharacter($event)"
       ></toon-galaxy-card-list> -->
-      }
-      @case (false) {
-        <h2>Nada foi encontrado</h2>
-        <h3>Tente realizar uma nova busca.</h3>
-        <!-- <toon-galaxy-empty-banner
+        }
+        @case (false) {
+          <h2>Nada foi encontrado</h2>
+          <h3>Tente realizar uma nova busca.</h3>
+          <!-- <toon-galaxy-empty-banner
         [cards]="characterList"
         (cardChange)="toggleFavoriteCharacter($event)"
       ></toon-galaxy-empty-banner> -->
+        }
       }
     }
+  } @else {
+    <h1 class="title">Favoritos</h1>
   }
-} @else {
-  <h1 class="title">Favoritos</h1>
-}
+</section>

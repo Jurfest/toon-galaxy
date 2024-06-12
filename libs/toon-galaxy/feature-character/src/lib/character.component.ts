@@ -3,7 +3,10 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { CardListComponent } from '@toon-galaxy/shared/ui-design-system';
+import {
+  CardListComponent,
+  HeadingComponent,
+} from '@toon-galaxy/shared/ui-design-system';
 import {
   CharacterEntity,
   CharacterFacade,
@@ -25,6 +28,7 @@ import {
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    HeadingComponent,
     CardListComponent,
     // temps:
     MatFormFieldModule,
