@@ -1,7 +1,7 @@
 export const space = {
   '--measure-spacing-xxs': '0.25rem',
   '--measure-spacing-xs': '0.5rem',
-  3: '0.75rem',
+  '--measure-spacing-s': '0.75rem',
   '--measure-spacing-m': '1rem',
   5: '1.25rem',
   6: '1.5rem',

@@ -67,6 +67,7 @@ module.exports = {
         'color-neutral-content-high': colors.color_neutral_content_high,
         'color-neutral-content-higher': colors.color_neutral_content_higher,
         'color-neutral-border': colors.color_neutral_border,
+        'color-neutral-border-high': colors.color_neutral_border_high,
 
         //
         'green-300': colors.green_300,

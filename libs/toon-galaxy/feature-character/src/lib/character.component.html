@@ -10,17 +10,22 @@
       >
       </design-system-heading>
 
-      <form [formGroup]="searchCharactersForm">
-        <mat-form-field appearance="outline">
+      <form [formGroup]="searchCharactersForm" class="search-form">
+        <mat-form-field
+          class="search-form-field"
+          appearance="outline"
+          [class.has-text]="searchCharactersForm.get('search')?.value"
+        >
           <mat-label>Pesquisar</mat-label>
-          <input formControlName="search" matInput placeholder="" />
+          <input
+            matInput
+            type="text"
+            formControlName="search"
+            placeholder=""
+            class="input-field"
+          />
         </mat-form-field>
       </form>
-      <!-- <form
-        class="justify-center self-start px-4 py-3.5 text-base leading-6 rounded-xl border border-solid bg-stone-900 border-neutral-700 text-ellipsis text-stone-300"
-      >
-        <input formControlName="search" matInput placeholder="" />
-      </form> -->
     </header>
 
     @if (characterViewModelList$ | async; as characterViewModelList) {

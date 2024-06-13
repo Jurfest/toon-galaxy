@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import {
   CardListComponent,
   HeadingComponent,
+  InputComponent,
 } from '@toon-galaxy/shared/ui-design-system';
 import {
   CharacterEntity,
@@ -29,6 +30,7 @@ import {
     CommonModule,
     ReactiveFormsModule,
     HeadingComponent,
+    InputComponent,
     CardListComponent,
     // temps:
     MatFormFieldModule,

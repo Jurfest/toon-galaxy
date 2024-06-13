@@ -6,6 +6,7 @@ export * from './lib/tokens/line-heights';
 export * from './lib/tokens/radii';
 export * from './lib/tokens/space';
 
+export * from './lib/components/atoms/heading/heading.component';
+export * from './lib/components/atoms/input/input.component';
 export * from './lib/components/organisms/navbar/navbar.component';
 export * from './lib/components/organisms/card-list/card-list.component';
-export * from './lib/components/atoms/heading/heading.component';
