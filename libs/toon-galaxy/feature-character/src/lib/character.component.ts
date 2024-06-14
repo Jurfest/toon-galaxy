@@ -3,11 +3,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ActivatedRoute } from '@angular/router';
 import {
   CardListComponent,
+  EmptyResultComponent,
   HeadingComponent,
   InputComponent,
-  EmptyResultComponent,
 } from '@toon-galaxy/shared/ui-design-system';
 import {
   CharacterEntity,
@@ -22,7 +23,6 @@ import {
   Observable,
   startWith,
   switchMap,
-  tap,
 } from 'rxjs';
 
 @Component({
@@ -43,8 +43,9 @@ import {
   styleUrls: ['./character.component.scss'],
 })
 export class CharacterComponent implements OnInit {
-  private characterFacade = inject(CharacterFacade);
   private fb = inject(FormBuilder);
+  private route = inject(ActivatedRoute);
+  private characterFacade = inject(CharacterFacade);
 
   characterList$!: Observable<CharacterEntity[]>;
   favCharacterList$: Observable<CharacterEntity[]> =
@@ -55,6 +56,10 @@ export class CharacterComponent implements OnInit {
   searchCharactersForm = this.fb.group({
     search: [''],
   });
+
+  isFavorites$ = this.route.url.pipe(
+    map((segments) => segments.some((segment) => segment.path === 'favorites')),
+  );
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}

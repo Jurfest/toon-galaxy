@@ -1,15 +1,14 @@
 <section class="flex flex-col items-center px-6 py-12 max-md:px-5">
-  @if (true) {
-    <header
-      class="flex gap-2 justify-between max-w-full whitespace-nowrap w-[720px] max-md:flex-wrap"
-    >
-      <design-system-heading
-        label="Início"
-        [withBorder]="true"
-        font="creepster"
-      >
-      </design-system-heading>
+  <header
+    class="flex gap-2 justify-between max-w-full whitespace-nowrap w-[720px] max-md:flex-wrap"
+  >
+    <design-system-heading
+      [label]="(isFavorites$ | async) ? 'Favoritos' : 'Início'"
+      [withBorder]="true"
+      font="creepster"
+    ></design-system-heading>
 
+    @if ((isFavorites$ | async) === false) {
       <form [formGroup]="searchCharactersForm" class="search-form">
         <mat-form-field
           class="search-form-field"
@@ -26,25 +25,21 @@
           />
         </mat-form-field>
       </form>
-    </header>
-
-    @if (characterViewModelList$ | async; as characterViewModelList) {
-      @switch (characterViewModelList.length > 0) {
-        @case (true) {
-          <design-system-card-list
-            [cardList]="characterViewModelList"
-            (favCardUpdate)="updateFavorites($event)"
-          ></design-system-card-list>
-        }
-        @case (false) {
-          <!-- NOTE: - Improve conditions to show empty result? -->
-          @if (this.loaded$ | async) {
-            <design-system-empty-result></design-system-empty-result>
-          }
-        }
-      }
     }
-  } @else {
-    <h1 class="title">Favoritos</h1>
+  </header>
+
+  @if (characterViewModelList$ | async; as characterViewModelList) {
+    @if (characterViewModelList.length > 0) {
+      <design-system-card-list
+        [cardList]="characterViewModelList"
+        (favCardUpdate)="updateFavorites($event)"
+      ></design-system-card-list>
+    } @else if (this.loaded$ | async) {
+      <!-- NOTE: - Improve conditions to show empty result? -->
+      <design-system-empty-result></design-system-empty-result>
+      <!-- [isFavorites]="
+          (isFavorites$ | async)""
+        " -->
+    }
   }
 </section>
