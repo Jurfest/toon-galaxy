@@ -37,9 +37,10 @@
           ></design-system-card-list>
         }
         @case (false) {
-          <!-- <h2>Nada foi encontrado</h2>
-          <h3>Tente realizar uma nova busca.</h3> -->
-          <design-system-empty-result></design-system-empty-result>
+          <!-- NOTE: - Improve conditions to show empty result? -->
+          @if (this.loaded$ | async) {
+            <design-system-empty-result></design-system-empty-result>
+          }
         }
       }
     }
