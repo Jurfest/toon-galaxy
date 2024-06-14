@@ -51,6 +51,14 @@ export class CharacterComponent implements OnInit {
   favCharacterList$: Observable<CharacterEntity[]> =
     this.characterFacade.favoriteCharacterList$;
   characterViewModelList$!: Observable<CharacterViewModel[]>;
+  favCharacterViewModelList$: Observable<CharacterViewModel[]> =
+    this.favCharacterList$.pipe(
+      map((favList) =>
+        favList.map((fav) => {
+          return { ...fav, isFavorite: true };
+        }),
+      ),
+    );
   loaded$ = this.characterFacade.loaded$;
 
   searchCharactersForm = this.fb.group({

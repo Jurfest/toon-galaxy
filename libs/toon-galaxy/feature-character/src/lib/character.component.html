@@ -31,7 +31,11 @@
   @if (characterViewModelList$ | async; as characterViewModelList) {
     @if (characterViewModelList.length > 0) {
       <design-system-card-list
-        [cardList]="characterViewModelList"
+        [cardList]="
+          (isFavorites$ | async)
+            ? (favCharacterViewModelList$ | async) || []
+            : characterViewModelList
+        "
         (favCardUpdate)="updateFavorites($event)"
       ></design-system-card-list>
     } @else if (this.loaded$ | async) {
