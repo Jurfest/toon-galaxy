@@ -1,0 +1,9 @@
+:host {
+  @apply max-w-[45rem] max-h-[31.9375rem] w-full -gap--measure-spacing-m
+  bg-color-core-foreground rounded-measure-radius-s border
+  border-color-core-border flex flex-col justify-center mt-12
+  text-center border-solid max-md:mt-10;
+
+  /* Calculate the height to fill the screen minus the margins */
+  height: calc(100vh - 257px);
+}

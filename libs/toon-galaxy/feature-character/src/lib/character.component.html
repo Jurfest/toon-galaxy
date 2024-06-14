@@ -35,19 +35,11 @@
             [cardList]="characterViewModelList"
             (favCardUpdate)="updateFavorites($event)"
           ></design-system-card-list>
-
-          <!-- <toon-galaxy-card-list
-        [cards]="characterList"
-        (cardChange)="toggleFavoriteCharacter($event)"
-      ></toon-galaxy-card-list> -->
         }
         @case (false) {
-          <h2>Nada foi encontrado</h2>
-          <h3>Tente realizar uma nova busca.</h3>
-          <!-- <toon-galaxy-empty-banner
-        [cards]="characterList"
-        (cardChange)="toggleFavoriteCharacter($event)"
-      ></toon-galaxy-empty-banner> -->
+          <!-- <h2>Nada foi encontrado</h2>
+          <h3>Tente realizar uma nova busca.</h3> -->
+          <design-system-empty-result></design-system-empty-result>
         }
       }
     }

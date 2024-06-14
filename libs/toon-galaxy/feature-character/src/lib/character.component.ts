@@ -7,6 +7,7 @@ import {
   CardListComponent,
   HeadingComponent,
   InputComponent,
+  EmptyResultComponent,
 } from '@toon-galaxy/shared/ui-design-system';
 import {
   CharacterEntity,
@@ -32,6 +33,7 @@ import {
     HeadingComponent,
     InputComponent,
     CardListComponent,
+    EmptyResultComponent,
     // temps:
     MatFormFieldModule,
     MatInputModule,
