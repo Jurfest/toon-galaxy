@@ -1,0 +1,36 @@
+{
+  "name": "toon-galaxy-feature-character",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/toon-galaxy/feature-character/src",
+  "prefix": "toon-galaxy",
+  "projectType": "library",
+  "tags": ["domain:toon-galaxy", "type:feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/toon-galaxy/feature-character/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/toon-galaxy/feature-character/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/toon-galaxy/feature-character/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/toon-galaxy/feature-character/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

@@ -19,6 +19,7 @@ export const colors = {
   color_neutral_content_higher: '#F2F2F2',
 
   color_neutral_border: '#3D3D3D',
+  color_neutral_border_high: '#5D5D5D',
 
   // Color Tokens
   green_300: '#b2df28',

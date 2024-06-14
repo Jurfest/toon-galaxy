@@ -39,6 +39,8 @@ export const appConfig: ApplicationConfig = {
     provideEffects([]),
     ...(isDevMode() ? [provideStoreDevtools()] : []),
     // provideState(),
+
+    //
     provideToonGalaxyDomain(),
 
     // Perform initialization, has to be last

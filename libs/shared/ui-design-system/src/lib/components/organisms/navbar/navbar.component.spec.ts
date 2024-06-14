@@ -13,6 +13,7 @@ describe('NavbarComponent', () => {
 
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('totalFavoriteCharacters', 0);
     fixture.detectChanges();
   });
 

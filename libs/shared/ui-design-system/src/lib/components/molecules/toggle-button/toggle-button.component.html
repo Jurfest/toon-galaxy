@@ -1,83 +1,88 @@
-<header
-  class="flex items-center gap-2 justify-between px-6 text-center whitespace-nowrap border-b border-solid bg-neutral-950 border-neutral-700 max-md:flex-wrap max-md:px-5"
->
-  <img
-    loading="lazy"
-    src="assets/images/a1e98988c48a862cac69e3b18711a420ce67d2c4c292beec4d40aa7a04e7bc75?apiKey=a95f3f5d0c8f491eb3bd2f0feef189ba&"
-    alt="Company Logo"
-    class="shrink-0 max-w-full aspect-[1.79] w-[114px]"
-  />
-  <nav
-    class="flex gap-0 my-auto rounded-xl border border-solid border-neutral-700"
-  >
-    <a
-      href="#"
-      class="flex gap-2 justify-between px-4 py-1 bg-white text-neutral-950"
-      tabindex="0"
-    >
-      <span class="text-base font-black">home</span>
-      <span class="text-sm font-semibold leading-4">Início</span>
-    </a>
-    <a
-      href="#"
-      class="flex gap-2 justify-between items-center px-4 py-1 text-sm text-neutral-400"
-      tabindex="0"
-    >
-      <span class="self-stretch my-auto text-base font-black">heart</span>
-      <span class="self-stretch my-auto font-semibold leading-[100%]">
-        Favoritos
-      </span>
-      <span
-        class="justify-center items-center self-stretch p-0.5 w-5 h-5 font-bold bg-white border border-solid border-neutral-700 leading-[140%] rounded-[100px] text-neutral-950"
-      >
-        3
-      </span>
-    </a>
-  </nav>
-</header>
-
-<!--  -->
-
-Second
-
-<header
-  class="flex items-center gap-2 justify-between px-6 text-center whitespace-nowrap border-b border-solid bg-neutral-950 border-neutral-700 max-md:flex-wrap max-md:px-5"
->
-  <img
-    loading="lazy"
-    src="assets/images/a1e98988c48a862cac69e3b18711a420ce67d2c4c292beec4d40aa7a04e7bc75?apiKey=a95f3f5d0c8f491eb3bd2f0feef189ba&"
-    alt="Company Logo"
-    class="shrink-0 max-w-full aspect-[1.79] w-[114px]"
-  />
-  <nav
-    class="flex gap-0 my-auto rounded-xl border border-solid border-neutral-700"
+@if (!isHandset()) {
+  <div
+    class="flex gap-0 my-auto rounded-xl border border-solid border-color-core-border"
   >
     <button
-      (click)="toggleActive('home')"
+      (click)="onToggle(TabName.Home)"
+      matRipple
+      [matRippleColor]="'#D4D4D4'"
       [ngClass]="{
-        'bg-white text-neutral-950': active === 'home',
-        'text-neutral-400': active !== 'home'
+        'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200 rounded-l-measure-radius-s transition-colors duration-300 ease-in-out':
+          activeTab() === TabName.Home,
+        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+          activeTab() !== TabName.Home,
       }"
-      class="flex gap-2 justify-between px-4 py-1 text-sm font-semibold"
+      class="flex gap-2 justify-between px-4 py-1 text-sm font-semibold hover:rounded-l-xl"
     >
-      <span class="text-base font-black">home</span>
-      <span class="leading-4">Início</span>
+      <design-system-icon iconName="home" class="z-10"></design-system-icon>
+      <span class="self-stretch my-auto leading-[100%] z-10">Início</span>
     </button>
     <button
-      (click)="toggleActive('favorites')"
+      (click)="onToggle(TabName.Favorites)"
+      matRipple
+      [matRippleColor]="'#D4D4D4'"
       [ngClass]="{
-        'bg-white text-neutral-950': active === 'favorites',
-        'text-neutral-400': active !== 'favorites'
+        'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200 rounded-r-measure-radius-s transition-colors duration-300 ease-in-out':
+          activeTab() === TabName.Favorites,
+        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+          activeTab() !== TabName.Favorites,
       }"
-      class="flex gap-2 justify-between items-center px-4 py-1 text-sm font-semibold"
+      class="flex gap-2 justify-between items-center px-4 py-1 text-sm font-semibold hover:rounded-r-xl"
     >
-      <span class="self-stretch my-auto text-base font-black">heart</span>
-      <span class="self-stretch my-auto leading-[100%]">Favoritos</span>
+      <design-system-icon iconName="heart" class="z-10"></design-system-icon>
+      <span class="self-stretch my-auto leading-[100%] z-10">Favoritos</span>
       <span
-        class="justify-center items-center self-stretch p-0.5 w-5 h-5 font-bold bg-white border border-solid border-neutral-700 leading-[140%] rounded-[100px] text-neutral-950"
+        class="flex justify-center items-center w-5 h-5 font-bold bg-color-neutral-foreground border border-solid border-color-core-border rounded-full text-color-core-foreground p-0.5 my-0 mx-auto z-10"
       >
-        3
+        <span [@numberChange]="totalFavoriteCharacters()">
+          {{ totalFavoriteCharacters() }}
+        </span>
       </span>
     </button>
-  </nav>
-</header>
+  </div>
+} @else {
+  <!-- Handset Menu -->
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button
+      (click)="onToggle(TabName.Home)"
+      matRipple
+      [matRippleColor]="'#D4D4D4'"
+      [ngClass]="{
+        'bg-color-neutral-foreground text-color-core-foreground transition-colors duration-300 ease-in-out':
+          activeTab() === TabName.Home,
+        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+          activeTab() !== TabName.Home,
+      }"
+      class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
+    >
+      <design-system-icon iconName="home" class="z-10"></design-system-icon>
+      <span class="self-stretch my-auto leading-[100%] z-10">Início</span>
+    </button>
+
+    <button
+      (click)="onToggle(TabName.Favorites)"
+      matRipple
+      [matRippleColor]="'#D4D4D4'"
+      [ngClass]="{
+        'bg-color-neutral-foreground text-color-core-foreground transition-colors duration-300 ease-in-out':
+          activeTab() === TabName.Favorites,
+        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+          activeTab() !== TabName.Favorites,
+      }"
+      class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
+    >
+      <design-system-icon iconName="heart" class="z-10"></design-system-icon>
+      <span class="self-stretch my-auto leading-[100%] z-10">Favoritos</span>
+      <span
+        class="flex justify-center items-center w-5 h-5 font-bold bg-color-neutral-foreground border border-solid border-color-core-border rounded-full text-color-core-foreground p-0.5 my-0 mx-auto z-10"
+      >
+        <span [@numberChange]="totalFavoriteCharacters()">
+          {{ totalFavoriteCharacters() }}
+        </span>
+      </span>
+    </button>
+  </mat-menu>
+}

@@ -25,12 +25,21 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/toon-galaxy/src/favicon.ico",
-          "apps/toon-galaxy/src/assets"
+          "apps/toon-galaxy/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/shared/ui-design-system/src/assets",
+            "output": "assets"
+          }
         ],
         "styles": [
-          "@angular/material/prebuilt-themes/purple-green.css",
-          "apps/toon-galaxy/src/styles.scss"
+          "@angular/material/prebuilt-themes/cyan-orange.css",
+          "apps/toon-galaxy/src/styles.scss",
+          "scss/_global-styles.scss"
         ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["scss"]
+        },
         "scripts": []
       },
       "configurations": {
@@ -58,8 +67,8 @@
           "namedChunks": true,
           "fileReplacements": [
             {
-              "replace": "apps/toon-galaxy/src/environments/environment.ts",
-              "with": "apps/toon-galaxy/src/environments/environment.development.ts"
+              "replace": "environments/environment.ts",
+              "with": "environments/environment.development.ts"
             }
           ]
         }
@@ -123,8 +132,8 @@
           "vendorChunk": true,
           "fileReplacements": [
             {
-              "replace": "apps/toon-galaxy/src/environments/environment.ts",
-              "with": "apps/toon-galaxy/src/environments/environment.development.ts"
+              "replace": "environments/environment.ts",
+              "with": "environments/environment.development.ts"
             }
           ]
         }

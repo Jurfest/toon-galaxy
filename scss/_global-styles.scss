@@ -3,8 +3,19 @@
 @forward 'colors';
 @forward 'typography';
 @forward 'effects';
-@forward 'material-themes';
+// @forward 'm3-theme';
+// @forward 'material-themes';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+// https://stackoverflow.com/questions/74500132/angular-15-material-bug-input-on-focus-when-using-tailwindcss
+.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field
+  .mdc-notched-outline__notch {
+  border-right-style: hidden;
+}
+
+.mat-mdc-input-element {
+  box-shadow: none !important;
+}

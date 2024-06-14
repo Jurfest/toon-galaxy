@@ -11,6 +11,7 @@ describe('IconComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(IconComponent);
+    fixture.componentRef.setInput('iconName', 'heart');
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
