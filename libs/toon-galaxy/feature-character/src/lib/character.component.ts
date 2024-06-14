@@ -50,12 +50,11 @@ export class CharacterComponent implements OnInit {
   favCharacterList$: Observable<CharacterEntity[]> =
     this.characterFacade.favoriteCharacterList$;
   characterViewModelList$!: Observable<CharacterViewModel[]>;
+  loaded$ = this.characterFacade.loaded$;
 
   searchCharactersForm = this.fb.group({
     search: [''],
   });
-
-  loading: boolean | undefined;
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}
@@ -68,9 +67,7 @@ export class CharacterComponent implements OnInit {
     this.characterList$ = debounceSearchInput$.pipe(
       startWith(''),
       distinctUntilChanged(),
-      tap(() => (this.loading = true)),
       switchMap((input) => this.loadCharacters(input || '')),
-      tap(() => (this.loading = false)),
     );
 
     this.loadCharacterViewModelList();
