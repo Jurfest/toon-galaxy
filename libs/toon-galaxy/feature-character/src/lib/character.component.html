@@ -46,4 +46,11 @@
         " -->
     }
   }
+
+  @if (
+    (isFavorites$ | async) &&
+    ((favCharacterViewModelList$ | async) || []).length === 0
+  ) {
+    <design-system-empty-result></design-system-empty-result>
+  }
 </section>
