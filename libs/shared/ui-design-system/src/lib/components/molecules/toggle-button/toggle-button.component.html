@@ -27,12 +27,18 @@
         'text-color-neutral-content hover:bg-color-neutral-surface-lower':
           activeTab() !== TabName.Favorites,
       }"
-      class="flex gap-2 justify-between items-center px-4 py-1 text-sm font-semibold hover:rounded-r-xl"
+      class="group flex gap-2 justify-between items-center px-4 py-1 text-sm font-semibold hover:rounded-r-xl"
     >
       <design-system-icon iconName="heart" class="z-10"></design-system-icon>
       <span class="self-stretch my-auto leading-[100%] z-10">Favoritos</span>
       <span
-        class="flex justify-center items-center w-5 h-5 font-bold bg-color-neutral-foreground border border-solid border-color-core-border rounded-full text-color-core-foreground p-0.5 my-0 mx-auto z-10"
+        class="flex justify-center items-center w-5 h-5 font-bold border border-solid border-color-core-border rounded-full p-0.5 my-0 mx-auto z-10"
+        [ngClass]="{
+          'bg-color-neutral-surface-lower text-color-neutral-content-high group-hover:bg-[#2D2D2D] group-hover:text-[#c2c2c2]':
+            activeTab() === TabName.Favorites,
+          'bg-color-neutral-foreground text-color-core-foreground group-hover:bg-gray-200  group-hover:text-gray-800':
+            activeTab() !== TabName.Favorites,
+        }"
       >
         <span [@numberChange]="totalFavoriteCharacters()">
           {{ totalFavoriteCharacters() }}
@@ -77,7 +83,13 @@
       <design-system-icon iconName="heart" class="z-10"></design-system-icon>
       <span class="self-stretch my-auto leading-[100%] z-10">Favoritos</span>
       <span
-        class="flex justify-center items-center w-5 h-5 font-bold bg-color-neutral-foreground border border-solid border-color-core-border rounded-full text-color-core-foreground p-0.5 my-0 mx-auto z-10"
+        class="flex justify-center items-center w-5 h-5 font-bold border border-solid border-color-core-border rounded-full p-0.5 my-0 mx-auto z-10"
+        [ngClass]="{
+          'bg-color-neutral-surface-lower text-color-neutral-content-high':
+            activeTab() === TabName.Favorites,
+          'bg-color-neutral-foreground text-color-core-foreground':
+            activeTab() !== TabName.Favorites,
+        }"
       >
         <span [@numberChange]="totalFavoriteCharacters()">
           {{ totalFavoriteCharacters() }}
