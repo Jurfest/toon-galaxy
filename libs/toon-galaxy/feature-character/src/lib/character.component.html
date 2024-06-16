@@ -28,36 +28,45 @@
     }
   </header>
 
-  @if (characterViewModelList$ | async; as characterViewModelList) {
-    @if (characterViewModelList.length > 0) {
+  @if ((isFavorites$ | async) === false) {
+    <!-- @if (characterViewModelList$ | async; as characterViewModelList) {
+      @if (characterViewModelList.length > 0) {
+        <design-system-card-list
+          [cardList]="
+            (isFavorites$ | async)
+              ? (favCharacterViewModelList$ | async) || []
+              : characterViewModelList
+          "
+          (favCardUpdate)="updateFavorites($event)"
+        ></design-system-card-list>
+      } @else if (this.loaded$ | async) {
+        NOTE: - Improve conditions to show empty result?
+        <design-system-empty-result></design-system-empty-result>
+      }
+    } -->
+    @if (((characterViewModelList$ | async) || []).length > 0) {
       <design-system-card-list
-        [cardList]="
-          (isFavorites$ | async)
-            ? (favCharacterViewModelList$ | async) || []
-            : characterViewModelList
-        "
+        [cardList]="(characterViewModelList$ | async) || []"
         (favCardUpdate)="updateFavorites($event)"
       ></design-system-card-list>
-    } @else if (this.loaded$ | async) {
-      <!-- NOTE: - Improve conditions to show empty result? -->
+    } @else if (loaded$ | async) {
       <design-system-empty-result></design-system-empty-result>
-      <!-- [isFavorites]="
-          (isFavorites$ | async)""
-        " -->
     }
-  }
-
-  @if (
-    (isFavorites$ | async) &&
-    ((favCharacterViewModelList$ | async) || []).length === 0
-  ) {
-    <design-system-empty-result
-      headingContent="Parece que você ainda não tem favoritos"
-      paragraphContent="Volte à página inicial e escolha os melhores para você."
-    >
-      <design-system-button (buttonClickEvent)="navigateToHome()"
-        >Voltar ao início</design-system-button
+  } @else {
+    @if (((favCharacterViewModelList$ | async) || []).length > 0) {
+      <design-system-card-list
+        [cardList]="(favCharacterViewModelList$ | async) || []"
+        (favCardUpdate)="updateFavorites($event)"
+      ></design-system-card-list>
+    } @else {
+      <design-system-empty-result
+        headingContent="Parece que você ainda não tem favoritos"
+        paragraphContent="Volte à página inicial e escolha os melhores para você."
       >
-    </design-system-empty-result>
+        <design-system-button (buttonClickEvent)="navigateToHome()"
+          >Voltar ao início</design-system-button
+        >
+      </design-system-empty-result>
+    }
   }
 </section>

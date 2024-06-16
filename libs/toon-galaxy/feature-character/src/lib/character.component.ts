@@ -22,6 +22,7 @@ import {
   distinctUntilChanged,
   map,
   Observable,
+  shareReplay,
   startWith,
   switchMap,
 } from 'rxjs';
@@ -84,6 +85,7 @@ export class CharacterComponent implements OnInit {
       startWith(''),
       distinctUntilChanged(),
       switchMap((input) => this.loadCharacters(input || '')),
+      shareReplay({ bufferSize: 1, refCount: true }),
     );
 
     this.loadCharacterViewModelList();
@@ -109,6 +111,7 @@ export class CharacterComponent implements OnInit {
           };
         });
       }),
+      shareReplay({ bufferSize: 1, refCount: true }),
     );
   }
 
