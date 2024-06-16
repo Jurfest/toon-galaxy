@@ -34,6 +34,7 @@ import {
 export class IconComponent implements OnInit {
   library = inject(FaIconLibrary);
 
+  // REFACTOR: - Simplify inputs based on utilized states
   iconName = input.required<IconNameFas | IconNameFar>();
   isClickable = input<boolean>(false);
   initialIconPrefix = input<'far' | 'fas'>('fas');

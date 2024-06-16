@@ -24,7 +24,8 @@
                 iconName="heart"
                 class="z-10"
                 [isClickable]="true"
-                initialIconPrefix="far"
+                [isSelected]="card.isFavorite"
+                [initialIconPrefix]="card.isFavorite ? 'fas' : 'far'"
                 (click)="onToggleFavCard(card)"
               ></design-system-icon>
               <!-- card.isFavorite -->
