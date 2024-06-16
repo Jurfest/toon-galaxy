@@ -1,6 +1,6 @@
-.custom {
-  // border-top-left-radius: 10px;
-  // border-bottom-left-radius: 10px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+.mat-mdc-unelevated-button.dimension {
+  /* text-container */
+  --mdc-filled-button-container-height: var(--measure-spacing-xxs, 40px);
+  /* Horizontal padding */
+  // --mat-filled-button-horizontal-padding: 10px !important; //
 }

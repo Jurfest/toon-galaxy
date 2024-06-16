@@ -3,11 +3,13 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
+  ButtonComponent,
   CardListComponent,
+  EmptyResultComponent,
   HeadingComponent,
   InputComponent,
-  EmptyResultComponent,
 } from '@toon-galaxy/shared/ui-design-system';
 import {
   CharacterEntity,
@@ -20,9 +22,9 @@ import {
   distinctUntilChanged,
   map,
   Observable,
+  shareReplay,
   startWith,
   switchMap,
-  tap,
 } from 'rxjs';
 
 @Component({
@@ -35,6 +37,7 @@ import {
     CardListComponent,
     EmptyResultComponent,
     // temps:
+    ButtonComponent,
     MatFormFieldModule,
     MatInputModule,
   ],
@@ -43,18 +46,32 @@ import {
   styleUrls: ['./character.component.scss'],
 })
 export class CharacterComponent implements OnInit {
-  private characterFacade = inject(CharacterFacade);
+  private router = inject(Router);
   private fb = inject(FormBuilder);
+  private route = inject(ActivatedRoute);
+  private characterFacade = inject(CharacterFacade);
 
   characterList$!: Observable<CharacterEntity[]>;
   favCharacterList$: Observable<CharacterEntity[]> =
     this.characterFacade.favoriteCharacterList$;
   characterViewModelList$!: Observable<CharacterViewModel[]>;
+  favCharacterViewModelList$: Observable<CharacterViewModel[]> =
+    this.favCharacterList$.pipe(
+      map((favList) =>
+        favList.map((fav) => {
+          return { ...fav, isFavorite: true };
+        }),
+      ),
+    );
   loaded$ = this.characterFacade.loaded$;
 
   searchCharactersForm = this.fb.group({
     search: [''],
   });
+
+  isFavorites$ = this.route.url.pipe(
+    map((segments) => segments.some((segment) => segment.path === 'favorites')),
+  );
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}
@@ -68,6 +85,7 @@ export class CharacterComponent implements OnInit {
       startWith(''),
       distinctUntilChanged(),
       switchMap((input) => this.loadCharacters(input || '')),
+      shareReplay({ bufferSize: 1, refCount: true }),
     );
 
     this.loadCharacterViewModelList();
@@ -93,6 +111,7 @@ export class CharacterComponent implements OnInit {
           };
         });
       }),
+      shareReplay({ bufferSize: 1, refCount: true }),
     );
   }
 
@@ -103,6 +122,10 @@ export class CharacterComponent implements OnInit {
     } else {
       this.characterFacade.addToFavorites(characterEntity);
     }
+  }
+
+  navigateToHome(): void {
+    this.router.navigate(['/manage-characters/search']);
   }
 }
 

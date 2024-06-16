@@ -1,12 +1,16 @@
 <main>
-  <article class="px-4">
+  <article class="px-4 flex flex-col -gap--measure-spacing-m">
     <h2
-      class="!font-default !text-2xl !font-bold !-tracking-0.02em !leading-6 text-color-core-content"
+      class="!font-default !text-2xl !font-bold !-tracking-0.02em !leading-6 text-color-core-content !mb-0"
     >
-      Nada foi encontrado
+      {{ headingContent() }}
     </h2>
-    <p class="text-lg leading-[27px] text-color-core-content-low mt-4 mb-24">
-      Tente realizar uma nova busca.
+    <p
+      class="text-lg leading-[27px] text-color-core-content-low !mb-0"
+      select="p"
+    >
+      {{ paragraphContent() }}
     </p>
+    <ng-content select="design-system-button"></ng-content>
   </article>
 </main>

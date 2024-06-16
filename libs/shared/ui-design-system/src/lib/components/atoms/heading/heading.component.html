@@ -2,12 +2,13 @@
   [ngClass]="{
     '!font-default': font() === 'poppins',
     creepster: font() === 'creepster',
-    'text-with-border !text-shadow-heading': withBorder(),
+    'text-with-border': withBorder(),
     'text-xs': size() === 'sm',
     'text-sm': size() === 'md',
     'text-md': size() === 'lg',
   }"
   [ngStyle]="{ '--dynamic-color': color() }"
+  class="!mb-0"
 >
   {{ label() }}
 </h1>

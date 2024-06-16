@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 
 import { IconComponent } from '../icon/icon.component';
@@ -12,8 +17,9 @@ import { IconComponent } from '../icon/icon.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  label = input.required<string>();
-  hasIconBefore = input<boolean>(false);
-  hasIconAfter = input<boolean>(false);
-  iconName = input<string>();
+  buttonClickEvent = output();
+
+  sendClickEvent(): void {
+    this.buttonClickEvent.emit();
+  }
 }

@@ -1,22 +1,22 @@
-<section class="flex flex-col items-center px-6 py-12 max-md:px-5">
-  @if (true) {
-    <header
-      class="flex gap-2 justify-between max-w-full whitespace-nowrap w-[720px] max-md:flex-wrap"
-    >
-      <design-system-heading
-        label="Início"
-        [withBorder]="true"
-        font="creepster"
-      >
-      </design-system-heading>
+<section class="flex flex-col items-center px-6 py-12 md:px-5">
+  <header
+    class="flex -gap--measure-spacing-s justify-between max-w-full whitespace-nowrap w-[720px] md:flex-wrap"
+  >
+    <design-system-heading
+      [label]="(isFavorites$ | async) ? 'Favoritos' : 'Início'"
+      [withBorder]="true"
+      font="creepster"
+    ></design-system-heading>
 
-      <form [formGroup]="searchCharactersForm" class="search-form">
+    @if ((isFavorites$ | async) === false) {
+      <form [formGroup]="searchCharactersForm" class="search-form md:w-auto">
         <mat-form-field
-          class="search-form-field"
+          class="search-form-field mb-0 md:w-auto"
           appearance="outline"
           [class.has-text]="searchCharactersForm.get('search')?.value"
+          subscriptSizing="dynamic"
         >
-          <mat-label>Pesquisar</mat-label>
+          <mat-label class="-tracking-0.02em">Pesquisar</mat-label>
           <input
             matInput
             type="text"
@@ -26,25 +26,35 @@
           />
         </mat-form-field>
       </form>
-    </header>
+    }
+  </header>
 
-    @if (characterViewModelList$ | async; as characterViewModelList) {
-      @switch (characterViewModelList.length > 0) {
-        @case (true) {
-          <design-system-card-list
-            [cardList]="characterViewModelList"
-            (favCardUpdate)="updateFavorites($event)"
-          ></design-system-card-list>
-        }
-        @case (false) {
-          <!-- NOTE: - Improve conditions to show empty result? -->
-          @if (this.loaded$ | async) {
-            <design-system-empty-result></design-system-empty-result>
-          }
-        }
-      }
+  @if ((isFavorites$ | async) === false) {
+    @if (((characterViewModelList$ | async) || []).length > 0) {
+      <design-system-card-list
+        [cardList]="(characterViewModelList$ | async) || []"
+        (favCardUpdate)="updateFavorites($event)"
+        class="w-full md:w-auto"
+      ></design-system-card-list>
+    } @else if (loaded$ | async) {
+      <design-system-empty-result></design-system-empty-result>
     }
   } @else {
-    <h1 class="title">Favoritos</h1>
+    @if (((favCharacterViewModelList$ | async) || []).length > 0) {
+      <design-system-card-list
+        [cardList]="(favCharacterViewModelList$ | async) || []"
+        (favCardUpdate)="updateFavorites($event)"
+        class="w-full md:w-auto"
+      ></design-system-card-list>
+    } @else {
+      <design-system-empty-result
+        headingContent="Parece que você ainda não tem favoritos"
+        paragraphContent="Volte à página inicial e escolha os melhores para você."
+      >
+        <design-system-button (buttonClickEvent)="navigateToHome()"
+          >Voltar ao início</design-system-button
+        >
+      </design-system-empty-result>
+    }
   }
 </section>

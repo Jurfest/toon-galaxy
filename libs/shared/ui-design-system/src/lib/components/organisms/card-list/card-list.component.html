@@ -24,26 +24,26 @@
                 iconName="heart"
                 class="z-10"
                 [isClickable]="true"
-                initialIconPrefix="far"
+                [isSelected]="card.isFavorite"
+                [initialIconPrefix]="card.isFavorite ? 'fas' : 'far'"
                 (click)="onToggleFavCard(card)"
               ></design-system-icon>
-              <!-- card.isFavorite -->
             </span>
           </div>
-          <div class="flex flex-col p-3">
+          <div class="flex flex-col p-3 gap-1">
             <p
-              class="!font-creepster !text-2xl !leading-6 tracking-[-0.02em] !mb-2 text-color-core-content text-ellipsis overflow-hidden whitespace-nowrap"
+              class="!font-creepster !text-2xl !leading-6 tracking-[-0.02em] !mb-0 text-color-core-content text-ellipsis overflow-hidden whitespace-nowrap"
             >
               {{ card?.name }}
             </p>
             <p
-              class="mt-1 text-base leading-6 !mb-2 text-ellipsis text-neutral-400"
+              class="text-base leading-[22.4px] !mb-0 text-ellipsis text-neutral-400"
             >
               {{ card.species }}
             </p>
             @if (card.type) {
               <p
-                class="mt-1 text-base leading-6 text-ellipsis text-neutral-400"
+                class="text-base leading-[22.4px] text-ellipsis text-neutral-400 !mb-0"
               >
                 {{ card.type }}
               </p>

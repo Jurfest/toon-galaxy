@@ -31,7 +31,18 @@ export const appConfig: ApplicationConfig = {
      */
     provideHttpClient(withInterceptors([]), withFetch()),
     provideClientHydration(),
-    provideRouter(appRoutes),
+    provideRouter(
+      appRoutes,
+      // withRouterConfig({
+      //   onSameUrlNavigation: 'reload',
+      // }),
+      // withComponentInputBinding(),
+      // withEnabledBlockingInitialNavigation(),
+      // withInMemoryScrolling({
+      //   anchorScrolling: 'enabled',
+      //   scrollPositionRestoration: 'enabled',
+      // }),
+    ),
     provideAnimationsAsync(),
 
     // NgRx
