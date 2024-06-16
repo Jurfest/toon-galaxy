@@ -8,6 +8,8 @@ export * from './lib/tokens/space';
 
 export * from './lib/components/atoms/heading/heading.component';
 export * from './lib/components/atoms/input/input.component';
+export * from './lib/components/atoms/icon/icon.component';
+export * from './lib/components/atoms/button/button.component';
 export * from './lib/components/molecules/empty-result/empty-result.component';
 export * from './lib/components/organisms/navbar/navbar.component';
 export * from './lib/components/organisms/card-list/card-list.component';

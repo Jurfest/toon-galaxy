@@ -3,8 +3,9 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
+  ButtonComponent,
   CardListComponent,
   EmptyResultComponent,
   HeadingComponent,
@@ -35,6 +36,7 @@ import {
     CardListComponent,
     EmptyResultComponent,
     // temps:
+    ButtonComponent,
     MatFormFieldModule,
     MatInputModule,
   ],
@@ -43,6 +45,7 @@ import {
   styleUrls: ['./character.component.scss'],
 })
 export class CharacterComponent implements OnInit {
+  private router = inject(Router);
   private fb = inject(FormBuilder);
   private route = inject(ActivatedRoute);
   private characterFacade = inject(CharacterFacade);
@@ -116,6 +119,10 @@ export class CharacterComponent implements OnInit {
     } else {
       this.characterFacade.addToFavorites(characterEntity);
     }
+  }
+
+  navigateToHome(): void {
+    this.router.navigate(['/manage-characters/search']);
   }
 }
 

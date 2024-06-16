@@ -51,6 +51,13 @@
     (isFavorites$ | async) &&
     ((favCharacterViewModelList$ | async) || []).length === 0
   ) {
-    <design-system-empty-result></design-system-empty-result>
+    <design-system-empty-result
+      headingContent="Parece que você ainda não tem favoritos"
+      paragraphContent="Volte à página inicial e escolha os melhores para você."
+    >
+      <design-system-button (buttonClickEvent)="navigateToHome()"
+        >Voltar ao início</design-system-button
+      >
+    </design-system-empty-result>
   }
 </section>

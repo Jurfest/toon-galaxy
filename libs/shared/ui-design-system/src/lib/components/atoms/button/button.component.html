@@ -1,25 +1,7 @@
 <button
+  class="!bg-color-neutral-surface !font-default !text-color-core-foreground !font-semibold !leading-[14px] !-py--measure-spacing-xxs !-px--measure-spacing-m !rounded-measure-radius-s dimension"
   mat-flat-button
-  color="primary"
-  class="custom w-36 h-10 bg-red-500 text-white rounded-l-lg rounded-r-none p-2 font-bold hover:bg-red-600"
+  (click)="sendClickEvent()"
 >
-  {{ label() }}
-</button>
-<button
-  mat-flat-button
-  class="w-36 h-10 bg-red-500 text-white rounded-l-lg rounded-r-none p-2 font-bold hover:bg-red-600"
->
-  {{ label() }}
-</button>
-
-<button
-  class="w-36 h-10 bg-red-500 text-white rounded-l-lg rounded-r-none p-2 font-bold hover:bg-red-600"
->
-  @if (hasIconAfter()) {
-    <design-system-icon></design-system-icon>
-  }
-  {{ label() }}
-  @if (hasIconBefore()) {
-    <design-system-icon></design-system-icon>
-  }
+  <ng-content></ng-content>
 </button>
