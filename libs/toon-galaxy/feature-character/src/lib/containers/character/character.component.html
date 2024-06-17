@@ -24,6 +24,11 @@
             placeholder=""
             class="input-field"
           />
+          @if ((loaded$ | async) === false) {
+            <div matSuffix class="px-3 box-content">
+              <mat-spinner class="!h-5 !w-5"></mat-spinner>
+            </div>
+          }
         </mat-form-field>
       </form>
     }
@@ -36,7 +41,8 @@
         (favCardUpdate)="updateFavorites($event)"
         class="w-full md:w-auto"
       ></design-system-card-list>
-    } @else if (loaded$ | async) {
+      <!-- } @else if (loaded$ | async) { -->
+    } @else {
       <design-system-empty-result></design-system-empty-result>
     }
   } @else {

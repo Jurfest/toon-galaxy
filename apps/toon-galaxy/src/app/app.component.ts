@@ -12,7 +12,8 @@ import { CharacterFacade } from '@toon-galaxy/toon-galaxy/domain';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'toon-galaxy';
   private characterFacade = inject(CharacterFacade);
-  totalFavoriteCharacters$ = this.characterFacade.totalFavoriteCharacters$;
+
+  readonly totalFavoriteCharacters$ =
+    this.characterFacade.totalFavoriteCharacters$;
 }
