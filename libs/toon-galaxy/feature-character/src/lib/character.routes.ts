@@ -13,12 +13,14 @@ export const CHARACTER_ROUTES: Routes = [
       {
         path: 'search',
         title: 'ToonGalaxy | Home',
-        loadComponent: () => import('./character.component'),
+        loadComponent: () =>
+          import('./containers/character/character.component'),
       },
       {
         path: 'favorites',
         title: 'ToonGalaxy | Favorites',
-        loadComponent: () => import('./character.component'),
+        loadComponent: () =>
+          import('./containers/character/character.component'),
       },
       // This route ALWAYS needs to be the last one:
       {
