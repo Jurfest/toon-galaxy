@@ -4,8 +4,8 @@
       <design-system-card
         class="flex flex-col w-[calc(33.333%-1rem)] max-md:ml-0 max-md:w-full w-56"
         [card]="card"
+        (favCardUpdate)="onToggleFavCard($event)"
       ></design-system-card>
-      <!-- (toggleFav)="onToggleFavCard($event)" -->
     }
   </div>
 </section>

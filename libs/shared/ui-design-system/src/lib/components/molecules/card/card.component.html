@@ -12,8 +12,8 @@
     />
     <span
       class="absolute top-0 right-0 flex justify-center items-center -w--measure-sizing-xxxl -h--measure-sizing-xxxl gap-0 !-rounded-bl--measure-radius-circle !rounded-tr-[24px] bg-white backdrop-blur max-md:mb-10"
+      [@toggleHeartBackground]="card().isFavorite"
     >
-      <!-- [@toggleHeartBackground]="card().isFavorite" -->
       <design-system-icon
         iconName="heart"
         class="z-10"

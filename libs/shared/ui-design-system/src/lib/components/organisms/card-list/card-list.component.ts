@@ -1,10 +1,3 @@
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
 import { Component, input, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -30,23 +23,6 @@ import { CardComponent } from '../../molecules/card/card.component';
   ],
   templateUrl: './card-list.component.html',
   styleUrl: './card-list.component.scss',
-  animations: [
-    trigger('toggleHeartBackground', [
-      state(
-        'false',
-        style({
-          backgroundColor: 'rgba(255, 255, 255, 0.01)',
-        }),
-      ),
-      state(
-        'true',
-        style({
-          backgroundColor: '#ffffff',
-        }),
-      ),
-      transition('transparent <=> white', [animate('0.5s ease-in-out')]),
-    ]),
-  ],
 })
 export class CardListComponent {
   cardList = input.required<Card[]>();
