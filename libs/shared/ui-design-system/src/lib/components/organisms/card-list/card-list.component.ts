@@ -14,6 +14,7 @@ import { HeadingComponent } from '../../atoms/heading/heading.component';
 import { IconComponent } from '../../atoms/icon/icon.component';
 import { TextComponent } from '../../atoms/text/text.component';
 import { MatInput } from '@angular/material/input';
+import { CardComponent } from '../../molecules/card/card.component';
 
 @Component({
   selector: 'design-system-card-list',
@@ -22,6 +23,7 @@ import { MatInput } from '@angular/material/input';
     TextComponent,
     HeadingComponent,
     IconComponent,
+    CardComponent,
     MatCardModule,
     MatButtonModule,
     MatInput,
