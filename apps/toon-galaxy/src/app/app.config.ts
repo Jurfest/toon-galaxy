@@ -15,6 +15,7 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import {
+  headerInterceptor,
   loadingInterceptor,
   provideSharedUtilCommon,
 } from '@toon-galaxy/shared/util-common';
@@ -33,7 +34,10 @@ export const appConfig: ApplicationConfig = {
      * withInterceptorsFromDi, as support for DI-provided interceptors may
      * be phased out in a later release.
      */
-    provideHttpClient(withInterceptors([loadingInterceptor]), withFetch()),
+    provideHttpClient(
+      withInterceptors([loadingInterceptor, headerInterceptor]),
+      withFetch(),
+    ),
     provideClientHydration(),
     provideRouter(
       appRoutes,
