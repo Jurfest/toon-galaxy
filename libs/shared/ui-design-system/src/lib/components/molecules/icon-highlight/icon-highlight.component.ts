@@ -30,7 +30,7 @@ import { IconComponent } from '../../atoms/icon/icon.component';
           backgroundColor: '#ffffff',
         }),
       ),
-      transition('transparent <=> white', [animate('0.5s ease-in-out')]),
+      transition('false <=> true', [animate('0.5s ease-in-out')]),
     ]),
   ],
 })
