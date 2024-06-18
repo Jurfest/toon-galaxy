@@ -10,29 +10,11 @@
 
     @if ((isFavorites$ | async) === false) {
       <form [formGroup]="searchCharactersForm" class="search-form md:w-auto">
-        <mat-form-field
-          class="search-form-field mb-0 md:w-auto"
-          appearance="outline"
-          [class.has-text]="searchCharactersForm.get('search')?.value"
-          subscriptSizing="dynamic"
-        >
-          <mat-label class="-tracking-0.02em">Pesquisar</mat-label>
-          <input
-            matInput
-            type="text"
-            formControlName="search"
-            placeholder=""
-            class="input-field"
-          />
-          @if (
-            (loaded$ | async) === false &&
-            !searchCharactersForm.controls.search.pristine
-          ) {
-            <div matSuffix class="px-3 box-content">
-              <mat-spinner class="!h-5 !w-5"></mat-spinner>
-            </div>
-          }
-        </mat-form-field>
+        <design-system-input
+          formControlName="search"
+          id="search"
+          data-testid="search"
+        ></design-system-input>
       </form>
     }
   </header>

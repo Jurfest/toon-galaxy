@@ -1,3 +1,60 @@
+mat-form-field.search-form-field {
+  width: 100%;
+
+  // ::ng-deep selector cross Angular's view encapsulation and target the internal
+  //  elements of the Material components
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    height: 48px !important;
+  }
+
+  /* Input label height */
+  --mat-form-field-container-height: 48px;
+  /* Text input height */
+  --mat-form-field-container-vertical-padding: 13px;
+  --mdc-outlined-text-field-container-shape: 0.75rem;
+
+  --mdc-outlined-text-field-focus-outline-width: 1px;
+
+  --mdc-outlined-text-field-label-text-font: 'Poppins', sans-serif;
+  /* Text input font */
+  --mat-form-field-container-text-font: 'Poppins', sans-serif;
+
+  --mdc-outlined-text-field-input-text-color: var(
+    --color-neutral-content-higher,
+    #f2f2f2
+  );
+  --mdc-outlined-text-field-label-text-color: var(
+    --color-neutral-content-high,
+    #cacaca // sem texto e A4A4A4 com texto
+  );
+
+  --mdc-outlined-text-field-outline-color: var(--color-neutral-border, #3d3d3d);
+
+  &.has-text {
+    --mdc-outlined-text-field-outline-color: var(
+      --color-neutral-border-high,
+      #5d5d5d
+    );
+    --mdc-outlined-text-field-label-text-color: var(
+      --color-neutral-content,
+      #a4a4a4
+    );
+  }
+
+  // Focus and arrow color
+  // --mdc-outlined-text-field-focus-outline-color: #00b5cc;
+  // --mdc-outlined-text-field-focus-label-text-color: #00b5cc;
+  // --mat-form-field-focus-select-arrow-color: #00b5cc;
+
+  // Hover
+  // --mdc-outlined-text-field-hover-label-text-color: #F2F2F2;
+  // --mdc-outlined-text-field-hover-outline-color: #F2F2F2;
+  // --mat-form-field-state-layer-color: #F2F2F2;
+
+  // Placeholder
+  // --mdc-outlined-text-field-input-text-placeholder-color: #CACACA;
+}
+
 mat-form-field.fantasy {
   --mat-form-field-container-height: 20px;
   --mat-form-field-container-vertical-padding: 48px;

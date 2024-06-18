@@ -9,9 +9,9 @@ import { LoadingActions } from './loading.actions';
 export class LoadingFacade {
   private readonly store = inject(Store);
 
-  loaded$ = this.store.pipe(select(LoadingSelectors.isLoading));
+  isLoading$ = this.store.pipe(select(LoadingSelectors.isLoading));
   // TODO: NgRx Signal Store
-  // loaded$ = this.store.selectSignal(selectLoadingState.selectLoading);
+  // isLoading$ = this.store.selectSignal(selectLoadingState.selectLoading);
 
   start(): string {
     const requestId = uuidv4();
