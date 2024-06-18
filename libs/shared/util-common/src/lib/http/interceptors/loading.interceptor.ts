@@ -8,36 +8,13 @@ import { LoadingFacade } from '../+state/loading/loading.facade';
 export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
   const loadingFacade = inject(LoadingFacade);
 
-  loadingFacade.start();
+  const requestId = loadingFacade.start();
 
   return next(req).pipe(
-    finalize(() => loadingFacade.stop()),
     catchError((error) => {
-      loadingFacade.stop();
+      loadingFacade.stop(requestId);
       throw error;
     }),
+    finalize(() => loadingFacade.stop(requestId)),
   );
-
-  //
-  //
-  // activeRequests = 0;
-  // private totalRequests = 0;
-
-  // if (this.activeRequests === 0) {
-  //   this.store.dispatch(LoadingActions.startLoading());
-  // }
-  //
-  // this.activeRequests++;
-  // this.totalRequests++;
-  //
-  // return next.handle(req).pipe(
-  //   finalize(() => {
-  //     this.activeRequests--;
-  // this.totalRequests--;
-
-  //     if (this.activeRequests === 0) {
-  //       this.store.dispatch(LoadingActions.stopLoading());
-  //     }
-  //   }),
-  // );
 };

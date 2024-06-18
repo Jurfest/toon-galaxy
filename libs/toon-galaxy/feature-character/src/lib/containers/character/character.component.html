@@ -24,7 +24,10 @@
             placeholder=""
             class="input-field"
           />
-          @if ((loaded$ | async) === false) {
+          @if (
+            (loaded$ | async) === false &&
+            !searchCharactersForm.controls.search.pristine
+          ) {
             <div matSuffix class="px-3 box-content">
               <mat-spinner class="!h-5 !w-5"></mat-spinner>
             </div>
@@ -41,8 +44,9 @@
         (favCardUpdate)="updateFavorites($event)"
         class="w-full md:w-auto"
       ></design-system-card-list>
-      <!-- } @else if (loaded$ | async) { -->
-    } @else {
+    } @else if (
+      (loaded$ | async) || searchCharactersForm.controls.search.value
+    ) {
       <design-system-empty-result></design-system-empty-result>
     }
   } @else {
