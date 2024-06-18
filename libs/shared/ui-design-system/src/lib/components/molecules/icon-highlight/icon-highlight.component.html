@@ -1,10 +1,16 @@
-<section class="favorites-section">
-  <header class="header">Favoritos</header>
-  <article class="favorites-content">
-    <h2 class="no-favorites">Parece que você ainda não tem favoritos</h2>
-    <p class="suggestion-text">
-      Volte à página inicial e escolha os melhores para você.
-    </p>
-    <a href="/" class="back-link">Voltar ao início</a>
-  </article>
-</section>
+<span
+  class="flex justify-center items-center -w--measure-sizing-xxxl -h--measure-sizing-xxxl gap-0 !-rounded-bl--measure-radius-circle !rounded-tr-[24px] bg-white backdrop-blur max-md:mb-10 cursor-pointer"
+  [@toggleHeartBackground]="isSelected()"
+  (click)="onToggleFavCard()"
+>
+  <!-- class="absolute top-0 right-0 flex justify-center items-center w-12 h-12 rounded-bl-full rounded-tr-xl bg-white bg-opacity-70 backdrop-blur-lg cursor-pointer" -->
+  <design-system-icon
+    iconName="heart"
+    class="z-10"
+    [isSelected]="isSelected()"
+    [isClickable]="true"
+    [initialIconPrefix]="isSelected() ? 'fas' : 'far'"
+  ></design-system-icon>
+  <!--
+  -->
+</span>

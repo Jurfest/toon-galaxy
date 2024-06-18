@@ -10,7 +10,7 @@
       [alt]="card().name + ' picture'"
       class="object-cover absolute inset-0 size-full rounded-t-[12px]"
     />
-    <span
+    <!-- <span
       class="absolute top-0 right-0 flex justify-center items-center -w--measure-sizing-xxxl -h--measure-sizing-xxxl gap-0 !-rounded-bl--measure-radius-circle !rounded-tr-[24px] bg-white backdrop-blur max-md:mb-10 cursor-pointer"
       [@toggleHeartBackground]="card().isFavorite"
       (click)="onToggleFavCard(card())"
@@ -22,7 +22,12 @@
         [isSelected]="card().isFavorite"
         [initialIconPrefix]="card().isFavorite ? 'fas' : 'far'"
       ></design-system-icon>
-    </span>
+    </span> -->
+    <design-system-icon-highlight
+      class="absolute top-0 right-0"
+      [isSelected]="card().isFavorite"
+      (toggleIconSeleted)="onToggleFavCard(card())"
+    ></design-system-icon-highlight>
   </div>
   <!-- <div class="p-4"> -->
   <div class="flex flex-col p-3 gap-1">

@@ -10,11 +10,12 @@ import { Component, input, output } from '@angular/core';
 
 import { Card } from '../../../models/card';
 import { IconComponent } from '../../atoms/icon/icon.component';
+import { IconHighlightComponent } from '../icon-highlight/icon-highlight.component';
 
 @Component({
   selector: 'design-system-card',
   standalone: true,
-  imports: [CommonModule, IconComponent],
+  imports: [CommonModule, IconComponent, IconHighlightComponent],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
   animations: [
