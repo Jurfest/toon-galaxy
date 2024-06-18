@@ -1,49 +1,41 @@
-<!-- class="flex flex-col w-[calc(33.333%-1rem)] max-md:ml-0 max-md:w-full w-56" -->
-<article>
+<div
+  class="flex flex-col grow bg-neutral-950 border border-neutral-700 rounded-xl h-full"
+>
   <div
-    class="flex flex-col grow w-full rounded-xl border border-solid bg-neutral-950 border-neutral-700 max-w-[224px] max-md:mt-6 rounded-[12px]"
+    class="flex overflow-hidden relative flex-col items-end px-16 pb-20 w-full text-xl font-black text-center whitespace-nowrap aspect-square text-neutral-950 max-md:pl-5"
   >
-    <div
-      class="flex overflow-hidden relative flex-col items-end px-16 pb-20 w-full text-xl font-black text-center whitespace-nowrap aspect-square text-neutral-950 max-md:pl-5"
+    <img
+      loading="lazy"
+      [src]="card().image"
+      [alt]="card().name + ' picture'"
+      class="object-cover absolute inset-0 size-full rounded-t-[12px]"
+    />
+    <span
+      class="absolute top-0 right-0 flex justify-center items-center -w--measure-sizing-xxxl -h--measure-sizing-xxxl gap-0 !-rounded-bl--measure-radius-circle !rounded-tr-[24px] bg-white backdrop-blur max-md:mb-10"
     >
-      <img
-        loading="lazy"
-        [src]="card().image"
-        [alt]="card().name + ' picture'"
-        class="object-cover absolute inset-0 size-full rounded-t-[12px]"
-      />
-      <span
-        class="absolute top-0 right-0 flex justify-center items-center -w--measure-sizing-xxxl -h--measure-sizing-xxxl gap-0 !-rounded-bl--measure-radius-circle !rounded-tr-[24px] bg-white backdrop-blur max-md:mb-10"
-      >
-        <!-- [@toggleHeartBackground]="card().isFavorite" -->
-        <design-system-icon
-          iconName="heart"
-          class="z-10"
-          [isClickable]="true"
-          [isSelected]="card().isFavorite"
-          [initialIconPrefix]="card().isFavorite ? 'fas' : 'far'"
-          (click)="onToggleFavCard(card())"
-        ></design-system-icon>
-      </span>
-    </div>
-    <div class="flex flex-col p-3 gap-1">
-      <p
-        class="!font-creepster !text-2xl !leading-6 tracking-[-0.02em] !mb-0 text-color-core-content text-ellipsis overflow-hidden whitespace-nowrap"
-      >
-        {{ card().name }}
-      </p>
-      <p
-        class="text-base leading-[22.4px] !mb-0 text-ellipsis text-neutral-400"
-      >
-        {{ card().species }}
-      </p>
-      @if (card().type) {
-        <p
-          class="text-base leading-[22.4px] text-ellipsis text-neutral-400 !mb-0"
-        >
-          {{ card().type }}
-        </p>
-      }
-    </div>
+      <!-- [@toggleHeartBackground]="card().isFavorite" -->
+      <design-system-icon
+        iconName="heart"
+        class="z-10"
+        [isClickable]="true"
+        [isSelected]="card().isFavorite"
+        [initialIconPrefix]="card().isFavorite ? 'fas' : 'far'"
+        (click)="onToggleFavCard(card())"
+      ></design-system-icon>
+    </span>
   </div>
-</article>
+  <!-- <div class="p-4"> -->
+  <div class="flex flex-col p-3 gap-1">
+    <p
+      class="!font-creepster !text-2xl !leading-6 tracking-[-0.02em] !mb-0 text-color-core-content text-ellipsis overflow-hidden whitespace-nowrap"
+    >
+      {{ card().name }}
+    </p>
+    <p class="text-base leading-[22.4px] !mb-0 text-ellipsis text-neutral-400">
+      {{ card().species }}
+    </p>
+    <p class="text-base leading-[22.4px] text-ellipsis text-neutral-400 !mb-0">
+      {{ card().type }}
+    </p>
+  </div>
+</div>
