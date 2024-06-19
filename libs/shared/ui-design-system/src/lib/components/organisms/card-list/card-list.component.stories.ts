@@ -3,7 +3,7 @@ import { CardListComponent } from './card-list.component';
 
 const meta: Meta<CardListComponent> = {
   component: CardListComponent,
-  title: 'CardListComponent',
+  title: 'Design System/Organisms/Card List',
 };
 export default meta;
 type Story = StoryObj<CardListComponent>;

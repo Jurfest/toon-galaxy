@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { ToggleButtonComponent } from './toggle-button.component';
+import { TabName } from '../../../models/tab-name';
 
 const meta: Meta<ToggleButtonComponent> = {
   component: ToggleButtonComponent,
@@ -10,5 +11,9 @@ export default meta;
 type Story = StoryObj<ToggleButtonComponent>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    totalFavoriteCharacters: 3,
+    isHandset: false,
+    activeTab: TabName.Home,
+  },
 };

@@ -3,7 +3,7 @@ import { EmptyResultComponent } from './empty-result.component';
 
 const meta: Meta<EmptyResultComponent> = {
   component: EmptyResultComponent,
-  title: 'EmptyResultComponent',
+  title: 'Design System/Molecules/Empty Result',
 };
 export default meta;
 type Story = StoryObj<EmptyResultComponent>;

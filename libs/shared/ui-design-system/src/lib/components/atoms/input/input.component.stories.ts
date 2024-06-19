@@ -14,6 +14,11 @@ import {
   BrowserAnimationsModule,
   provideAnimations,
 } from '@angular/platform-browser/animations';
+import {
+  LoadingFacade,
+  provideSharedUtilCommon,
+} from '@toon-galaxy/shared/util-common';
+import { provideStore } from '@ngrx/store';
 
 const meta: Meta<InputComponent> = {
   component: InputComponent,
@@ -31,6 +36,9 @@ const meta: Meta<InputComponent> = {
         importProvidersFrom(BrowserAnimationsModule),
         // Or use provide-style functions if available instead, e.g.
         provideAnimations(),
+        provideSharedUtilCommon(),
+        provideStore(),
+        LoadingFacade,
       ],
     }),
   ],
@@ -42,7 +50,6 @@ export const Default: StoryObj<Omit<InputComponent, 'input'>> = {
     inputType: InputType.text,
     placeholder: 'This is a placeholder',
     value: '',
-    id: 'uuid',
   },
   argTypes: {
     placeholder: { control: 'text' },

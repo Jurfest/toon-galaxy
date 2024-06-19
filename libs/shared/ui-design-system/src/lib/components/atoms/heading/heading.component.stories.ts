@@ -5,16 +5,27 @@ import { expect, within } from '@storybook/test';
 const meta: Meta<HeadingComponent> = {
   component: HeadingComponent,
   title: 'Design System/Atoms/Heding',
+  tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<HeadingComponent>;
 
-export const Primary: Story = {
-  args: {},
+export const Creepster: Story = {
+  args: {
+    label: 'Início',
+    font: 'creepster',
+    withBorder: true,
+    size: 'md',
+  },
 };
 
-export const Heading: Story = {
-  args: {},
+export const Poppins: Story = {
+  args: {
+    label: 'Heading works!',
+    font: 'poppins',
+    withBorder: false,
+    size: 'md',
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     expect(canvas.getByText(/heading works!/gi)).toBeTruthy();

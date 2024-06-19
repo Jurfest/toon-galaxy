@@ -76,3 +76,8 @@ export const Default = Template.bind({});
 Default.args = {
   label: 'Button label',
 };
+
+// <design-system-button (buttonClickEvent)="navigateToHome()"
+//           >Voltar ao início</design-system-button
+//         >
+//       </design-system-empty-result>
