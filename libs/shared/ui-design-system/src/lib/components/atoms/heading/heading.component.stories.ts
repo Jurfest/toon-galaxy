@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { HeadingComponent } from './heading.component';
 import { expect, within } from '@storybook/test';
+
+import { HeadingComponent } from './heading.component';
 
 const meta: Meta<HeadingComponent> = {
   component: HeadingComponent,
