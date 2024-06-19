@@ -21,16 +21,22 @@ import { ToggleButtonComponent } from './toggle-button.component';
 @Component({
   selector: 'design-system-toggle-button-harness',
   template: `
-    <div class="!max-w-[200px] !w-[100px]">
+    <div class="toggle-button-container">
       <design-system-toggle-button
         [totalFavoriteCharacters]="totalFavoriteCharacters"
         [isHandset]="isHandset"
         [activeTab]="activeTab"
         (toggleActive)="onToggle($event)"
-        class="w-[100px]"
       ></design-system-toggle-button>
     </div>
   `,
+  styles: [
+    `
+      .toggle-button-container {
+        width: 248px;
+      }
+    `,
+  ],
 })
 class ToggleButtonHarnessComponent {
   totalFavoriteCharacters = 0;
@@ -57,28 +63,14 @@ const meta: Meta<ToggleButtonHarnessComponent> = {
         ToggleButtonComponent,
       ],
     }),
-    // Apply application config to all stories
     applicationConfig({
-      // List of providers and environment providers that should be available to the root component and all its children.
-      providers: [
-        // Import application-wide providers from a module
-        // importProvidersFrom(BrowserAnimationsModule),
-        // Or use provide-style functions if available instead, e.g.
-        provideAnimations(),
-      ],
+      providers: [provideAnimations()],
     }),
   ],
 };
 export default meta;
-type Story = StoryObj<ToggleButtonHarnessComponent>;
 
-export const Primary: Story = {
-  args: {
-    totalFavoriteCharacters: 3,
-    isHandset: false,
-    activeTab: TabName.Home,
-  },
-};
+type Story = StoryObj<ToggleButtonHarnessComponent>;
 
 export const Default: Story = {
   args: {
