@@ -14,12 +14,22 @@ export const Poppins: Story = {
   args: {
     label: 'Human',
   },
+  parameters: {
+    backgrounds: {
+      default: 'light',
+    },
+  },
 };
 
 export const CreepsterNormal: Story = {
   args: {
     label: 'RICK SANCHEZ',
     font: 'creepster',
+  },
+  parameters: {
+    backgrounds: {
+      default: 'light',
+    },
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

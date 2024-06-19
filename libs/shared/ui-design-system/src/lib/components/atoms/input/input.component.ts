@@ -70,8 +70,7 @@ export class InputComponent {
   inputType = input<InputType>(InputType.text);
   placeholder = input<string>('');
   label = input<string>('Pesquisar');
-  // value = input<string>('');
-  // id = input<string>();
+  enableLoading = input<boolean>(true);
 
   private loadingFacade = inject(LoadingFacade);
   isLoading$ = this.loadingFacade.isLoading$;
@@ -82,7 +81,6 @@ export class InputComponent {
   onTouch: OnTouch = () => {};
 
   set value(val: string) {
-    // this.internalControl.setValue(val, { emitEvent: false });
     this.onChange(val);
     this.onTouch();
   }
@@ -98,10 +96,4 @@ export class InputComponent {
   registerOnTouched(fn: OnTouch): void {
     this.onTouch = fn;
   }
-
-  // input = viewChild<ElementRef>('input');
-
-  // get text(): string {
-  //   return this.input().nativeElement.value;
-  // }
 }

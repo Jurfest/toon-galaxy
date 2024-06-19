@@ -13,12 +13,22 @@ export const Heart: Story = {
   args: {
     iconName: 'heart',
   },
+  parameters: {
+    backgrounds: {
+      default: 'light',
+    },
+  },
 };
 
 export const Home: Story = {
   args: {
     iconName: 'home',
     isSelected: true,
+  },
+  parameters: {
+    backgrounds: {
+      default: 'light',
+    },
   },
 };
 
@@ -27,5 +37,10 @@ export const Interactive: Story = {
     iconName: 'heart',
     isClickable: true,
     initialIconPrefix: 'far',
+  },
+  parameters: {
+    backgrounds: {
+      default: 'gray',
+    },
   },
 };

@@ -17,6 +17,22 @@ const preview: Preview = {
     // storySort: {
     //   order: ['Intro', 'Pages', ['Home', 'Login', 'Admin'], 'Components'],
     // },
+    // backgrounds: {
+    //   default: 'dark',
+    // },
+    backgrounds: {
+      default: 'dark',
+      values: [
+        {
+          name: 'dark',
+          value: '#1f1f1f', // '--color-core-background',
+        },
+        {
+          name: 'gray',
+          value: '#CACACA',
+        },
+      ],
+    },
   },
 };
 

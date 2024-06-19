@@ -15,11 +15,9 @@
     (ngModelChange)="onChange($event)"
     (blur)="onTouch()"
   />
-  <div
-    *ngIf="(isLoading$ | async) && !inputModel.pristine"
-    matSuffix
-    class="px-3 box-content"
-  >
-    <mat-spinner class="!h-5 !w-5"></mat-spinner>
-  </div>
+  @if ((isLoading$ | async) && !inputModel.pristine && enableLoading()) {
+    <div matSuffix class="px-3 box-content">
+      <mat-spinner class="!h-5 !w-5"></mat-spinner>
+    </div>
+  }
 </mat-form-field>

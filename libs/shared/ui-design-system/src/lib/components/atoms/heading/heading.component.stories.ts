@@ -26,6 +26,11 @@ export const Poppins: Story = {
     withBorder: false,
     size: 'md',
   },
+  parameters: {
+    backgrounds: {
+      default: 'light',
+    },
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     expect(canvas.getByText(/heading works!/gi)).toBeTruthy();
