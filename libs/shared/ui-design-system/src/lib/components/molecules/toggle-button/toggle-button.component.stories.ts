@@ -87,11 +87,3 @@ export const Handset: Story = {
     activeTab: TabName.Home,
   },
 };
-
-export const ActiveTabFavorites: Story = {
-  args: {
-    totalFavoriteCharacters: 10,
-    isHandset: false,
-    activeTab: TabName.Favorites,
-  },
-};
