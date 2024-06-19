@@ -1,3 +1,4 @@
 .search-form {
   width: 327px;
+  @apply max-xs:w-[420px] max-xs:min-w-[210px];
 }

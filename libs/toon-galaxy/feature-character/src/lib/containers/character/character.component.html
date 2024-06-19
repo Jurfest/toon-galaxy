@@ -1,6 +1,6 @@
 <section class="flex flex-col items-center px-6 py-12 md:px-5">
   <header
-    class="flex -gap--measure-spacing-s justify-between max-w-full whitespace-nowrap w-[720px] md:flex-wrap"
+    class="flex gap-4 justify-between max-w-full whitespace-nowrap w-[720px] md:flex-wrap max-xs:flex-wrap"
   >
     <design-system-heading
       [label]="(isFavorites$ | async) ? 'Favoritos' : 'Início'"
@@ -9,7 +9,10 @@
     ></design-system-heading>
 
     @if ((isFavorites$ | async) === false) {
-      <form [formGroup]="searchCharactersForm" class="search-form md:w-auto">
+      <form
+        [formGroup]="searchCharactersForm"
+        class="search-form md:w-auto max-xs:w-auto"
+      >
         <design-system-input
           formControlName="search"
           id="search"
