@@ -3,7 +3,7 @@ import { SpinnerComponent } from './spinner.component';
 
 const meta: Meta<SpinnerComponent> = {
   component: SpinnerComponent,
-  title: 'Design System/Molecules/Spinner',
+  title: 'Design System/Atoms/Spinner',
 };
 export default meta;
 type Story = StoryObj<SpinnerComponent>;
