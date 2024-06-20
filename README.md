@@ -1,6 +1,6 @@
 # Toon Galaxy
 
-https://66739ea5b581c33ced2d5fbc-jokebfyntt.chromatic.com/
+https://https://www.chromatic.com/.chromatic.com/
 
 ## 🔬 Toon Galaxy Atomic Design System
 
@@ -39,7 +39,7 @@ To access Toon Galaxy Atomic Design System in production please visit [Productio
 
 ## Production Links
 
-The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://dynamic-uri.chromatic.com/).
+The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://https://www.chromatic.com/.chromatic.com/).
 
 ## License
 
