@@ -1,19 +1,39 @@
-.dynamic-background {
+:host {
+  display: block;
+}
+
+.bg-dynamic {
   background-color: var(--dynamic-color);
   padding: 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.color-description {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+.text-white {
   color: #fff;
-
-  // .custom {
-  //   color: #000;
-  // }
-
-  &.custom {
-    color: #000;
-  }
 }
+
+.text-black {
+  color: #000;
+}
+
+// .gradient-text {
+//   background: linear-gradient(90deg, #ff6ec4, #7873f5);
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+//   background-clip: text;
+//   text-fill-color: transparent;
+//   animation: gradient-animation 3s infinite;
+// }
+
+// @keyframes gradient-animation {
+//   0% {
+//     background-position: 0% 50%;
+//   }
+//   50% {
+//     background-position: 100% 50%;
+//   }
+//   100% {
+//     background-position: 0% 50%;
+//   }
+// }

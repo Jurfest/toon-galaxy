@@ -83,6 +83,9 @@ module.exports = {
                  -2px 2px 0 var(--green-300),
                  2px 2px 0 var(--green-300)`,
       },
+      screens: {
+        xs: '420px',
+      },
     },
   },
   plugins: [

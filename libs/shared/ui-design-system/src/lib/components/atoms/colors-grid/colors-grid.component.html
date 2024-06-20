@@ -1,17 +1,23 @@
-<h1>Colors</h1>
-
-<p>These are the colors used in Toon Galaxy UI</p>
+<div class="bg-gradient-to-r from-green-300 to-blue-300 p-6 mb-10 rounded-lg">
+  <!-- <h1
+    class="text-6xl bg-gradient-to-r from-pink-400 to-indigo-500 bg-clip-text text-transparent"
+  >
+    Colors
+  </h1> -->
+  <h1 class="text-6xl bg-gradient-to-r text-color-neutral-surface">Colors</h1>
+  <p class="text-neutral-100 text-5xl tracking-tight mb-3">
+    These are the colors used in Toon Galaxy UI:
+  </p>
+</div>
 
 @for (colorObj of colorObjList; track colorObj.key) {
   <div
     [ngStyle]="{ '--dynamic-color': colorObj.color }"
-    class="dynamic-background"
+    class="bg-dynamic p-4 rounded-lg mb-4"
   >
     <div
-      class="color-description"
-      [ngClass]="{
-        custom: colorObj.labelColor === '#000',
-      }"
+      class="flex justify-between items-center text-white"
+      [ngClass]="{ 'text-black': colorObj.labelColor === '#000' }"
     >
       <strong>${{ colorObj.key }}</strong>
       <span>{{ colorObj.color }}</span>

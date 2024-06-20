@@ -14,6 +14,11 @@ import { provideRouter } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import {
+  headerInterceptor,
+  loadingInterceptor,
+  provideSharedUtilCommon,
+} from '@toon-galaxy/shared/util-common';
 import { provideToonGalaxyDomain } from '@toon-galaxy/toon-galaxy/domain';
 
 import { appRoutes } from './app.routes';
@@ -29,7 +34,10 @@ export const appConfig: ApplicationConfig = {
      * withInterceptorsFromDi, as support for DI-provided interceptors may
      * be phased out in a later release.
      */
-    provideHttpClient(withInterceptors([]), withFetch()),
+    provideHttpClient(
+      withInterceptors([loadingInterceptor, headerInterceptor]),
+      withFetch(),
+    ),
     provideClientHydration(),
     provideRouter(
       appRoutes,
@@ -45,14 +53,17 @@ export const appConfig: ApplicationConfig = {
     ),
     provideAnimationsAsync(),
 
-    // NgRx
+    /**
+     * NgRx
+     * It's recommended to use provideState to register features - while the
+     * provideStore can be keep empty
+     */
     provideStore(),
     provideEffects([]),
     ...(isDevMode() ? [provideStoreDevtools()] : []),
-    // provideState(),
-
-    //
+    // Character State Feature and Effect
     provideToonGalaxyDomain(),
+    provideSharedUtilCommon(),
 
     // Perform initialization, has to be last
     {

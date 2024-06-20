@@ -12,7 +12,7 @@ import * as ButtonStories from './button.component.stories';
 
 <Canvas of={ButtonStories.Default} />
 
-{/* <Canvas of={ButtonStories.WithIcon} /> */}
+<Canvas of={ButtonStories.WithIconAtRight} />
 
 ## Getting started
 
@@ -22,12 +22,14 @@ You can implement the Button component by importing the `ButtonComponent` into y
 import { ButtonComponent } from '@toon-galaxy/shared/ui-design-system/button';
 ```
 
-The button has one required attribute: `label`. The `label` specifies the button label text as a string.
-You can also optionally configure a type of button by specifying a `type` attribute on the button.
+The button uses content projection (`ng-content`) to allow you to pass any content inside the button.
 
 ## Usage guidelines
 
-Avoid using the button as a link and vice-versa. Provide semantic labels that give users an idea of the action behind the button &mdash; Try to be more specific than `"New"` or `"Save"`; use labels like
-`Create new item` or `Update item`. Prefer using `primary` for main actions and `secondary` for less prominent actions.
+Avoid using the button as a link and vice-versa. Provide semantic labels that give users an idea of the action behind
+the button &mdash; Try to be more specific than `"New"` or `"Save"`; use labels like `Create new item` or
+`Update item`. Prefer using `primary` for main actions and `secondary` for less prominent actions.
 
 ## Component API
+
+<Controls />

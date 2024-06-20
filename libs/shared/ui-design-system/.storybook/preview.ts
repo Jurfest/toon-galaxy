@@ -1,9 +1,5 @@
 import { Preview } from '@storybook/angular';
-import { themes } from '@storybook/theming';
-
-export const parameters = {
-  docs: themes.dark,
-};
+// import { themes } from '@storybook/theming';
 
 const preview: Preview = {
   parameters: {
@@ -16,6 +12,22 @@ const preview: Preview = {
     },
     // storySort: {
     //   order: ['Intro', 'Pages', ['Home', 'Login', 'Admin'], 'Components'],
+    // },
+    backgrounds: {
+      default: 'dark',
+      values: [
+        {
+          name: 'dark',
+          value: '#1f1f1f',
+        },
+        {
+          name: 'gray',
+          value: '#CACACA',
+        },
+      ],
+    },
+    // docs: {
+    //   theme: themes.dark,
     // },
   },
 };

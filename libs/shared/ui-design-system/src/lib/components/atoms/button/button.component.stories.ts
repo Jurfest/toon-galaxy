@@ -1,78 +1,46 @@
-import { importProvidersFrom } from '@angular/core';
-import {
-  BrowserAnimationsModule,
-  provideAnimations,
-} from '@angular/platform-browser/animations';
-import {
-  applicationConfig,
-  Meta,
-  moduleMetadata,
-  StoryObj,
-} from '@storybook/angular';
 import { expect, within } from '@storybook/test';
-
-import { ButtonComponent } from './button.component';
+import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { MatButtonModule } from '@angular/material/button';
 
-// const meta: Meta<ButtonComponent> = {
-//   component: ButtonComponent,
-//   title: 'Design System/Atoms/Button',
-//   decorators: [
-//     // Apply application config to all stories
-//     applicationConfig({
-//       // List of providers and environment providers that should be available to the root component and all its children.
-//       providers: [
-//         // Import application-wide providers from a module
-//         importProvidersFrom(BrowserAnimationsModule),
-//         // Or use provide-style functions if available instead, e.g.
-//         provideAnimations(),
-//       ],
-//     }),
-//   ],
-//   args: {
-//     label: 'Button',
-//   },
-// };
-// export default meta;
-
-// type Story = StoryObj<ButtonComponent>;
-
-// export const Primary: Story = {};
-
-// export const Heading: Story = {
-//   play: async ({ canvasElement }) => {
-//     const canvas = within(canvasElement);
-//     expect(canvas.getByText(/Button/gi)).toBeTruthy();
-//   },
-// };
-
-const Template = (args: ButtonComponent) => ({
-  props: args,
-});
+import { ButtonComponent } from './button.component';
+import { IconComponent } from '../icon/icon.component';
 
 export default {
-  title: 'Design System/Atoms/Button',
   component: ButtonComponent,
+  title: 'Design System/Atoms/Button',
   tags: ['autodocs'],
-  // decorators: [
-  //   moduleMetadata({
-  //     imports: [MatButtonModule],
-  //   }),
+  decorators: [
+    moduleMetadata({
+      imports: [MatButtonModule, IconComponent],
+    }),
+  ],
+} as Meta;
 
-  //   // Apply application config to all stories
-  //   applicationConfig({
-  //     // List of providers and environment providers that should be available to the root component and all its children.
-  //     providers: [
-  //       // Import application-wide providers from a module
-  //       importProvidersFrom(BrowserAnimationsModule),
-  //       // Or use provide-style functions if available instead, e.g.
-  //       provideAnimations(),
-  //     ],
-  //   }),
-  // ],
+type ButtonStory = StoryObj<ButtonComponent>;
+
+export const Default: ButtonStory = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <design-system-button (buttonClickEvent)="onClick($event)">
+        Voltar ao início
+      </design-system-button>
+    `,
+  }),
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  label: 'Button label',
+export const WithIconAtRight: ButtonStory = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <design-system-button (buttonClickEvent)="onClick($event)">
+        Click me with icon
+        <design-system-icon iconName="home" data-testid="home-icon"></design-system-icon>
+      </design-system-button>
+    `,
+  }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByTestId(/home-icon/gi)).toBeTruthy();
+  },
 };

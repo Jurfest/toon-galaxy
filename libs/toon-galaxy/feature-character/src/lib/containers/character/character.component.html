@@ -1,6 +1,6 @@
 <section class="flex flex-col items-center px-6 py-12 md:px-5">
   <header
-    class="flex -gap--measure-spacing-s justify-between max-w-full whitespace-nowrap w-[720px] md:flex-wrap"
+    class="flex gap-4 justify-between max-w-full whitespace-nowrap w-[720px] md:flex-wrap max-xs:flex-wrap"
   >
     <design-system-heading
       [label]="(isFavorites$ | async) ? 'Favoritos' : 'Início'"
@@ -9,22 +9,15 @@
     ></design-system-heading>
 
     @if ((isFavorites$ | async) === false) {
-      <form [formGroup]="searchCharactersForm" class="search-form md:w-auto">
-        <mat-form-field
-          class="search-form-field mb-0 md:w-auto"
-          appearance="outline"
-          [class.has-text]="searchCharactersForm.get('search')?.value"
-          subscriptSizing="dynamic"
-        >
-          <mat-label class="-tracking-0.02em">Pesquisar</mat-label>
-          <input
-            matInput
-            type="text"
-            formControlName="search"
-            placeholder=""
-            class="input-field"
-          />
-        </mat-form-field>
+      <form
+        [formGroup]="searchCharactersForm"
+        class="search-form md:w-auto max-xs:w-auto"
+      >
+        <design-system-input
+          formControlName="search"
+          id="search"
+          data-testid="search"
+        ></design-system-input>
       </form>
     }
   </header>
@@ -36,7 +29,9 @@
         (favCardUpdate)="updateFavorites($event)"
         class="w-full md:w-auto"
       ></design-system-card-list>
-    } @else if (loaded$ | async) {
+    } @else if (
+      (loaded$ | async) || searchCharactersForm.controls.search.value
+    ) {
       <design-system-empty-result></design-system-empty-result>
     }
   } @else {

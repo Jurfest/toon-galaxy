@@ -7,14 +7,16 @@ const meta: Meta<ColorsGridComponent> = {
   title: 'Design System/Tokens/Colors',
 };
 export default meta;
+
 type Story = StoryObj<ColorsGridComponent>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {},
-};
-
-export const Heading: Story = {
-  args: {},
+  parameters: {
+    backgrounds: {
+      default: 'light',
+    },
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     expect(canvas.getByText(/color_core_background/gi)).toBeTruthy();
