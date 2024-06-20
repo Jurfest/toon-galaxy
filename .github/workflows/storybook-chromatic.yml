@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Fetch all history (full Git history graph) so Chromatic can determine baseline commits
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
