@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  storybook-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,8 +29,9 @@ jobs:
       # - name: Build Storybook
       #   run: npm run build-storybook
 
-      # Deploy Storybook using Chromatic's streamlined process (includes building the Storybook
-      - name: Deploy Storybook
-        run: npx chromatic
+      # Build and Deploy Storybook using Chromatic's streamlined process
+      - name: Build and Deploy Storybook
+        # The flag auto accepts visual changes
+        run: npx chromatic --auto-accept-changes
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
