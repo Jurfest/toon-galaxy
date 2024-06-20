@@ -31,8 +31,10 @@ jobs:
 
       # Build and Deploy Storybook using Chromatic's streamlined process
       - name: Build and Deploy Storybook
+        id: chromatic
         # The flag auto accepts visual changes
-        run: npx chromatic --auto-accept-changes
+        run: |
+          npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --auto-accept-changes | tee chromatic-output.txt
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
@@ -40,9 +42,9 @@ jobs:
       - name: Update README with Chromatic URL
         run: |
           # Extract Chromatic URL from the output
-          url=$(npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --exit-zero-on-changes --auto-accept-changes 2>&1 | grep -oP 'https://.*\.chromatic\.com/')
+          url=$(grep -oP 'https://.*\.chromatic\.com/' chromatic-output.txt | head -n 1)
 
-          # Replace the placeholder in the README.md file
+          # Update the README.md file with the new URL
           sed -i 's|\(https://\).*\(.chromatic.com/\)|\1'"$url"'\2|' README.md
 
       # Commit and push the updated README file
