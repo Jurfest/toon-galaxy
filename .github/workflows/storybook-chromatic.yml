@@ -39,21 +39,21 @@ jobs:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
       # Extract the Chromatic URL and update the README file
-      - name: Update README with Chromatic URL
-        run: |
-          # Extract Chromatic URL from the output
-          url=$(grep -oP 'https://.*\.chromatic\.com/' chromatic-output.txt | head -n 1)
+      # - name: Update README with Chromatic URL
+      #   run: |
+      #     # Extract Chromatic URL from the output
+      #     url=$(grep -oP 'https://.*\.chromatic\.com/' chromatic-output.txt | head -n 1)
 
-          # Update the README.md file with the new URL
-          sed -i 's|\(https://\).*\(.chromatic.com/\)|\1'"$url"'\2|' README.md
+      #     # Update the README.md file with the new URL
+      #     sed -i 's|\(https://\).*\(.chromatic.com/\)|\1'"$url"'\2|' README.md
 
-      # Commit and push the updated README file
-      - name: Commit and Push README
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "ci: automatic storybook url update in readme"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # # Commit and push the updated README file
+      # - name: Commit and Push README
+      #   run: |
+      #     git config --global user.name "github-actions[bot]"
+      #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      #     git add README.md
+      #     git commit -m "ci: automatic storybook url update in readme"
+      #     git push
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
