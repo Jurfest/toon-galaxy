@@ -35,3 +35,23 @@ jobs:
         run: npx chromatic --auto-accept-changes
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
+      # Extract the Chromatic URL and update the README file
+      - name: Update README with Chromatic URL
+        run: |
+          # Extract Chromatic URL from the output
+          url=$(npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --exit-zero-on-changes --auto-accept-changes 2>&1 | grep -oP 'https://.*\.chromatic\.com/')
+
+          # Replace the placeholder in the README.md file
+          sed -i 's|\(https://\).*\(.chromatic.com/\)|\1'"$url"'\2|' README.md
+
+      # Commit and push the updated README file
+      - name: Commit and Push README
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "ci: automatic storybook url update in readme"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

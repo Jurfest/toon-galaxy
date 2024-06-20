@@ -39,7 +39,7 @@ To access Toon Galaxy Atomic Design System in production please visit [Productio
 
 ## Production Links
 
-The Storybook for this project can be found at [design-insights.toongalaxy.toon](http://localhost:6006).
+The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://dynamic-uri.chromatic.com/).
 
 ## License
 
