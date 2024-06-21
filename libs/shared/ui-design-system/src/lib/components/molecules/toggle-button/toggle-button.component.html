@@ -1,6 +1,6 @@
 @if (!isHandset()) {
   <div
-    class="flex flex-row items-start p-0 m-auto w-[253px] h-[42px] border border-color-core-border rounded-xl"
+    class="flex flex-row items-start p-0 m-auto w-[255px] h-[41px] border border-color-core-border rounded-xl"
   >
     <button
       (click)="onToggle(TabName.Home)"
@@ -12,19 +12,19 @@
         'text-color-neutral-content hover:bg-color-neutral-surface-lower':
           activeTab() !== TabName.Home,
       }"
-      class="flex flex-row justify-center items-center p-1 gap-2 w-[99px] min-w-[80px] h-[40px] isolate order-0 text-sm font-semibold hover:rounded-l-xl"
+      class="flex flex-row justify-center items-center px-4 py-1 gap-2 w-[99px] min-w-[80px] h-[39px] isolate order-0 text-sm font-semibold hover:rounded-l-xl"
     >
       <design-system-icon
         iconName="home"
-        class="w-5 h-6 tracking-tight flex justify-end items-center order-0 z-10"
+        class="w-5 h-6 tracking-tight flex justify-end items-center order-0 z-10 mr-[3px]"
       ></design-system-icon>
       <span
-        class="self-stretch my-auto leading-[14px] z-10 w-[39px] tracking-normal ml-[2px]"
+        class="self-stretch my-auto leading-[14px] z-10 w-[39px] tracking-normal"
         >Início</span
       >
     </button>
     <div
-      class="border border-color-core-border h-[40px] order-1 self-stretch"
+      class="border border-color-core-border h-[39px] order-1 self-stretch"
     ></div>
     <button
       (click)="onToggle(TabName.Favorites)"
@@ -36,7 +36,7 @@
         'text-color-neutral-content hover:bg-color-neutral-surface-lower':
           activeTab() !== TabName.Favorites,
       }"
-      class="group flex flex-row justify-center items-center p-1 gap-2 w-[154px] min-w-[80px] h-[40px] order-2 text-sm font-semibold hover:rounded-r-xl isolate"
+      class="group flex flex-row justify-center items-center p-1 gap-2 w-[154px] min-w-[80px] h-[39px] order-2 text-sm font-semibold hover:rounded-r-xl isolate"
     >
       <design-system-icon
         iconName="heart"
@@ -47,7 +47,7 @@
         >Favoritos</span
       >
       <span
-        class="flex justify-center items-center w-[22px] h-[22px] border border-color-core-border rounded-full p-0.5 order-2 z-10"
+        class="flex justify-center items-center w-[22px] h-[22px] border border-color-core-border rounded-full p-0.5 order-2 z-10 mr-1"
         [ngClass]="{
           'bg-color-neutral-surface-lower text-color-neutral-content-high group-hover:bg-[#2D2D2D] group-hover:text-[#c2c2c2]':
             activeTab() === TabName.Favorites,
