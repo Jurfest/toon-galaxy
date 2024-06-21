@@ -1,6 +1,6 @@
 @if (!isHandset()) {
   <div
-    class="flex flex-row items-start p-0 m-auto w-[253px] h-[40px] border border-color-core-border rounded-xl"
+    class="flex flex-row items-start p-0 m-auto w-[253px] h-[42px] border border-color-core-border rounded-xl"
   >
     <button
       (click)="onToggle(TabName.Home)"
@@ -12,7 +12,7 @@
         'text-color-neutral-content hover:bg-color-neutral-surface-lower':
           activeTab() !== TabName.Home,
       }"
-      class="flex flex-row justify-center items-center p-1 gap-2 w-[99px] min-w-[80px] h-[38px] isolate order-0 text-sm font-semibold hover:rounded-l-xl"
+      class="flex flex-row justify-center items-center p-1 gap-2 w-[99px] min-w-[80px] h-[40px] isolate order-0 text-sm font-semibold hover:rounded-l-xl"
     >
       <design-system-icon
         iconName="home"
@@ -23,7 +23,9 @@
         >Início</span
       >
     </button>
-    <div class="border border-[#3D3D3D] h-[38px] order-1 self-stretch"></div>
+    <div
+      class="border border-color-core-border h-[40px] order-1 self-stretch"
+    ></div>
     <button
       (click)="onToggle(TabName.Favorites)"
       matRipple
@@ -34,7 +36,7 @@
         'text-color-neutral-content hover:bg-color-neutral-surface-lower':
           activeTab() !== TabName.Favorites,
       }"
-      class="group flex flex-row justify-center items-center p-1 gap-2 w-[154px] min-w-[80px] h-[38px] order-2 text-sm font-semibold hover:rounded-r-xl isolate"
+      class="group flex flex-row justify-center items-center p-1 gap-2 w-[154px] min-w-[80px] h-[40px] order-2 text-sm font-semibold hover:rounded-r-xl isolate"
     >
       <design-system-icon
         iconName="heart"
