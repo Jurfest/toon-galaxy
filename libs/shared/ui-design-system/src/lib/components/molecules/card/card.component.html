@@ -22,11 +22,17 @@
     >
       {{ card().name }}
     </p>
-    <p class="text-base leading-[22.4px] !mb-0 text-ellipsis text-neutral-400">
+    <p
+      class="text-base leading-[22.4px] !mb-0 tracking-normal !pb-0 text-ellipsis text-neutral-400"
+    >
       {{ card().species }}
     </p>
-    <p class="text-base leading-[22.4px] text-ellipsis text-neutral-400 !mb-0">
-      {{ card().type }}
-    </p>
+    @if (card().type) {
+      <p
+        class="text-base leading-[22.4px] tracking-normal text-ellipsis text-neutral-400 !mb-0"
+      >
+        {{ card().type }}
+      </p>
+    }
   </div>
 </div>
