@@ -11,15 +11,9 @@ import {
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
-  NoPreloading,
-  PreloadAllModules,
   provideRouter,
-  withComponentInputBinding,
   withEnabledBlockingInitialNavigation,
   withInMemoryScrolling,
-  withPreloading,
-  withRouterConfig,
-  withViewTransitions,
 } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
