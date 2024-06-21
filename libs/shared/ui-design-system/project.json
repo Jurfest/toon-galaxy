@@ -104,5 +104,12 @@
         }
       }
     }
+  },
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "displayBlock": true
+    }
   }
 }

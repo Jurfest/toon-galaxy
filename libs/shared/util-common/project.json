@@ -39,5 +39,12 @@
     "lint": {
       "executor": "@nx/eslint:lint"
     }
+  },
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "displayBlock": true
+    }
   }
 }
