@@ -1,17 +1,17 @@
+import { HttpErrorResponse, provideHttpClient } from '@angular/common/http';
 import {
   HttpTestingController,
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from '@toon-galaxy/env/environment';
 
 import {
   CharacterApiResponse,
   CharacterEntity,
 } from '../entities/character.models';
 import { CharacterDataService } from './character.data.service';
-import { environment } from '@toon-galaxy/envenvironment';
-import { HttpErrorResponse, provideHttpClient } from '@angular/common/http';
 
 const mockCharacters: CharacterEntity[] = [
   {

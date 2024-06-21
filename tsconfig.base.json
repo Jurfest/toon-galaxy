@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@toon-galaxy/env*": ["environments/*"],
+      "@toon-galaxy/env/*": ["environments/*"],
       "@toon-galaxy/shared/ui-design-system": [
         "libs/shared/ui-design-system/src/index.ts"
       ],

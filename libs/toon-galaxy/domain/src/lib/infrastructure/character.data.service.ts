@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from '@toon-galaxy/envenvironment';
+import { environment } from '@toon-galaxy/env/environment';
 import { map, Observable, tap } from 'rxjs';
 
 import {
