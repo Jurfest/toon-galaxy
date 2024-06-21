@@ -1,45 +1,11 @@
 # Toon Galaxy
 
-https://66739ea5b581c33ced2d5fbc-ntxtwallou.chromatic.com/
-
-## 🔬 Toon Galaxy Atomic Design System
-
-The Toon Galaxy Atomic Design System is an integral part of the Toon Galaxy project. It follows the principles of Atomic Design for it's Components, ensuring a scalable and maintainable UI component library.
-
-Here is a quick link for Atomic Design:
-
-- [Atomic Design by Brad Frost](https://bradfrost.com/blog/post/atomic-web-design/)
-
-> [!NOTE]
-> This Design System can be divided into UiKits to share UI elements across just
-> a few applications rather than across all applications in the organization.
-
-### Principles
-
-1. Atoms: The smallest building blocks of the design system, such as buttons, inputs, and labels.
-2. Molecules: Combinations of atoms that form more complex components, like form fields with labels and inputs.
-3. Organisms: Groups of molecules that function together as a distinct section of the interface, such as a character list or a search form.
-4. Templates: Layouts that combine organisms and define the structure of the application.
-5. Pages: Specific instances of templates with real content, representing the final UI.
-
-### 📙 Storybook Integration
-
-To visualize and test UI components in isolation, the Toon Galaxy Atomic Design System integrates with Storybook:
-
-1. Start Storybook:
-
-```bash
-nx run ui-design-system:storybook
-```
-
-2. Access Storybook Locally:
-   Open your browser and navigate to http://localhost:6006.
-
-To access Toon Galaxy Atomic Design System in production please visit [Production Links](#production-links) section
+Welcome to Toon Galaxy, an application to explore, search, and save your favorite cartoon characters. This project uses a monorepo structure managed with Nx, Angular for the frontend, and follows Domain-Driven Design (DDD) principles
 
 ## Production Links
 
-The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-ntxtwallou.chromatic.com/).
+The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tgpcciyhjs.chromatic.com/).
+TODO: production link.
 
 ## License
 
