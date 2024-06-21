@@ -6,7 +6,7 @@ The Toon Galaxy Atomic Design System is an integral part of the Toon Galaxy proj
 
 ## Production Links
 
-The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-ntxtwallou.chromatic.com/).
+The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tgpcciyhjs.chromatic.com/).
 TODO: production link.
 
 ## License
