@@ -12,13 +12,13 @@ export const CHARACTER_ROUTES: Routes = [
       },
       {
         path: 'search',
-        title: 'ToonGalaxy | Home',
+        title: 'Toon Galaxy | Home',
         loadComponent: () =>
           import('./containers/character/character.component'),
       },
       {
         path: 'favorites',
-        title: 'ToonGalaxy | Favorites',
+        title: 'Toon Galaxy | Favorites',
         loadComponent: () =>
           import('./containers/character/character.component'),
       },
