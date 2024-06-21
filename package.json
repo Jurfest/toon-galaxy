@@ -9,6 +9,7 @@
     "test": "nx test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "nx e2e",
+    "dev:ssr": "npx nx run toon-galaxy:serve-ssr",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
