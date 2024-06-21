@@ -10,7 +10,17 @@ import {
 } from '@angular/core';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideRouter } from '@angular/router';
+import {
+  NoPreloading,
+  PreloadAllModules,
+  provideRouter,
+  withComponentInputBinding,
+  withEnabledBlockingInitialNavigation,
+  withInMemoryScrolling,
+  withPreloading,
+  withRouterConfig,
+  withViewTransitions,
+} from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
@@ -41,15 +51,22 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideRouter(
       appRoutes,
+      // Uncomment for smother view transitions
+      // withViewTransitions(),
+
+      //
+      // withPreloading(PreloadAllModules),
       // withRouterConfig({
       //   onSameUrlNavigation: 'reload',
       // }),
       // withComponentInputBinding(),
-      // withEnabledBlockingInitialNavigation(),
-      // withInMemoryScrolling({
-      //   anchorScrolling: 'enabled',
-      //   scrollPositionRestoration: 'enabled',
-      // }),
+      withEnabledBlockingInitialNavigation(),
+      withInMemoryScrolling({
+        anchorScrolling: 'enabled',
+        scrollPositionRestoration: 'enabled',
+      }),
+      // withDebugTracing(), // should be disabled in production
+      // quicklinkProviders,
     ),
     provideAnimationsAsync(),
 
@@ -61,7 +78,7 @@ export const appConfig: ApplicationConfig = {
     provideStore(),
     provideEffects([]),
     ...(isDevMode() ? [provideStoreDevtools()] : []),
-    // Character State Feature and Effect
+    // Feature States and Effects
     provideToonGalaxyDomain(),
     provideSharedUtilCommon(),
 

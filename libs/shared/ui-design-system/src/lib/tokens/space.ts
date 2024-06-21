@@ -10,7 +10,7 @@ export const space = {
   '--measure-sizing-xxl': '40px',
   '--measure-sizing-xxxl': '48px',
   12: '3rem',
-  16: '4rem',
+  'measure-sizing-huge': '4rem',
   20: '5rem',
   40: '10rem',
   64: '16rem',

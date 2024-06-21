@@ -1,8 +1,7 @@
 @if (!isHandset()) {
   <div
-    class="flex gap-0 my-auto rounded-xl border border-solid border-color-core-border h-[42px]"
+    class="flex flex-row items-start p-0 m-auto w-[253px] h-[40px] border border-color-core-border rounded-xl"
   >
-    <!-- Home Button -->
     <button
       (click)="onToggle(TabName.Home)"
       matRipple
@@ -13,18 +12,18 @@
         'text-color-neutral-content hover:bg-color-neutral-surface-lower':
           activeTab() !== TabName.Home,
       }"
-      class="flex items-center gap-2 justify-center px-4 py-1 text-sm font-semibold isolate border-r border-color-core-border hover:rounded-l-xl"
+      class="flex flex-row justify-center items-center p-1 gap-2 w-[99px] min-w-[80px] h-[38px] isolate order-0 text-sm font-semibold hover:rounded-l-xl"
     >
       <design-system-icon
         iconName="home"
-        class="w-5 h-6 z-10"
+        class="w-5 h-6 tracking-tight flex justify-end items-center order-0 z-10"
       ></design-system-icon>
-      <span class="self-stretch my-auto leading-[14px] z-10 w-[39px]"
+      <span
+        class="self-stretch my-auto leading-[14px] z-10 w-[39px] tracking-normal ml-[2px]"
         >Início</span
       >
     </button>
-
-    <!-- Favorites Button -->
+    <div class="border border-[#3D3D3D] h-[38px] order-1 self-stretch"></div>
     <button
       (click)="onToggle(TabName.Favorites)"
       matRipple
@@ -35,12 +34,18 @@
         'text-color-neutral-content hover:bg-color-neutral-surface-lower':
           activeTab() !== TabName.Favorites,
       }"
-      class="group flex gap-2 justify-between items-center px-4 py-1 text-sm font-semibold hover:rounded-r-xl isolate"
+      class="group flex flex-row justify-center items-center p-1 gap-2 w-[154px] min-w-[80px] h-[38px] order-2 text-sm font-semibold hover:rounded-r-xl isolate"
     >
-      <design-system-icon iconName="heart" class="z-10"></design-system-icon>
-      <span class="self-stretch my-auto leading-[100%] z-10">Favoritos</span>
+      <design-system-icon
+        iconName="heart"
+        class="w-[20px] h-[24px] flex justify-end items-center order-0 z-10"
+      ></design-system-icon>
       <span
-        class="flex justify-center items-center w-5 h-5 font-bold border border-solid border-color-core-border rounded-full p-0.5 my-0 mx-auto z-10"
+        class="self-stretch my-auto leading-[100%] z-10 tracking-normal ml-1"
+        >Favoritos</span
+      >
+      <span
+        class="flex justify-center items-center w-[22px] h-[22px] border border-color-core-border rounded-full p-0.5 order-2 z-10"
         [ngClass]="{
           'bg-color-neutral-surface-lower text-color-neutral-content-high group-hover:bg-[#2D2D2D] group-hover:text-[#c2c2c2]':
             activeTab() === TabName.Favorites,
@@ -48,7 +53,10 @@
             activeTab() !== TabName.Favorites,
         }"
       >
-        <span [@numberChange]="totalFavoriteCharacters()">
+        <span
+          [@numberChange]="totalFavoriteCharacters()"
+          class="flex justify-center items-center w-full h-full text-[14px] font-bold leading-[140%]"
+        >
           {{ totalFavoriteCharacters() }}
         </span>
       </span>
