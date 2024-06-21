@@ -1,8 +1,6 @@
 # Toon Galaxy
 
-## 🔬 Toon Galaxy Atomic Design System
-
-The Toon Galaxy Atomic Design System is an integral part of the Toon Galaxy project. It follows the principles of Atomic Design for it's Components, ensuring a scalable and maintainable UI component library. Also it implements a Stategic Design and DDD approach with layers implementation.
+Welcome to Toon Galaxy, an application to explore, search, and save your favorite cartoon characters. This project uses a monorepo structure managed with Nx, Angular for the frontend, and follows Domain-Driven Design (DDD) principles
 
 ## Production Links
 
