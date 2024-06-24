@@ -64,9 +64,6 @@ describe('Character Facade', () => {
     });
   });
 
-  //
-  //
-
   it('characterList$ should return the list of characters', (done) => {
     facade.characterList$.subscribe((list) => {
       expect(list).toEqual(characters);
