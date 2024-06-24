@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { CharacterFacade } from '@toon-galaxy/toon-galaxy/domain';
 import { of } from 'rxjs';
@@ -15,7 +16,7 @@ describe('AppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent, NoopAnimationsModule],
       providers: [
         provideRouter([]),
         { provide: CharacterFacade, useValue: characterFacadeMock },

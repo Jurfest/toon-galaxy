@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-  output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 
 import { IconComponent } from '../icon/icon.component';
@@ -17,7 +12,7 @@ import { IconComponent } from '../icon/icon.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  buttonClickEvent = output();
+  buttonClickEvent = output<void>();
 
   sendClickEvent(): void {
     this.buttonClickEvent.emit();
