@@ -1,16 +1,14 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {
+  ComponentFixture,
+  fakeAsync,
+  flush,
+  TestBed,
+  tick,
+  waitForAsync,
+} from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  ButtonComponent,
-  CardListComponent,
-  EmptyResultComponent,
-  HeadingComponent,
-  InputComponent,
-} from '@toon-galaxy/shared/ui-design-system';
 import { CharacterFacade } from '@toon-galaxy/toon-galaxy/domain';
 import { of } from 'rxjs';
 
@@ -29,7 +27,7 @@ describe('CharacterComponent', () => {
       addToFavorites: jest.fn(),
       removeFromFavorites: jest.fn(),
       favoriteCharacterList$: of([]),
-      loaded$: of(true),
+      loaded$: of(false),
     };
 
     routerMock = {
@@ -41,18 +39,7 @@ describe('CharacterComponent', () => {
     };
 
     TestBed.configureTestingModule({
-      imports: [
-        CharacterComponent,
-        ReactiveFormsModule,
-        NoopAnimationsModule,
-        HeadingComponent,
-        InputComponent,
-        CardListComponent,
-        EmptyResultComponent,
-        ButtonComponent,
-        // Temp
-        MatProgressSpinnerModule,
-      ],
+      imports: [CharacterComponent, NoopAnimationsModule],
       providers: [
         { provide: CharacterFacade, useValue: characterFacadeMock },
         { provide: Router, useValue: routerMock },
@@ -64,7 +51,7 @@ describe('CharacterComponent', () => {
     characterFacade = TestBed.inject(
       CharacterFacade,
     ) as jest.Mocked<CharacterFacade>;
-    characterFacade.load.mockReturnValue(of([]));
+    // characterFacade.load.mockReturnValue(of([]));
     fixture = TestBed.createComponent(CharacterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -114,65 +101,29 @@ describe('CharacterComponent', () => {
     expect(characterFacade.removeFromFavorites).toHaveBeenCalledWith(1);
   });
 
-  // it('should set loading to true when search input changes', async () => {
-  //   const searchControl = component.searchCharactersForm.controls['search'];
-  //   searchControl.setValue('test');
-  //   fixture.detectChanges();
+  it('should handle successful loadCharacters', fakeAsync(() => {
+    const character = {
+      id: 1,
+      name: 'Character 1',
+      species: 'Species',
+      image: 'Image URL',
+      type: 'Type',
+      isFavorite: true,
+    };
 
-  //   await new Promise((resolve) => setTimeout(resolve, 400));
+    jest
+      .spyOn(component as any, 'loadCharacters') // Access private method using 'any'
+      .mockReturnValue(of([character]));
 
-  //   expect(component.loading).toBeTruthy();
-  // });
+    fixture.detectChanges();
 
-  // it('should call loadCharacters when search input changes', async () => {
-  //   // jest.spyOn(component, 'loadCharacters').mockReturnValue(of([]));
-  //   jest
-  //     .spyOn(component as any, 'loadCharacters') // Access private method using 'any'
-  //     .mockReturnValue(of([]));
+    tick(400);
+    flush();
 
-  //   const searchControl = component.searchCharactersForm.controls['search'];
-  //   searchControl.setValue('test');
-  //   fixture.detectChanges();
-
-  //   await new Promise((resolve) => setTimeout(resolve, 400));
-
-  //   expect(component['loadCharacters']).toHaveBeenCalledWith('test');
-  // });
-
-  // it('should call loadCharacters on search input value change', waitForAsync(() => {
-  //   const loadCharactersSpy = jest
-  //     .spyOn(characterFacade, 'load')
-  //     .mockReturnValue(of([]));
-
-  //   component.searchCharactersForm.get('search')?.setValue('test');
-  //   fixture.detectChanges();
-
-  //   expect(loadCharactersSpy).toHaveBeenCalledWith('test');
-  // }));
-
-  // it('should set loading to false after characters are loaded', async () => {
-  //   jest
-  //     .spyOn(component as any, 'loadCharacters') // Access private method using 'any'
-  //     .mockReturnValue(
-  //       of([
-  //         {
-  //           id: 1,
-  //           name: 'Character 1',
-  //           species: 'Species',
-  //           image: 'Image URL',
-  //           type: 'Type',
-  //         },
-  //       ]),
-  //     );
-
-  //   const searchControl = component.searchCharactersForm.controls['search'];
-  //   searchControl.setValue('test');
-  //   fixture.detectChanges();
-
-  //   await new Promise((resolve) => setTimeout(resolve, 400));
-
-  //   expect(component.loaded$).toBeFalsy();
-  // });
+    component.characterList$.subscribe((characters) => {
+      expect(characters).toEqual([character]);
+    });
+  }));
 
   it('should navigate to home on navigateToHome call', () => {
     component.navigateToHome();
@@ -180,28 +131,4 @@ describe('CharacterComponent', () => {
       '/manage-characters/search',
     ]);
   });
-
-  // it('should handle successful loadCharacters', waitForAsync(() => {
-  //   const character = {
-  //     id: 1,
-  //     name: 'Character 1',
-  //     species: 'Species',
-  //     image: 'Image URL',
-  //     type: 'Type',
-  //     isFavorite: true,
-  //   };
-
-  //   const loadCharactersSpy = jest
-  //     .spyOn(characterFacade, 'load')
-  //     .mockReturnValue(of([character]));
-
-  //   component.searchCharactersForm.get('search')?.setValue('test');
-  //   fixture.detectChanges();
-
-  //   component.characterList$.subscribe((characters) => {
-  //     expect(characters).toEqual([{ id: '1' }]);
-  //   });
-
-  //   expect(loadCharactersSpy).toHaveBeenCalledWith('test');
-  // }));
 });
