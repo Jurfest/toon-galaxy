@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
@@ -40,8 +38,6 @@ import {
     ButtonComponent,
     // temps:
     MatProgressSpinnerModule,
-    MatFormFieldModule,
-    MatInputModule,
   ],
   selector: 'toon-galaxy-character',
   templateUrl: './character.component.html',
