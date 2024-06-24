@@ -1,101 +1,62 @@
-// import { NgModule } from '@angular/core';
-// import { TestBed } from '@angular/core/testing';
-// import { EffectsModule } from '@ngrx/effects';
-// import { StoreModule, Store } from '@ngrx/store';
-// import { readFirst } from '@nx/angular/testing';
+import { TestBed } from '@angular/core/testing';
+import { Store } from '@ngrx/store';
+import { v4 as uuidv4 } from 'uuid';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
-// import * as TemporaryActions from './temporary.actions';
-// import { TemporaryEffects } from './temporary.effects';
-// import { TemporaryFacade } from './temporary.facade';
-// import { TemporaryEntity } from './temporary.models';
-// import {
-//   TEMPORARY_FEATURE_KEY,
-//   TemporaryState,
-//   initialTemporaryState,
-//   temporaryReducer,
-// } from './temporary.reducer';
-// import * as TemporarySelectors from './temporary.selectors';
+import { LoadingFacade } from './loading.facade';
+import { LoadingActions } from './loading.actions';
+import * as LoadingSelectors from './loading.selectors';
 
-// interface TestSchema {
-//   temporary: TemporaryState;
-// }
+describe('LoadingFacade', () => {
+  let loadingFacade: LoadingFacade;
+  let store: MockStore;
 
-// describe('TemporaryFacade', () => {
-//   let facade: TemporaryFacade;
-//   let store: Store<TestSchema>;
-//   const createTemporaryEntity = (id: string, name = ''): TemporaryEntity => ({
-//     id,
-//     name: name || `name-${id}`,
-//   });
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        LoadingFacade,
+        provideMockStore({
+          initialState: {},
+        }),
+      ],
+    });
 
-//   describe('used in NgModule', () => {
-//     beforeEach(() => {
-//       @NgModule({
-//         imports: [
-//           StoreModule.forFeature(TEMPORARY_FEATURE_KEY, temporaryReducer),
-//           EffectsModule.forFeature([TemporaryEffects]),
-//         ],
-//         providers: [TemporaryFacade],
-//       })
-//       class CustomFeatureModule {}
+    loadingFacade = TestBed.inject(LoadingFacade);
+    store = TestBed.inject(Store) as MockStore;
 
-//       @NgModule({
-//         imports: [
-//           StoreModule.forRoot({}),
-//           EffectsModule.forRoot([]),
-//           CustomFeatureModule,
-//         ],
-//       })
-//       class RootModule {}
-//       TestBed.configureTestingModule({ imports: [RootModule] });
+    // Mock the selectors
+    store.overrideSelector(LoadingSelectors.isLoading, true);
+  });
 
-//       store = TestBed.inject(Store);
-//       facade = TestBed.inject(TemporaryFacade);
-//     });
+  it('should be created', () => {
+    expect(loadingFacade).toBeTruthy();
+  });
 
-//     /**
-//      * The initially generated facade::loadAll() returns empty array
-//      */
-//     it('loadAll() should return empty list with loaded == true', async () => {
-//       let list = await readFirst(facade.allTemporary$);
-//       let isLoaded = await readFirst(facade.loaded$);
+  it('isLoading$ should return the loaded state', (done) => {
+    loadingFacade.isLoading$.subscribe((loaded) => {
+      expect(loaded).toBe(true);
+      done();
+    });
+  });
 
-//       expect(list.length).toBe(0);
-//       expect(isLoaded).toBe(false);
+  it('start should dispatch loadStart action', () => {
+    const dispatchSpy = jest.spyOn(store, 'dispatch');
 
-//       facade.init();
+    const requestId = loadingFacade.start();
 
-//       list = await readFirst(facade.allTemporary$);
-//       isLoaded = await readFirst(facade.loaded$);
+    expect(dispatchSpy).toHaveBeenCalledWith(
+      LoadingActions.loadStart({ requestId }),
+    );
+  });
 
-//       expect(list.length).toBe(0);
-//       expect(isLoaded).toBe(true);
-//     });
+  it('stop should dispatch loadStop action', () => {
+    const dispatchSpy = jest.spyOn(store, 'dispatch');
 
-//     /**
-//      * Use `loadTemporarySuccess` to manually update list
-//      */
-//     it('allTemporary$ should return the loaded list; and loaded flag == true', async () => {
-//       let list = await readFirst(facade.allTemporary$);
-//       let isLoaded = await readFirst(facade.loaded$);
+    const requestId = uuidv4();
+    loadingFacade.stop(requestId);
 
-//       expect(list.length).toBe(0);
-//       expect(isLoaded).toBe(false);
-
-//       store.dispatch(
-//         TemporaryActions.loadTemporarySuccess({
-//           temporary: [
-//             createTemporaryEntity('AAA'),
-//             createTemporaryEntity('BBB'),
-//           ],
-//         }),
-//       );
-
-//       list = await readFirst(facade.allTemporary$);
-//       isLoaded = await readFirst(facade.loaded$);
-
-//       expect(list.length).toBe(2);
-//       expect(isLoaded).toBe(true);
-//     });
-//   });
-// });
+    expect(dispatchSpy).toHaveBeenCalledWith(
+      LoadingActions.loadStop({ requestId }),
+    );
+  });
+});
