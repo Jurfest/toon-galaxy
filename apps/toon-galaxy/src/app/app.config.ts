@@ -19,6 +19,7 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import {
+  errorInterceptor,
   headerInterceptor,
   loadingInterceptor,
   provideSharedUtilCommon,
@@ -39,7 +40,11 @@ export const appConfig: ApplicationConfig = {
      * be phased out in a later release.
      */
     provideHttpClient(
-      withInterceptors([loadingInterceptor, headerInterceptor]),
+      withInterceptors([
+        loadingInterceptor,
+        headerInterceptor,
+        errorInterceptor,
+      ]),
       withFetch(),
     ),
     provideClientHydration(),
