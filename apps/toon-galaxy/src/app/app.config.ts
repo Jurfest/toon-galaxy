@@ -11,9 +11,11 @@ import {
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
+  NoPreloading,
   provideRouter,
   withEnabledBlockingInitialNavigation,
   withInMemoryScrolling,
+  withPreloading,
 } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
@@ -53,8 +55,7 @@ export const appConfig: ApplicationConfig = {
       // Uncomment for smother view transitions
       // withViewTransitions(),
 
-      //
-      // withPreloading(PreloadAllModules),
+      withPreloading(NoPreloading),
       // withRouterConfig({
       //   onSameUrlNavigation: 'reload',
       // }),
@@ -65,7 +66,6 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'enabled',
       }),
       // withDebugTracing(), // should be disabled in production
-      // quicklinkProviders,
     ),
     provideAnimationsAsync(),
 
