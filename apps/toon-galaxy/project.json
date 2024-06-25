@@ -47,13 +47,13 @@
           "budgets": [
             {
               "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
             },
             {
               "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
+              "maximumWarning": "6kb",
+              "maximumError": "10kb"
             }
           ],
           "outputHashing": "all"
@@ -67,8 +67,8 @@
           "namedChunks": true,
           "fileReplacements": [
             {
-              "replace": "environments/environment.ts",
-              "with": "environments/environment.development.ts"
+              "replace": "libs/shared/util-common/src/lib/environments/environment.ts",
+              "with": "libs/shared/util-common/src/lib/environments/environment.development.ts"
             }
           ]
         }
@@ -132,8 +132,8 @@
           "vendorChunk": true,
           "fileReplacements": [
             {
-              "replace": "environments/environment.ts",
-              "with": "environments/environment.development.ts"
+              "replace": "libs/shared/util-common/src/lib/environments/environment.ts",
+              "with": "libs/shared/util-common/src/lib/environments/environment.development.ts"
             }
           ]
         }

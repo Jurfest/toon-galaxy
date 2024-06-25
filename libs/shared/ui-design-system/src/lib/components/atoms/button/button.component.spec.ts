@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ButtonComponent } from './button.component';
+import { By } from '@angular/platform-browser';
 
 describe('ButtonComponent', () => {
   let component: ButtonComponent;
@@ -13,7 +14,6 @@ describe('ButtonComponent', () => {
 
     fixture = TestBed.createComponent(ButtonComponent);
     component = fixture.componentInstance;
-    fixture.componentRef.setInput('label', 'button');
     fixture.detectChanges();
 
     // TODO: Zoneless
@@ -22,11 +22,22 @@ describe('ButtonComponent', () => {
     // });
     //
     // const fixture = TestBed.createComponent(ButtonComponent);
-    // component.label = input('button');
     // await fixture.whenStable();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call method sendClickEvent and emit void event when clicked', () => {
+    const clickSpy = jest.spyOn(component.buttonClickEvent, 'emit');
+    const sendClickEventMethodSpy = jest.spyOn(component, 'sendClickEvent');
+
+    const buttonElement = fixture.debugElement.query(
+      By.css('button'),
+    ).nativeElement;
+    buttonElement.click();
+    expect(clickSpy).toHaveBeenCalled();
+    expect(sendClickEventMethodSpy).toHaveBeenCalled();
   });
 });

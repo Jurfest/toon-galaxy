@@ -11,14 +11,17 @@ import {
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
+  NoPreloading,
   provideRouter,
   withEnabledBlockingInitialNavigation,
   withInMemoryScrolling,
+  withPreloading,
 } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import {
+  errorInterceptor,
   headerInterceptor,
   loadingInterceptor,
   provideSharedUtilCommon,
@@ -39,7 +42,11 @@ export const appConfig: ApplicationConfig = {
      * be phased out in a later release.
      */
     provideHttpClient(
-      withInterceptors([loadingInterceptor, headerInterceptor]),
+      withInterceptors([
+        loadingInterceptor,
+        headerInterceptor,
+        errorInterceptor,
+      ]),
       withFetch(),
     ),
     provideClientHydration(),
@@ -48,8 +55,7 @@ export const appConfig: ApplicationConfig = {
       // Uncomment for smother view transitions
       // withViewTransitions(),
 
-      //
-      // withPreloading(PreloadAllModules),
+      withPreloading(NoPreloading),
       // withRouterConfig({
       //   onSameUrlNavigation: 'reload',
       // }),
@@ -60,7 +66,6 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'enabled',
       }),
       // withDebugTracing(), // should be disabled in production
-      // quicklinkProviders,
     ),
     provideAnimationsAsync(),
 

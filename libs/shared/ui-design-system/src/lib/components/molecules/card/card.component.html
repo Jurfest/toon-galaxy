@@ -4,8 +4,17 @@
   <div
     class="flex overflow-hidden relative flex-col items-end px-16 pb-20 w-full text-xl font-black text-center whitespace-nowrap aspect-square text-neutral-950 max-md:pl-5"
   >
+    <!-- <img
+      width="300"
+      height="300"
+      ngSrcset="300w, 600w, 900w"
+      sizes="(max-width: 767px) calc(100vw - 32px), 33vw"
+      [ngSrc]="card().image"
+      [alt]="card().name + ' picture'"
+      class="object-cover absolute inset-0 size-full rounded-t-[12px]"
+      priority
+    /> -->
     <img
-      loading="lazy"
       [src]="card().image"
       [alt]="card().name + ' picture'"
       class="object-cover absolute inset-0 size-full rounded-t-[12px]"

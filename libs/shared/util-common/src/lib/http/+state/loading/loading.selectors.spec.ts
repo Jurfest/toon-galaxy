@@ -1,12 +1,20 @@
-import * as fromLoading from './loading.reducer';
-import { selectLoadingState } from './loading.selectors';
+import { initialState, LoadingState } from './loading.reducer';
+import { isLoading, selectLoadingState } from './loading.selectors';
 
 describe('Loading Selectors', () => {
-  it('should select the feature state', () => {
-    const result = selectLoadingState({
-      [fromLoading.loadingFeatureKey]: {},
-    });
+  let state: LoadingState;
 
-    expect(result).toEqual({});
+  beforeEach(() => {
+    state = initialState;
+  });
+
+  it('should select the loading state', () => {
+    const result = selectLoadingState.projector(state);
+    expect(result).toEqual(state);
+  });
+
+  it('should return the loaded flag', () => {
+    const result = isLoading.projector(state);
+    expect(result).toBe(state.loading);
   });
 });

@@ -9,7 +9,6 @@ import {
   OnInit,
   Signal,
 } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
 import {
   FaIconLibrary,
   FontAwesomeModule,
@@ -26,7 +25,7 @@ import {
 @Component({
   selector: 'design-system-icon',
   standalone: true,
-  imports: [CommonModule, MatIconModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule],
   templateUrl: './icon.component.html',
   styleUrl: './icon.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -11,4 +11,4 @@ npm run pretty-quick
 # npx prettier --write .
 
 # Run linting
-nx affected:lint
+npx nx affected:lint

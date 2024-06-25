@@ -4,8 +4,50 @@ Welcome to Toon Galaxy, an application to explore, search, and save your favorit
 
 ## Production Links
 
+Aplication link: [toon-galaxy](http://toon-galaxy.s3-website-sa-east-1.amazonaws.com)
+
 The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tgpcciyhjs.chromatic.com/).
 TODO: production link.
+
+Application additional aplication link: [toon-galaxy-server](https://rick-morty-427511.rj.r.appspot.com)
+
+## Instructions
+
+### Installing the Application
+
+Clone the repository and install the dependencies.
+
+```bash
+
+# Install dependencies
+$ npm i
+
+```
+
+### Running the application
+
+```bash
+# Prod mode
+$ npm run prepare
+$ npm start
+
+# Dev mode
+$ npm run dev:ssr
+```
+
+### Running unit tests
+
+```bash
+# Run jest for all projects
+$ npm run test:all
+
+```
+
+## Dependancy Graph
+
+<h1 align="center">
+  <img alt="Dependency Graph" src="./libs/shared/ui-design-system/src/assets/images/graph.png" width="100%"/>
+</h1>
 
 ## License
 
@@ -73,3 +115,11 @@ It will show tasks that you can run with Nx.
 - [Join the community](https://nx.dev/community)
 - [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@nxdevtools)
 - [Follow us on Twitter](https://twitter.com/nxdevtools)
+
+<!-- Performance TODOS -->
+<!--
+// - Add relevant images to imagekit for performance improvement
+// provideImageKitLoader('https://ik.imagekit.io/<key>'),
+
+// - Add cache interceptor for first page empty search term list
+ -->

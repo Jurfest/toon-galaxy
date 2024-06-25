@@ -1,0 +1,16 @@
+runtime: nodejs20
+env_variables:
+  NODE_ENV: production
+handlers:
+  - url: /
+    static_files: dist/apps/toon-galaxy/browser/index.html
+    upload: dist/apps/toon-galaxy/browser/index.html
+    secure: always
+    http_headers:
+      X-Frame-Options: SAMEORIGIN
+  - url: /(.*)
+    static_files: dist/apps/toon-galaxy/browser/\1
+    upload: dist/apps/toon-galaxy/browser/(.*)
+    secure: always
+    http_headers:
+      X-Frame-Options: SAMEORIGIN

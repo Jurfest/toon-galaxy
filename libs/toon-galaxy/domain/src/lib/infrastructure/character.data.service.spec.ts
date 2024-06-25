@@ -5,7 +5,9 @@ import {
 } from '@angular/common/http/testing';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { environment } from '@toon-galaxy/env/environment';
+
+// REFACTOR: - Use environment variable
+const BASE_API_URL = `https://rickandmortyapi.com/api`;
 
 import {
   CharacterApiResponse,
@@ -51,7 +53,7 @@ describe('CharacterDataService', () => {
   let characterDataService: CharacterDataService;
   let httpTestingController: HttpTestingController;
 
-  const characterBaseApiUrl = `${environment.BASE_API_URL}/character`;
+  const characterBaseApiUrl = `${BASE_API_URL}/character`;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
