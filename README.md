@@ -2,29 +2,52 @@
 
 Welcome to Toon Galaxy, an application to explore, search, and save your favorite cartoon characters. This project uses a monorepo structure managed with Nx, Angular for the frontend, and follows Domain-Driven Design (DDD) principles
 
-<!--
-TODO: Add run structions
-Development: npm run serve:ssr
-
-Production: npm run build:ssr && npm run serve:ssr:prod // Node Express server listening on http://localhost:4000
--->
-
 ## Production Links
+
+Aplication link: [toon-galaxy](https://rick-morty-427511.rj.r.appspot.com)
 
 The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tgpcciyhjs.chromatic.com/).
 TODO: production link.
 
-Application Static Website Hosting (prerender) link: [toon-galaxy-s3-bucket](http://toon-galaxy.s3-website-sa-east-1.amazonaws.com)
+Application aditional link (static website hosting - prerender) link: [toon-galaxy-s3-bucket](http://toon-galaxy.s3-website-sa-east-1.amazonaws.com)
 
-Aplication Server Side Rendering link: [toon-galaxy]()
+## Instructions
 
-## Deploy
+### Installing the Application
 
-This application uses Server Side Rendering. Using prerendering, we can also deploy it
-as with any static server (e.g., Apache Server, NGINX server or AWS S3 bucket).
+Clone the repository and install the dependencies.
 
-For use all Server Side Rendering capabilities (hydration) in pages that can't use only
-prerendering we need to deploy it to a Node server running in production.
+```bash
+
+# Install dependencies
+$ npm i
+
+```
+
+### Running the application
+
+```bash
+# Prod mode
+$ npm run prepare
+$ npm start
+
+# Dev mode
+$ npm run dev:ssr
+```
+
+### Running unit tests
+
+```bash
+# Run jest for all projects
+$ npm run test:all
+
+```
+
+## Dependancy Graph
+
+<h1 align="center">
+  <img alt="Dependency Graph" src="./libs/shared/ui-design-system/src/assets/images/graph.png" width="100%"/>
+</h1>
 
 ## License
 
@@ -98,5 +121,5 @@ It will show tasks that you can run with Nx.
 // - Add relevant images to imagekit for performance improvement
 // provideImageKitLoader('https://ik.imagekit.io/<key>'),
 
-// - Add cache interceptor for fist search list
+// - Add cache interceptor for first page empty search term list
  -->
