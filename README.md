@@ -2,6 +2,11 @@
 
 Welcome to Toon Galaxy, an application to explore, search, and save your favorite cartoon characters. This project uses a monorepo structure managed with Nx, Angular for the frontend, and follows Domain-Driven Design (DDD) principles
 
+<!--
+Development: npm run serve:ssr
+Production: npm run server
+-->
+
 ## Production Links
 
 The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tgpcciyhjs.chromatic.com/).
