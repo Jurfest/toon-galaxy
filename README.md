@@ -6,10 +6,9 @@ Welcome to Toon Galaxy, an application to explore, search, and save your favorit
 
 Aplication link: [toon-galaxy](http://toon-galaxy.s3-website-sa-east-1.amazonaws.com)
 
-The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tgpcciyhjs.chromatic.com/).
-TODO: production link.
+The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tdssmzhumt.chromatic.com/).
 
-Application additional aplication link: [toon-galaxy-server](https://rick-morty-427511.rj.r.appspot.com)
+Application additional link: [toon-galaxy-server](https://rick-morty-427511.rj.r.appspot.com)
 
 ## Instructions
 
