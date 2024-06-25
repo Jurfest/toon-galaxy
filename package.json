@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "nx",
-    "start": "nx serve -o",
+    "start:dev": "nx serve -o",
     "build": "nx build",
     "test": "nx test",
     "lint": "nx workspace-lint && ng lint",
@@ -35,7 +35,9 @@
     "test:all": "nx run-many --all --target=test --parallel -- --collectCoverage --coverage",
     "pretty-quick": "pretty-quick --staged",
     "dev-storybook": "npx nx run shared-ui-design-system:storybook --port=4400",
-    "build-storybook": "npx nx run shared-ui-design-system:build-storybook"
+    "build-storybook": "npx nx run shared-ui-design-system:build-storybook",
+    "prepare": "npm run build:ssr",
+    "start": "serve:ssr:prod"
   },
   "private": true,
   "dependencies": {
