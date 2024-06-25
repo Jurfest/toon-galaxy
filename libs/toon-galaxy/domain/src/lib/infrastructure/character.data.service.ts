@@ -27,9 +27,6 @@ export class CharacterDataService {
       .get<
         CharacterApiResponse<CharacterEntity[]>
       >(characterBaseApiUrl, { params })
-      .pipe(
-        tap((res) => console.log(res)),
-        map((res) => res.results),
-      );
+      .pipe(map((res) => res.results));
   }
 }
