@@ -6,8 +6,9 @@ import {
 } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { environment } from '@toon-galaxy/env/environment';
 import { catchError, map, Observable, throwError } from 'rxjs';
+
+import { environment } from '../../environments/environment';
 
 export const errorInterceptor: HttpInterceptorFn = (
   req,

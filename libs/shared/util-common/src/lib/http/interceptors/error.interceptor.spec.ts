@@ -13,10 +13,10 @@ import {
 import { importProvidersFrom } from '@angular/core';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { environment } from '@toon-galaxy/env/environment';
 import { of } from 'rxjs';
 
 import { errorInterceptor } from './error.interceptor';
+import { environment } from '../../environments/environment';
 
 describe('errorInterceptor', () => {
   const interceptor: HttpInterceptorFn = (req, next) =>

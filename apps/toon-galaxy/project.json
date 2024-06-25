@@ -67,8 +67,8 @@
           "namedChunks": true,
           "fileReplacements": [
             {
-              "replace": "environments/environment.ts",
-              "with": "environments/environment.development.ts"
+              "replace": "libs/shared/util-common/src/lib/environments/environment.ts",
+              "with": "libs/shared/util-common/src/lib/environments/environment.development.ts"
             }
           ]
         }
@@ -132,8 +132,8 @@
           "vendorChunk": true,
           "fileReplacements": [
             {
-              "replace": "environments/environment.ts",
-              "with": "environments/environment.development.ts"
+              "replace": "libs/shared/util-common/src/lib/environments/environment.ts",
+              "with": "libs/shared/util-common/src/lib/environments/environment.development.ts"
             }
           ]
         }
