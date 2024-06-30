@@ -9,6 +9,7 @@
     "test": "nx test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "nx e2e",
+    "e2e:open": "npx nx run toon-galaxy-e2e:open-cypress",
     "dev:ssr": "npx nx run toon-galaxy:serve-ssr",
     "dev:ssr:prod-simul": "npx nx run toon-galaxy:serve --configuration=production",
     "serve:prerender": "npx nx run toon-galaxy:prerender:development",
