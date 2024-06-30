@@ -50,9 +50,7 @@ $ npm run test:all
 
 ### Web Core Vitals
 
-https://web.dev/articles/vitals-measurement-getting-started?hl=en
-
-Web Core Vitals are essential metrics that assess the loading performance, interactivity, and visual stability of web applications. These metrics are crucial for providing a good user experience.
+[Web core vitals metrics](https://web.dev/articles/vitals-measurement-getting-started?hl=en) assess the loading performance, interactivity, and visual stability of web applications. These metrics are crucial for providing a good user experience.
 
 - **Largest Contentful Paint (LCP)**: Optimal loading performance is achieved with LCP under 2.5 seconds.
 - **First Input Delay (FID)**: Measure related with interactivity. The target for optimal FID is less than 100 milliseconds.
@@ -60,7 +58,7 @@ Web Core Vitals are essential metrics that assess the loading performance, inter
 
 ### Lighthouse Metrics
 
-Lighthouse is a tool in Chrome Dev Tools for auditing and improving the quality of web pages. It provides insights into performance, accessibility, best practices, and SEO.
+[Lighthouse](https://pagespeed.web.dev/) is a tool in Chrome Dev Tools for auditing and improving the quality of web pages. It provides insights into performance, accessibility, best practices, and SEO.
 
 ![Lighthouse Metrics](./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png)
 
@@ -72,7 +70,7 @@ PageSpeed Insights analyzes the content of a web page and generates suggestions 
 
 ### Additional Web Metrics
 
-In addition to core metrics, consider other performance indicators such as:
+In addition to core metrics, other performance indicators are relevant such as:
 
 - **Time to First Byte (TTFB)**: Measures server response time.
 - **Time to Interactive (TTI)**: Measures when the page is usable and interactive.
