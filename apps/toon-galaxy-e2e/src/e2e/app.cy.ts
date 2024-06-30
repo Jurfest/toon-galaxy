@@ -1,6 +1,6 @@
-import { getGreeting } from '../support/app.po';
+// import { getGreeting } from '../support/app.po';
 
-// describe('toon-galaxy-e2e', () => {
+// describe('Toon Galaxy E2E', () => {
 //   beforeEach(() => cy.visit('/'));
 
 //   it('should display welcome message', () => {
@@ -25,22 +25,16 @@ describe('Toon Galaxy App', () => {
       cy.get('design-system-toggle-button').should('be.visible');
     });
 
-    it('click on Favorites button in toggle should navigate to favorites page', () => {
-      // Seleciona o botão Favoritos dentro do componente toggle-button
+    it('should navigate to the favorites page when clicking the Favorites button', () => {
       cy.get('design-system-toggle-button button')
         .contains('Favoritos')
         .click();
-
-      // Verifica se a navegação ocorreu corretamente
       cy.url().should('include', '/favorites');
       cy.contains('h1', 'Favoritos');
     });
 
-    it('click on Home button in toggle should navigate to search page', () => {
-      // Seleciona o botão Home dentro do componente toggle-button
+    it('should navigate to the search page when clicking the Home button', () => {
       cy.get('design-system-toggle-button button').contains('Início').click();
-
-      // Verifica se a navegação ocorreu corretamente
       cy.url().should('include', '/manage-characters/search');
       cy.contains('h1', 'Início');
     });
@@ -50,18 +44,14 @@ describe('Toon Galaxy App', () => {
     beforeEach(() => cy.visit('/'));
 
     it('should search and display characters', () => {
-      // Interage com o campo de busca
       cy.get('[data-testid=search-input]').type('Rick Sanchez');
 
-      // Aguarda o debounce de 300 ms
       // eslint-disable-next-line cypress/no-unnecessary-waiting
-      cy.wait(300);
+      cy.wait(300); // Wait for debounce
 
-      // Verifica a quantidade de cards exibidos
       cy.get('[data-testid=card]').should('have.length', 4);
 
-      // Verifica o conteúdo de cada card
-      cy.get('[data-testid=card]').each(($el, index, $list) => {
+      cy.get('[data-testid=card]').each(($el) => {
         cy.wrap($el)
           .find('[data-testid=card-name]')
           .should('contain', 'Rick Sanchez');
@@ -99,27 +89,20 @@ describe('Toon Galaxy App', () => {
     beforeEach(() => cy.visit('/'));
 
     it('should allow users to favorite and unfavorite a character', () => {
-      // Interage com o campo de busca
       cy.get('[data-testid=search-input]').type('Morty');
-
-      // Aguarda o debounce de 300 ms
       // eslint-disable-next-line cypress/no-unnecessary-waiting
-      cy.wait(300);
+      cy.wait(300); // Wait for debounce
 
-      // Favorita um personagem
       cy.get('[data-testid=card]')
         .first()
         .within(() => {
-          // Verifica o estado inicial do ícone de favorito
           cy.get('[data-testid=card-favorite-button]')
             .find('fa-icon')
             .then(($icon) => {
               const initialState = $icon.hasClass('selected');
 
-              // Clica no botão de favorito
               cy.get('[data-testid=card-favorite-button]').click();
 
-              // Verifica se o estado do ícone mudou
               cy.get('[data-testid=card-favorite-button]')
                 .find('fa-icon')
                 .should(($iconAfter) => {
@@ -128,10 +111,8 @@ describe('Toon Galaxy App', () => {
                   );
                 });
 
-              // Clica novamente para desfavoritar
               cy.get('[data-testid=card-favorite-button]').click();
 
-              // Verifica se o estado do ícone voltou ao inicial
               cy.get('[data-testid=card-favorite-button]')
                 .find('fa-icon')
                 .should(($iconAfter) => {
@@ -145,61 +126,42 @@ describe('Toon Galaxy App', () => {
   });
 
   describe('Favorite Characters List', () => {
-    it('should not display the list of initially favorite characters', () => {
+    it('should not display any initially favorite characters', () => {
       cy.visit('/');
 
-      // Seleciona o botão Favoritos dentro do componente toggle-button
       cy.get('design-system-toggle-button button')
         .contains('Favoritos')
         .click();
 
-      // Verifica se a lista de favoritos inicialmente é vazia
       cy.get('[data-testid=card-container]').should('not.exist');
     });
 
     it('should add 3 characters to favorites and display them in the favorites list', () => {
       cy.visit('/');
 
-      // Adicionar 3 personagens aos favoritos
-      cy.get('[data-testid=search-input]').type('Morty');
-      // eslint-disable-next-line cypress/no-unnecessary-waiting
-      cy.wait(300); // Aguarda debounce de 300 ms
+      const addToFavorites = (character: string) => {
+        cy.get('[data-testid=search-input]').type(`${character}{enter}`);
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(300); // Wait for debounce
 
-      cy.get('[data-testid=card]')
-        .first()
-        .within(() => {
-          cy.get('[data-testid=card-favorite-button]').click();
-        });
+        cy.get('[data-testid=card]')
+          .first()
+          .within(() => {
+            cy.get('[data-testid=card-favorite-button]').click();
+          });
 
-      // eslint-disable-next-line cypress/unsafe-to-chain-command
-      cy.get('[data-testid=search-input]').find('input').clear();
-      cy.get('[data-testid=search-input]').type('Rick');
-      // eslint-disable-next-line cypress/no-unnecessary-waiting
-      cy.wait(300); // Aguarda debounce de 300 ms
+        cy.get('[data-testid=search-input]').find('input').clear();
+      };
 
-      cy.get('[data-testid=card]')
-        .first()
-        .within(() => {
-          cy.get('[data-testid=card-favorite-button]').click();
-        });
+      // Add characters to favorites
+      addToFavorites('Morty');
+      addToFavorites('Rick');
+      addToFavorites('Snuffles');
 
-      cy.get('[data-testid=search-input]').find('input').clear();
-      cy.get('[data-testid=search-input]').type('Snuffles');
-      // eslint-disable-next-line cypress/no-unnecessary-waiting
-      cy.wait(300); // Aguarda debounce de 300 ms
-
-      cy.get('[data-testid=card]')
-        .first()
-        .within(() => {
-          cy.get('[data-testid=card-favorite-button]').click();
-        });
-
-      // Navegar para a lista de favoritos
       cy.get('design-system-toggle-button button')
         .contains('Favoritos')
         .click();
 
-      // Verifica se os personagens favoritos estão na lista
       cy.get('[data-testid=card]').should('have.length', 3);
 
       cy.get('[data-testid=card]').each(() => {
