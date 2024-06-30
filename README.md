@@ -50,41 +50,26 @@ $ npm run test:all
 
 ### Web Core Vitals
 
-[Web Core Vitals metrics](https://web.dev/articles/vitals-measurement-getting-started?hl=en) assess the loading performance, interactivity, and visual stability of web applications. These metrics are crucial for providing a good user experience.
+[Web Core Vitals](https://web.dev/articles/vitals-measurement-getting-started?hl=en) assess loading performance, interactivity, and visual stability. These metrics are crucial for a good user experience:
 
-- **Largest Contentful Paint (LCP)**: Optimal loading performance is achieved with LCP under 2.5 seconds.
-- **First Input Delay (FID)**: Measures interactivity. The target for optimal FID is less than 100 milliseconds.
-- **Cumulative Layout Shift (CLS)**: Measures visual stability. Maintaining a CLS score of less than 0.1 helps avoid large unexpected layout shifts.
+- **Largest Contentful Paint (LCP)**: Optimal loading performance with LCP under 2.5 seconds.
+- **First Input Delay (FID)**: Measures interactivity. Target FID is less than 100 milliseconds.
+- **Cumulative Layout Shift (CLS)**: Measures visual stability. A CLS score of less than 0.1 avoids large unexpected layout shifts.
 
-### Performance Analysis Tools
+### Web Audit and Analysis Tools
 
-Lighthouse and PageSpeed Insights provide detailed analysis and insights into the performance of web applications.
+Lighthouse and PageSpeed Insights provide comprehensive analysis and insights into web application performance, incorporating Real User Monitoring (RUM) and lab data.
 
-#### Lighthouse Metrics
+#### Lighthouse and PageSpeed Insights
 
-Lighthouse is a tool in Chrome DevTools for auditing and improving the quality of web pages. It provides insights into performance, accessibility, best practices, and SEO.
+Lighthouse, integrated with Chrome DevTools, audits and improves web pages by providing insights into performance, accessibility, best practices, and SEO.
 
-#### PageSpeed Insights
+[PageSpeed Insights](https://pagespeed.web.dev/) analyzes web page content, offering suggestions for performance improvements on both mobile and desktop devices.
 
-[PageSpeed Insights](https://pagespeed.web.dev/) analyzes the content of a web page and generates suggestions to make that page faster. It measures performance on both mobile and desktop devices.
-
-<div style="display: flex; justify-content: space-between;">
-  <img src="./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png" alt="Lighthouse Metrics" style="width: 48%;">
-  <img src="./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png" alt="PageSpeed Insights" style="width: 48%;">
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <img src="./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png" alt="Lighthouse Metrics" style="height: 250px;">
+  <img src="./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png" alt="PageSpeed Insights" style="height: 250px;">
 </div>
-
-### Real User Monitoring (RUM)
-
-Real User Monitoring (RUM) captures performance metrics from actual users interacting with the site. This approach uses tools like PageSpeed Insights, Search Console, and the CrUX Dashboard to analyze performance under real-world conditions, providing insights that are directly relevant to user experience.
-
-### Lab Data
-
-Lab data tools, such as Lighthouse and WebPageTest, collect performance metrics in controlled environments. These tools help identify potential issues and validate changes before deploying them to production:
-
-- **Lighthouse**: Generates comprehensive reports on LCP, CLS, and TBT, highlighting areas for performance improvement. Available in Chrome DevTools, as a Chrome extension, and as an npm package.
-- **WebPageTest**: Provides detailed reports on web performance, useful for analyzing specific conditions such as different devices and network settings.
-
-This combination of RUM and lab data ensures a holistic approach to performance optimization, addressing both real-world user experience and controlled environment testing.
 
 ## License
 
