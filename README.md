@@ -1,14 +1,12 @@
 # Toon Galaxy
 
-Welcome to Toon Galaxy, an application to explore, search, and save your favorite cartoon characters. This project uses a monorepo structure managed with Nx, Angular for the frontend, and follows Domain-Driven Design (DDD) principles
+Welcome to Toon Galaxy, an application to explore, search, and save your favorite cartoon characters. This project uses a monorepo structure managed with Nx, Angular for the frontend, and follows Domain-Driven Design (DDD) principles.
 
 ## Production Links
 
-Aplication link: [toon-galaxy](http://toon-galaxy.s3-website-sa-east-1.amazonaws.com)
-
-The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tdssmzhumt.chromatic.com/).
-
-Application additional link: [toon-galaxy-server](https://rick-morty-427511.rj.r.appspot.com)
+- Aplication link: [toon-galaxy](https://rick-morty-427511.rj.r.appspot.com)
+- The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tdssmzhumt.chromatic.com/)
+- Additional application link (static deploy version): [toon-galaxy-static](http://toon-galaxy.s3-website-sa-east-1.amazonaws.com)
 
 ## Instructions
 
@@ -26,11 +24,11 @@ $ npm i
 ### Running the application
 
 ```bash
-# Prod mode
+# Production mode (SSR)
 $ npm run prepare
 $ npm start
 
-# Dev mode
+# Development mode (SSR)
 $ npm run dev:ssr
 ```
 
@@ -47,6 +45,38 @@ $ npm run test:all
 <h1 align="center">
   <img alt="Dependency Graph" src="./libs/shared/ui-design-system/src/assets/images/graph.png" width="100%"/>
 </h1>
+
+## Performance Metrics
+
+### Web Core Vitals
+
+https://web.dev/articles/vitals-measurement-getting-started?hl=en
+
+Web Core Vitals are essential metrics that assess the loading performance, interactivity, and visual stability of web applications. These metrics are crucial for providing a good user experience.
+
+- **Largest Contentful Paint (LCP)**: Optimal loading performance is achieved with LCP under 2.5 seconds.
+- **First Input Delay (FID)**: Measure related with interactivity. The target for optimal FID is less than 100 milliseconds.
+- **Cumulative Layout Shift (CLS)**: Measure related to visual stability. Maintaining a CLS score of less than 0.1 helps avoid large unexpected layout shifts.
+
+### Lighthouse Metrics
+
+Lighthouse is a tool in Chrome Dev Tools for auditing and improving the quality of web pages. It provides insights into performance, accessibility, best practices, and SEO.
+
+![Lighthouse Metrics](./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png)
+
+### PageSpeed Insights
+
+PageSpeed Insights analyzes the content of a web page and generates suggestions to make that page faster. It measures performance both on mobile and desktop devices.
+
+![PageSpeed Insights](./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png)
+
+### Additional Web Metrics
+
+In addition to core metrics, consider other performance indicators such as:
+
+- **Time to First Byte (TTFB)**: Measures server response time.
+- **Time to Interactive (TTI)**: Measures when the page is usable and interactive.
+- **Total Blocking Time (TBT)**: Measures the total amount of time between First Contentful Paint (FCP) and Time to Interactive (TTI) where the main thread was blocked for long enough to prevent input responsiveness.
 
 ## License
 
