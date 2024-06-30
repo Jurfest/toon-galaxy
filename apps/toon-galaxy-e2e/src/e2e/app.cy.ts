@@ -170,5 +170,36 @@ describe('Toon Galaxy App', () => {
         cy.get('[data-testid=card-name]').should('contain', 'Snuffles');
       });
     });
+
+    it('should remove character from favorite list', () => {
+      cy.visit('/');
+
+      cy.get('[data-testid=search-input]').type('Morty');
+      // eslint-disable-next-line cypress/no-unnecessary-waiting
+      cy.wait(300); // Wait for debounce
+
+      cy.get('[data-testid=card]')
+        .first()
+        .within(() => {
+          cy.get('[data-testid=card-favorite-button]').click();
+        });
+
+      // Navigate to the favorites list
+      cy.get('design-system-toggle-button button')
+        .contains('Favoritos')
+        .click();
+
+      cy.get('[data-testid=card]').should('have.length', 1);
+
+      // Remove Morty from favorites
+      cy.get('[data-testid=card]')
+        .first()
+        .within(() => {
+          cy.get('[data-testid=card-favorite-button]').click();
+        });
+
+      // Assert that there are no favorites
+      cy.get('[data-testid=card]').should('not.exist');
+    });
   });
 });
