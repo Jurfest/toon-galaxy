@@ -34,9 +34,22 @@ describe('Toon Galaxy App', () => {
     });
 
     it('should navigate to the search page when clicking the Home button', () => {
+      cy.visit('/manage-characters/favorites');
+
       cy.get('design-system-toggle-button button').contains('Início').click();
       cy.url().should('include', '/manage-characters/search');
       cy.contains('h1', 'Início');
+    });
+
+    it('should navigate to the search page when clicking the "Voltar ao início" button', () => {
+      cy.visit('/manage-characters/favorites');
+
+      cy.get('design-system-empty-result button').should('be.visible');
+      cy.get('design-system-empty-result button')
+        .contains('Voltar ao início')
+        .click();
+
+      cy.url().should('include', '/manage-characters/search');
     });
   });
 
