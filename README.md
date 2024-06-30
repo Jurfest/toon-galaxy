@@ -4,9 +4,9 @@ Welcome to Toon Galaxy, an application to explore, search, and save your favorit
 
 ## Production Links
 
-Aplication official link: [toon-galaxy](https://rick-morty-427511.rj.r.appspot.com).
+The aplication link: [toon-galaxy](https://rick-morty-427511.rj.r.appspot.com).
 
-The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tdssmzhumt.chromatic.com/).
+The Storybook for this project can be found at: [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tdssmzhumt.chromatic.com/).
 
 Additional application link (static deploy version): [toon-galaxy-static](http://toon-galaxy.s3-website-sa-east-1.amazonaws.com).
 
@@ -57,17 +57,9 @@ Lighthouse, integrated with Chrome DevTools, audits web pages by providing insig
 [PageSpeed Insights](https://pagespeed.web.dev/) analyzes web page content, offering suggestions for performance improvements on both mobile and desktop devices.
 
 <div style="display: flex; justify-content: space-between; align-items: center;">
-  <img src="./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png" alt="Lighthouse Metrics" style="height: 250px;">
-  <img src="./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png" alt="PageSpeed Insights" style="height: 250px;">
+  <img src="./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png" alt="Lighthouse Metrics" style="height: 350px;">
+  <img src="./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png" alt="PageSpeed Insights" style="height: 350px;">
 </div>
-
-> #### Web Core Vitals
->
-> The [web core vitals metrics](https://web.dev/articles/vitals-measurement-getting-started?hl=en) assess loading performance, interactivity, and visual stability. These metrics are crucial for a good user experience:
->
-> - **Largest Contentful Paint (LCP)**: Optimal loading performance with LCP under 2.5 seconds.
-> - **First Input Delay (FID)**: Measures interactivity. Target FID is less than 100 milliseconds.
-> - **Cumulative Layout Shift (CLS)**: Measures visual stability. A CLS score of less than 0.1 >avoids large unexpected layout shifts.
 
 ## License
 
