@@ -63,26 +63,17 @@ describe('Toon Galaxy App', () => {
       });
     });
 
-    // TODO: - Update search immediately after 'enter'
-    // it('should search and display characters when Enter key is pressed', () => {
-    //   // Interage com o campo de busca e pressiona Enter
-    //   cy.get('[data-testid=search-input]').type('Beth Smith{enter}');
+    it('should display empty result component when no characters are found', () => {
+      cy.get('[data-testid=search-input]').type('NonExistentCharacter');
+      // eslint-disable-next-line cypress/no-unnecessary-waiting
+      cy.wait(300); // Wait for debounce
 
-    //   // Verifica se os resultados da busca aparecem
-    //   // cy.get('[data-testid=card-name]').should('contain', 'Beth Smith');
-
-    //   // Verifica o conteúdo de cada card
-    //   cy.get('[data-testid=card]').each(($el, index, $list) => {
-    //     cy.wrap($el)
-    //       .find('[data-testid=card-name]')
-    //       .should('contain', 'Beth Smith');
-    //     cy.wrap($el).find('[data-testid=card-species]').should('not.be.empty');
-    //     cy.wrap($el)
-    //       .find('[data-testid=card-image]')
-    //       .should('have.attr', 'src')
-    //       .should('not.be.empty');
-    //   });
-    // });
+      cy.get('design-system-empty-result').should('be.visible');
+      cy.get('design-system-empty-result').within(() => {
+        cy.contains('h2', 'Nada foi encontrado');
+        cy.contains('p', 'Tente realizar uma nova busca.');
+      });
+    });
   });
 
   describe('Favorite Characters', () => {
