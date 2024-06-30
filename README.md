@@ -46,23 +46,11 @@ $ npm run test:all
   <img alt="Dependency Graph" src="./libs/shared/ui-design-system/src/assets/images/graph.png" width="100%"/>
 </h1>
 
-## Application Insights and Performance Metrics
-
-### Web Core Vitals
-
-[Web Core Vitals](https://web.dev/articles/vitals-measurement-getting-started?hl=en) assess loading performance, interactivity, and visual stability. These metrics are crucial for a good user experience:
-
-- **Largest Contentful Paint (LCP)**: Optimal loading performance with LCP under 2.5 seconds.
-- **First Input Delay (FID)**: Measures interactivity. Target FID is less than 100 milliseconds.
-- **Cumulative Layout Shift (CLS)**: Measures visual stability. A CLS score of less than 0.1 avoids large unexpected layout shifts.
-
-### Web Audit and Analysis Tools
-
-Lighthouse and PageSpeed Insights provide comprehensive analysis and insights into web application performance, incorporating Real User Monitoring (RUM) and lab data.
+## Web Audit Tools Metrics
 
 #### Lighthouse and PageSpeed Insights
 
-Lighthouse, integrated with Chrome DevTools, audits and improves web pages by providing insights into performance, accessibility, best practices, and SEO.
+Lighthouse, integrated with Chrome DevTools, audits web pages by providing insights into performance, accessibility, best practices, and SEO.
 
 [PageSpeed Insights](https://pagespeed.web.dev/) analyzes web page content, offering suggestions for performance improvements on both mobile and desktop devices.
 
@@ -70,6 +58,14 @@ Lighthouse, integrated with Chrome DevTools, audits and improves web pages by pr
   <img src="./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png" alt="Lighthouse Metrics" style="height: 250px;">
   <img src="./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png" alt="PageSpeed Insights" style="height: 250px;">
 </div>
+
+> ### Web Core Vitals
+>
+> [Web Core Vitals](https://web.dev/articles/vitals-measurement-getting-started?hl=en) assess >loading performance, interactivity, and visual stability. These metrics are crucial for a good >user experience:
+>
+> - **Largest Contentful Paint (LCP)**: Optimal loading performance with LCP under 2.5 seconds.
+> - **First Input Delay (FID)**: Measures interactivity. Target FID is less than 100 milliseconds.
+> - **Cumulative Layout Shift (CLS)**: Measures visual stability. A CLS score of less than 0.1 >avoids large unexpected layout shifts.
 
 ## License
 
