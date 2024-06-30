@@ -114,6 +114,24 @@ describe('Toon Galaxy App', () => {
             });
         });
     });
+
+    it('should display empty result component when no favorite characters exists yet', () => {
+      cy.get('design-system-toggle-button button')
+        .contains('Favoritos')
+        .click();
+
+      cy.get('[data-testid=card-container]').should('not.exist');
+
+      cy.get('design-system-empty-result').should('be.visible');
+      cy.get('design-system-empty-result').within(() => {
+        cy.contains('h2', 'Parece que você ainda não tem favoritos');
+        cy.contains(
+          'p',
+          'Volte à página inicial e escolha os melhores para você.',
+        );
+        cy.contains('design-system-button ', 'Voltar ao início');
+      });
+    });
   });
 
   describe('Favorite Characters List', () => {
