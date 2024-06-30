@@ -4,9 +4,11 @@ Welcome to Toon Galaxy, an application to explore, search, and save your favorit
 
 ## Production Links
 
-- Aplication link: [toon-galaxy](https://rick-morty-427511.rj.r.appspot.com)
-- The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tdssmzhumt.chromatic.com/)
-- Additional application link (static deploy version): [toon-galaxy-static](http://toon-galaxy.s3-website-sa-east-1.amazonaws.com)
+Aplication official link: [toon-galaxy](https://rick-morty-427511.rj.r.appspot.com).
+
+The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tdssmzhumt.chromatic.com/).
+
+Additional application link (static deploy version): [toon-galaxy-static](http://toon-galaxy.s3-website-sa-east-1.amazonaws.com).
 
 ## Instructions
 
@@ -59,7 +61,7 @@ Lighthouse, integrated with Chrome DevTools, audits web pages by providing insig
   <img src="./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png" alt="PageSpeed Insights" style="height: 250px;">
 </div>
 
-> ##### Web Core Vitals
+> #### Web Core Vitals
 >
 > The [web core vitals metrics](https://web.dev/articles/vitals-measurement-getting-started?hl=en) assess loading performance, interactivity, and visual stability. These metrics are crucial for a good user experience:
 >
