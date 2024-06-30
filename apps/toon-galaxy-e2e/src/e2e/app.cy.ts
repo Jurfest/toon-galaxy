@@ -13,9 +13,9 @@ import { getGreeting } from '../support/app.po';
 // });
 
 describe('Toon Galaxy App', () => {
-  beforeEach(() => cy.visit('/'));
-
   describe('Navigation', () => {
+    beforeEach(() => cy.visit('/'));
+
     it('should initially display the home page', () => {
       cy.url().should('include', '/manage-characters/search');
       cy.contains('h1', 'Início');
@@ -47,6 +47,8 @@ describe('Toon Galaxy App', () => {
   });
 
   describe('Character Search', () => {
+    beforeEach(() => cy.visit('/'));
+
     it('should search and display characters', () => {
       // Interage com o campo de busca
       cy.get('[data-testid=search-input]').type('Rick Sanchez');
@@ -94,6 +96,8 @@ describe('Toon Galaxy App', () => {
   });
 
   describe('Favorite Characters', () => {
+    beforeEach(() => cy.visit('/'));
+
     it('should allow users to favorite and unfavorite a character', () => {
       // Interage com o campo de busca
       cy.get('[data-testid=search-input]').type('Morty');
@@ -141,21 +145,68 @@ describe('Toon Galaxy App', () => {
   });
 
   describe('Favorite Characters List', () => {
-    it('should display the list of favorite characters', () => {
+    it('should not display the list of initially favorite characters', () => {
+      cy.visit('/');
+
       // Seleciona o botão Favoritos dentro do componente toggle-button
       cy.get('design-system-toggle-button button')
         .contains('Favoritos')
         .click();
 
       // Verifica se a lista de favoritos inicialmente é vazia
-      // cy.get('[data-testid=card]').should('not.be.visible');
+      cy.get('[data-testid=card-container]').should('not.exist');
     });
 
-    it('should ', () => {
-      // Adicionar 3 favoritos
-      // Navegar favoritos
+    it('should add 3 characters to favorites and display them in the favorites list', () => {
+      cy.visit('/');
+
+      // Adicionar 3 personagens aos favoritos
+      cy.get('[data-testid=search-input]').type('Morty');
+      // eslint-disable-next-line cypress/no-unnecessary-waiting
+      cy.wait(300); // Aguarda debounce de 300 ms
+
+      cy.get('[data-testid=card]')
+        .first()
+        .within(() => {
+          cy.get('[data-testid=card-favorite-button]').click();
+        });
+
+      // eslint-disable-next-line cypress/unsafe-to-chain-command
+      cy.get('[data-testid=search-input]').find('input').clear();
+      cy.get('[data-testid=search-input]').type('Rick');
+      // eslint-disable-next-line cypress/no-unnecessary-waiting
+      cy.wait(300); // Aguarda debounce de 300 ms
+
+      cy.get('[data-testid=card]')
+        .first()
+        .within(() => {
+          cy.get('[data-testid=card-favorite-button]').click();
+        });
+
+      cy.get('[data-testid=search-input]').find('input').clear();
+      cy.get('[data-testid=search-input]').type('Snuffles');
+      // eslint-disable-next-line cypress/no-unnecessary-waiting
+      cy.wait(300); // Aguarda debounce de 300 ms
+
+      cy.get('[data-testid=card]')
+        .first()
+        .within(() => {
+          cy.get('[data-testid=card-favorite-button]').click();
+        });
+
+      // Navegar para a lista de favoritos
+      cy.get('design-system-toggle-button button')
+        .contains('Favoritos')
+        .click();
+
       // Verifica se os personagens favoritos estão na lista
-      // cy.get('[data-testid=card-name]').should('contain', 'Morty');
+      cy.get('[data-testid=card]').should('have.length', 3);
+
+      cy.get('[data-testid=card]').each(() => {
+        cy.get('[data-testid=card-name]').should('contain', 'Morty');
+        cy.get('[data-testid=card-name]').should('contain', 'Rick');
+        cy.get('[data-testid=card-name]').should('contain', 'Snuffles');
+      });
     });
   });
 });
