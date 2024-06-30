@@ -59,9 +59,9 @@ Lighthouse, integrated with Chrome DevTools, audits web pages by providing insig
   <img src="./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png" alt="PageSpeed Insights" style="height: 250px;">
 </div>
 
-> ### Web Core Vitals
+> ##### Web Core Vitals
 >
-> [Web Core Vitals](https://web.dev/articles/vitals-measurement-getting-started?hl=en) assess >loading performance, interactivity, and visual stability. These metrics are crucial for a good >user experience:
+> The [web core vitals metrics](https://web.dev/articles/vitals-measurement-getting-started?hl=en) assess loading performance, interactivity, and visual stability. These metrics are crucial for a good user experience:
 >
 > - **Largest Contentful Paint (LCP)**: Optimal loading performance with LCP under 2.5 seconds.
 > - **First Input Delay (FID)**: Measures interactivity. Target FID is less than 100 milliseconds.
