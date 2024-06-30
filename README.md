@@ -46,35 +46,45 @@ $ npm run test:all
   <img alt="Dependency Graph" src="./libs/shared/ui-design-system/src/assets/images/graph.png" width="100%"/>
 </h1>
 
-## Performance Metrics
+## Application Insights and Performance Metrics
 
 ### Web Core Vitals
 
-[Web core vitals metrics](https://web.dev/articles/vitals-measurement-getting-started?hl=en) assess the loading performance, interactivity, and visual stability of web applications. These metrics are crucial for providing a good user experience.
+[Web Core Vitals metrics](https://web.dev/articles/vitals-measurement-getting-started?hl=en) assess the loading performance, interactivity, and visual stability of web applications. These metrics are crucial for providing a good user experience.
 
 - **Largest Contentful Paint (LCP)**: Optimal loading performance is achieved with LCP under 2.5 seconds.
-- **First Input Delay (FID)**: Measure related with interactivity. The target for optimal FID is less than 100 milliseconds.
-- **Cumulative Layout Shift (CLS)**: Measure related to visual stability. Maintaining a CLS score of less than 0.1 helps avoid large unexpected layout shifts.
+- **First Input Delay (FID)**: Measures interactivity. The target for optimal FID is less than 100 milliseconds.
+- **Cumulative Layout Shift (CLS)**: Measures visual stability. Maintaining a CLS score of less than 0.1 helps avoid large unexpected layout shifts.
 
-### Lighthouse Metrics
+### Performance Analysis Tools
 
-[Lighthouse](https://pagespeed.web.dev/) is a tool in Chrome Dev Tools for auditing and improving the quality of web pages. It provides insights into performance, accessibility, best practices, and SEO.
+Lighthouse and PageSpeed Insights provide detailed analysis and insights into the performance of web applications.
 
-![Lighthouse Metrics](./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png)
+#### Lighthouse Metrics
 
-### PageSpeed Insights
+Lighthouse is a tool in Chrome DevTools for auditing and improving the quality of web pages. It provides insights into performance, accessibility, best practices, and SEO.
 
-PageSpeed Insights analyzes the content of a web page and generates suggestions to make that page faster. It measures performance both on mobile and desktop devices.
+#### PageSpeed Insights
 
-![PageSpeed Insights](./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png)
+[PageSpeed Insights](https://pagespeed.web.dev/) analyzes the content of a web page and generates suggestions to make that page faster. It measures performance on both mobile and desktop devices.
 
-### Additional Web Metrics
+<div style="display: flex; justify-content: space-between;">
+  <img src="./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png" alt="Lighthouse Metrics" style="width: 48%;">
+  <img src="./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png" alt="PageSpeed Insights" style="width: 48%;">
+</div>
 
-In addition to core metrics, other performance indicators are relevant such as:
+### Real User Monitoring (RUM)
 
-- **Time to First Byte (TTFB)**: Measures server response time.
-- **Time to Interactive (TTI)**: Measures when the page is usable and interactive.
-- **Total Blocking Time (TBT)**: Measures the total amount of time between First Contentful Paint (FCP) and Time to Interactive (TTI) where the main thread was blocked for long enough to prevent input responsiveness.
+Real User Monitoring (RUM) captures performance metrics from actual users interacting with the site. This approach uses tools like PageSpeed Insights, Search Console, and the CrUX Dashboard to analyze performance under real-world conditions, providing insights that are directly relevant to user experience.
+
+### Lab Data
+
+Lab data tools, such as Lighthouse and WebPageTest, collect performance metrics in controlled environments. These tools help identify potential issues and validate changes before deploying them to production:
+
+- **Lighthouse**: Generates comprehensive reports on LCP, CLS, and TBT, highlighting areas for performance improvement. Available in Chrome DevTools, as a Chrome extension, and as an npm package.
+- **WebPageTest**: Provides detailed reports on web performance, useful for analyzing specific conditions such as different devices and network settings.
+
+This combination of RUM and lab data ensures a holistic approach to performance optimization, addressing both real-world user experience and controlled environment testing.
 
 ## License
 
