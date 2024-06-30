@@ -56,6 +56,13 @@ Thumbs.db
 .angular
 .husky
 .nx
+.github
 
 apps/toon-galaxy-e2e
 storybook-static
+.eslintignore
+.eslint.json
+.prettierignore
+.prettierrc
+LICENSE
+README.md
