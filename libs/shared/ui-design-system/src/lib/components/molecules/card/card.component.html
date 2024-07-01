@@ -1,5 +1,6 @@
 <div
   class="flex flex-col grow bg-neutral-950 border border-neutral-700 rounded-xl h-full"
+  data-testid="card"
 >
   <div
     class="flex overflow-hidden relative flex-col items-end px-16 pb-20 w-full text-xl font-black text-center whitespace-nowrap aspect-square text-neutral-950 max-md:pl-5"
@@ -18,27 +19,32 @@
       [src]="card().image"
       [alt]="card().name + ' picture'"
       class="object-cover absolute inset-0 size-full rounded-t-[12px]"
+      data-testid="card-image"
     />
     <design-system-icon-highlight
       class="absolute top-0 right-0"
       [isSelected]="card().isFavorite"
       (toggleIconSeleted)="onToggleFavCard(card())"
+      data-testid="card-favorite-button"
     ></design-system-icon-highlight>
   </div>
   <div class="flex flex-col p-3 gap-1">
     <p
       class="!font-creepster !text-2xl !leading-6 tracking-[-0.02em] !mb-0 text-color-core-content text-ellipsis overflow-hidden whitespace-nowrap"
+      data-testid="card-name"
     >
       {{ card().name }}
     </p>
     <p
       class="text-base leading-[22.4px] !mb-0 tracking-normal !pb-0 text-ellipsis text-neutral-400"
+      data-testid="card-species"
     >
       {{ card().species }}
     </p>
     @if (card().type) {
       <p
         class="text-base leading-[22.4px] tracking-normal text-ellipsis text-neutral-400 !mb-0"
+        data-testid="card-type"
       >
         {{ card().type }}
       </p>

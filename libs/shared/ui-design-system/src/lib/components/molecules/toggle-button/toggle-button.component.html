@@ -54,6 +54,7 @@
         <span
           [@numberChange]="totalFavoriteCharacters()"
           class="flex justify-center items-center w-full h-full text-sm font-bold leading-[140%]"
+          data-testid="toggle-button-total-favorites"
         >
           {{ totalFavoriteCharacters() }}
         </span>
@@ -105,7 +106,10 @@
             activeTab() !== TabName.Favorites,
         }"
       >
-        <span [@numberChange]="totalFavoriteCharacters()">
+        <span
+          [@numberChange]="totalFavoriteCharacters()"
+          data-testid="toggle-button-total-favorites"
+        >
           {{ totalFavoriteCharacters() }}
         </span>
       </span>

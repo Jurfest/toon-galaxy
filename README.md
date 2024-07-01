@@ -1,14 +1,14 @@
 # Toon Galaxy
 
-Welcome to Toon Galaxy, an application to explore, search, and save your favorite cartoon characters. This project uses a monorepo structure managed with Nx, Angular for the frontend, and follows Domain-Driven Design (DDD) principles
+Welcome to Toon Galaxy, an application to explore, search, and save your favorite cartoon characters. This project uses a monorepo structure managed with Nx, Angular for the frontend, and follows Domain-Driven Design (DDD) principles.
 
 ## Production Links
 
-Aplication link: [toon-galaxy](http://toon-galaxy.s3-website-sa-east-1.amazonaws.com)
+The aplication link: [toon-galaxy](https://rick-morty-427511.rj.r.appspot.com).
 
-The Storybook for this project can be found at [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tdssmzhumt.chromatic.com/).
+The Storybook for this project can be found at: [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tdssmzhumt.chromatic.com/).
 
-Application additional link: [toon-galaxy-server](https://rick-morty-427511.rj.r.appspot.com)
+Additional application link (static deploy version): [toon-galaxy-static](http://toon-galaxy.s3-website-sa-east-1.amazonaws.com).
 
 ## Instructions
 
@@ -26,19 +26,27 @@ $ npm i
 ### Running the application
 
 ```bash
-# Prod mode
+# Production mode (SSR)
 $ npm run prepare
 $ npm start
 
-# Dev mode
+# Development mode (SSR)
 $ npm run dev:ssr
 ```
 
 ### Running unit tests
 
 ```bash
-# Run jest for all projects
+# Run Jest for all projects
 $ npm run test:all
+
+```
+
+### Running end-to-end tests
+
+```bash
+# Run Cypress end-to-end tests
+$ npm run e2e:open
 
 ```
 
@@ -47,6 +55,19 @@ $ npm run test:all
 <h1 align="center">
   <img alt="Dependency Graph" src="./libs/shared/ui-design-system/src/assets/images/graph.png" width="100%"/>
 </h1>
+
+## Web Auditing Metrics
+
+### Lighthouse and PageSpeed Insights
+
+Lighthouse, integrated with Chrome DevTools, audits web pages by providing insights into performance, accessibility, best practices, and SEO.
+
+[PageSpeed Insights](https://pagespeed.web.dev/) analyzes web page content, offering suggestions for performance improvements on both mobile and desktop devices.
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <img src="./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png" alt="Lighthouse Metrics" style="width: 48%; height: 250px;">
+  <img src="./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png" alt="PageSpeed Insights" style="width: 48%; height: 250px;">
+</div>
 
 ## License
 
