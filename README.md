@@ -48,7 +48,7 @@ $ npm run test:all
   <img alt="Dependency Graph" src="./libs/shared/ui-design-system/src/assets/images/graph.png" width="100%"/>
 </h1>
 
-## Web Audit Tools Metrics
+## Web Auditing Metrics
 
 #### Lighthouse and PageSpeed Insights
 
