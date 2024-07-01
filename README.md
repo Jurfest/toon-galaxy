@@ -50,7 +50,7 @@ $ npm run test:all
 
 ## Web Auditing Metrics
 
-#### Lighthouse and PageSpeed Insights
+### Lighthouse and PageSpeed Insights
 
 Lighthouse, integrated with Chrome DevTools, audits web pages by providing insights into performance, accessibility, best practices, and SEO.
 
@@ -60,6 +60,17 @@ Lighthouse, integrated with Chrome DevTools, audits web pages by providing insig
   <img src="./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png" alt="Lighthouse Metrics" style="width: 48%; height: 250px;">
   <img src="./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png" alt="PageSpeed Insights" style="width: 48%; height: 250px;">
 </div>
+
+## End-to-End Cypress Tests
+
+Watch Toon Galaxy end-to-end Cypress tests in action demonstration:
+
+<video width="640" height="360" controls autoplay loop muted>
+  <source src="apps/toon-galaxy-e2e/cypress/videos/app.cy.ts.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+Click the image above to view the video.
 
 ## License
 
