@@ -42,6 +42,14 @@ $ npm run test:all
 
 ```
 
+### Running End-to-End tests
+
+```bash
+# Run Cypress tests
+$ npm run e2e:open
+
+```
+
 ## Dependancy Graph
 
 <h1 align="center">
