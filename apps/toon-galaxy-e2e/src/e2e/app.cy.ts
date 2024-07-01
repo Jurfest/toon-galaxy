@@ -223,5 +223,39 @@ describe('Toon Galaxy App', () => {
       // Assert that there are no favorites
       cy.get('[data-testid=card]').should('not.exist');
     });
+
+    it('should correctly update totalFavoriteCharacters when a card is selected or unselected as favorite', () => {
+      cy.visit('/');
+
+      cy.get('[data-testid=search-input]').type('Smith');
+      // eslint-disable-next-line cypress/no-unnecessary-waiting
+      cy.wait(300);
+
+      cy.get('[data-testid=card]')
+        .first()
+        .within(() => {
+          cy.get('[data-testid=card-favorite-button]').click();
+        });
+
+      // Assert that the totalFavoriteCharacters updates from 0 to 1
+      cy.get('[data-testid=toggle-button-total-favorites]').should(
+        'contain',
+        '1',
+      );
+
+      // Deselect the favorite to revert the count to 0
+      cy.get('[data-testid=card]')
+        .first()
+        .within(() => {
+          cy.get('[data-testid=card-favorite-button]').click();
+        });
+
+      // Assert that the totalFavoriteCharacters updates back to 0
+      cy.get('[data-testid=toggle-button-total-favorites]').should(
+        'contain',
+        '0',
+      );
+    });
+    //
   });
 });
