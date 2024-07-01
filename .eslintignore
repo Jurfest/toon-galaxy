@@ -1,1 +1,15 @@
+# Ignore generated files and directories
+/dist
+/coverage
+
+# Ignore specific directories
+/e2e
 node_modules
+/.husky
+
+# Nx specific directories
+.nx/cache/
+.nx/workspace-data/
+
+# Angular cache
+.angular
