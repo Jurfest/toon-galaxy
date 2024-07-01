@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from '@toon-galaxy/shared/ui-design-system';
 import { CharacterFacade } from '@toon-galaxy/toon-galaxy/domain';
@@ -10,6 +10,7 @@ import { CharacterFacade } from '@toon-galaxy/toon-galaxy/domain';
   selector: 'toon-galaxy-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   private characterFacade = inject(CharacterFacade);

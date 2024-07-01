@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -42,6 +47,7 @@ import {
   selector: 'toon-galaxy-character',
   templateUrl: './character.component.html',
   styleUrls: ['./character.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterComponent implements OnInit {
   private router = inject(Router);

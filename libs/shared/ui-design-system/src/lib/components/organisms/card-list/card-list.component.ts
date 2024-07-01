@@ -1,4 +1,9 @@
-import { Component, input, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 
 import { Card } from '../../../models/card';
 import { CardComponent } from '../../molecules/card/card.component';
@@ -9,6 +14,7 @@ import { CardComponent } from '../../molecules/card/card.component';
   imports: [CardComponent],
   templateUrl: './card-list.component.html',
   styleUrl: './card-list.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardListComponent {
   cardList = input.required<Card[]>();
