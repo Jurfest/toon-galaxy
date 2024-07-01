@@ -68,12 +68,12 @@ Lighthouse, integrated with Chrome DevTools, audits web pages by providing insig
   <img
     src="./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png"
     alt="Lighthouse Metrics"
-    style="width: 48%; aspect-ratio: 16/9;"
+    style="width: 48%; max-width: 48%; height: auto; max-height: 100%; object-fit: contain;"
   />
   <img
     src="./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png"
     alt="PageSpeed Insights"
-    style="width: 48%; aspect-ratio: 16/9;"
+    style="width: 48%; max-width: 48%; height: auto; max-height: 100%; object-fit: contain;"
   />
 </div>
 
