@@ -37,15 +37,15 @@ $ npm run dev:ssr
 ### Running unit tests
 
 ```bash
-# Run jest for all projects
+# Run Jest for all projects
 $ npm run test:all
 
 ```
 
-### Running End-to-End tests
+### Running end-to-end tests
 
 ```bash
-# Run Cypress tests
+# Run Cypress end-to-end tests
 $ npm run e2e:open
 
 ```
