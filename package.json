@@ -19,6 +19,7 @@
     "build:ssr": "nx run-many --target=build --projects=toon-galaxy --configuration=production && nx run toon-galaxy:server:production",
     "build:prod": "npx nx run toon-galaxy:build --configuration=production ",
     "serve:ssr:prod": "node dist/apps/toon-galaxy/server/main.js",
+    "serve:ssr:dev": "node --inspect dist/apps/toon-galaxy/server/main.js",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
