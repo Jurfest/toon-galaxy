@@ -75,6 +75,20 @@ Lighthouse, integrated with Chrome DevTools, audits web pages by providing insig
   </tr>
 </table>
 
+<!-- Should work for README.html -->
+<!-- <div style="display: flex; justify-content: space-between; align-items: center; flex-direction: row;">
+  <img
+    src="./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png"
+    alt="Lighthouse Metrics"
+    style="width: 48%; aspect-ratio: 16 / 9;"
+  />
+  <img
+    src="./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png"
+    alt="PageSpeed Insights"
+    style="width: 48%; aspect-ratio: 16 / 9;"
+  />
+</div> -->
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
