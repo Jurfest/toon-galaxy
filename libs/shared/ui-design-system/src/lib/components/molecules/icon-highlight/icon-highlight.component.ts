@@ -6,7 +6,12 @@ import {
   trigger,
 } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, input, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 
 import { IconComponent } from '../../atoms/icon/icon.component';
 
@@ -16,6 +21,7 @@ import { IconComponent } from '../../atoms/icon/icon.component';
   imports: [CommonModule, IconComponent],
   templateUrl: './icon-highlight.component.html',
   styleUrl: './icon-highlight.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('toggleHeartBackground', [
       state(

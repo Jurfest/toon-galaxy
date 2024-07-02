@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 
 import { Card } from '../../../models/card';
 import { IconHighlightComponent } from '../icon-highlight/icon-highlight.component';
@@ -10,6 +15,7 @@ import { IconHighlightComponent } from '../icon-highlight/icon-highlight.compone
   imports: [CommonModule, IconHighlightComponent],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {
   card = input.required<Card>();

@@ -1,5 +1,5 @@
-import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'design-system-empty-result',
@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './empty-result.component.html',
   styleUrl: './empty-result.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmptyResultComponent {
   headingContent = input<string>('Nada foi encontrado');
