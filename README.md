@@ -12,7 +12,7 @@ Additional application link (static deploy version): [toon-galaxy-static](http:/
 
 ## Instructions
 
-### Installing the Application
+### Installing the application
 
 Clone the repository and install the dependencies.
 
