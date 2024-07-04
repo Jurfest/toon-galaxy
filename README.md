@@ -156,6 +156,10 @@ It will show tasks that you can run with Nx.
 - [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@nxdevtools)
 - [Follow us on Twitter](https://twitter.com/nxdevtools)
 
+## Get in touch!
+
+- [LinkedIn](https://www.linkedin.com/in/diegojurfest/)
+
 <!-- Performance TODOS -->
 <!--
 // - Add relevant images to imagekit for performance improvement
