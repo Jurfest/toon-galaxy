@@ -23,6 +23,7 @@
   </header>
 
   @if ((isFavorites$ | async) === false) {
+    <!-- TODO: - Evaluate use of @let NG 18.1 -->
     @if (((characterViewModelList$ | async) || []).length > 0) {
       <design-system-card-list
         [cardList]="(characterViewModelList$ | async) || []"
