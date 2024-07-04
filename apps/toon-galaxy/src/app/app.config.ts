@@ -55,8 +55,6 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(
       /**
        * NOTE: event replay is in developer preview in NG 18
-       * A minus one point in performance was measured in lighthouse in localhost
-       * after it's addition.
        */
       withEventReplay(),
     ),
