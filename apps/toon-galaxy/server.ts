@@ -1,4 +1,4 @@
-import 'zone.js/node';
+import 'zone.js/node'; // TODO: - Remove when use zoneless
 
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine } from '@angular/ssr';
