@@ -8,7 +8,10 @@ import {
   ENVIRONMENT_INITIALIZER,
   isDevMode,
 } from '@angular/core';
-import { provideClientHydration } from '@angular/platform-browser';
+import {
+  provideClientHydration,
+  withEventReplay,
+} from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
   NoPreloading,
@@ -49,7 +52,10 @@ export const appConfig: ApplicationConfig = {
       ]),
       withFetch(),
     ),
-    provideClientHydration(),
+    provideClientHydration(
+      withEventReplay(), // event replay is in developer preview in NG 18
+      // TypeError: Cannot read properties fo undefined (reading '_ejsa')
+    ),
     provideRouter(
       appRoutes,
       // Uncomment for smother view transitions
