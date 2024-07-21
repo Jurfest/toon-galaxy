@@ -24,8 +24,27 @@
   </header>
 
   @if (!isFavorites) {
-    <!-- TODO: - Evaluate use of @let NG 18.1 -->
-    @if (((characterViewModelList$ | async) || []).length > 0) {
+    <!--
+    NOTE: - Evaluate use of @let NG 18.1
+    https://github.com/angular/angular/issues/50133
+    The problem, TypeError: targetNode.hasAttribute is not a function
+    at serializeLView at annotateHostElementForHydration...,
+    disappears when removing hydration.
+
+    Reproduction steps:
+    @let characterViewModelList = characterViewModelList$ | async;
+    @if (characterViewModelList && characterViewModelList.length > 0) {
+      <h1>Hello from {{ characterViewModelList[0].name }}!</h1>
+    }
+
+    Use @let to:
+    Minimize repetition; Minimize number of times a pipe is executed;
+    To better handle type narrowing (object chain), specially when using signals;
+    To define complex style options; Improve readability in the template;
+    Minimize subscriptions when using the async pipe; To pass data in an event handler
+    -->
+    @let characterViewModelList = (characterViewModelList$ | async) || [];
+    @if (characterViewModelList.length > 0) {
       <design-system-card-list
         [cardList]="(characterViewModelList$ | async) || []"
         (favCardUpdate)="updateFavorites($event)"
@@ -37,7 +56,8 @@
       <design-system-empty-result></design-system-empty-result>
     }
   } @else {
-    @if (((favCharacterViewModelList$ | async) || []).length > 0) {
+    @let favCharacterViewModelList = favCharacterViewModelList$ | async;
+    @if ((favCharacterViewModelList || []).length > 0) {
       <design-system-card-list
         [cardList]="(favCharacterViewModelList$ | async) || []"
         (favCardUpdate)="updateFavorites($event)"
