@@ -39,6 +39,10 @@
             "glob": "**/*",
             "input": "libs/shared/ui-design-system/src/assets",
             "output": "assets"
+          },
+          {
+            "glob": "**/*",
+            "input": "apps/toon-galaxy/public"
           }
         ],
         "styles": [
