@@ -12,25 +12,34 @@
   "prefix": "toon-galaxy",
   "sourceRoot": "apps/toon-galaxy/src",
   "tags": ["domain:toon-galaxy", "type:app"],
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "displayBlock": true
+    }
+  },
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/toon-galaxy/browser",
+        "outputPath": "dist/apps/toon-galaxy",
         "index": "apps/toon-galaxy/src/index.html",
-        "main": "apps/toon-galaxy/src/main.ts",
+        "browser": "apps/toon-galaxy/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/toon-galaxy/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/toon-galaxy/src/favicon.ico",
-          "apps/toon-galaxy/src/assets",
           "apps/toon-galaxy/src/robots.txt",
           {
             "glob": "**/*",
             "input": "libs/shared/ui-design-system/src/assets",
             "output": "assets"
+          },
+          {
+            "glob": "**/*",
+            "input": "apps/toon-galaxy/public"
           }
         ],
         "styles": [
@@ -41,7 +50,12 @@
         "stylePreprocessorOptions": {
           "includePaths": ["scss"]
         },
-        "scripts": []
+        "scripts": [],
+        "server": "apps/toon-galaxy/src/main.server.ts",
+        "prerender": true,
+        "ssr": {
+          "entry": "apps/toon-galaxy/server.ts"
+        }
       },
       "configurations": {
         "production": {
@@ -60,12 +74,9 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true,
           "fileReplacements": [
             {
               "replace": "libs/shared/util-common/src/lib/environments/environment.ts",
@@ -109,75 +120,9 @@
       "options": {
         "buildTarget": "toon-galaxy:build",
         "port": 4200,
+        "staticFilePath": "dist/apps/toon-galaxy/browser",
         "spa": true
       }
-    },
-    "server": {
-      "dependsOn": ["build"],
-      "executor": "@angular-devkit/build-angular:server",
-      "options": {
-        "outputPath": "dist/apps/toon-galaxy/server",
-        "main": "apps/toon-galaxy/server.ts",
-        "tsConfig": "apps/toon-galaxy/tsconfig.server.json",
-        "inlineStyleLanguage": "scss"
-      },
-      "configurations": {
-        "production": {
-          "outputHashing": "media"
-        },
-        "development": {
-          "buildOptimizer": false,
-          "optimization": false,
-          "sourceMap": true,
-          "extractLicenses": false,
-          "vendorChunk": true,
-          "fileReplacements": [
-            {
-              "replace": "libs/shared/util-common/src/lib/environments/environment.ts",
-              "with": "libs/shared/util-common/src/lib/environments/environment.development.ts"
-            }
-          ]
-        }
-      },
-      "defaultConfiguration": "production"
-    },
-    "serve-ssr": {
-      "executor": "@angular-devkit/build-angular:ssr-dev-server",
-      "configurations": {
-        "development": {
-          "browserTarget": "toon-galaxy:build:development",
-          "serverTarget": "toon-galaxy:server:development"
-        },
-        "production": {
-          "browserTarget": "toon-galaxy:build:production",
-          "serverTarget": "toon-galaxy:server:production"
-        }
-      },
-      "defaultConfiguration": "development"
-    },
-    "prerender": {
-      "executor": "@angular-devkit/build-angular:prerender",
-      "options": {
-        "routes": ["/"]
-      },
-      "configurations": {
-        "development": {
-          "browserTarget": "toon-galaxy:build:development",
-          "serverTarget": "toon-galaxy:server:development"
-        },
-        "production": {
-          "browserTarget": "toon-galaxy:build:production",
-          "serverTarget": "toon-galaxy:server:production"
-        }
-      },
-      "defaultConfiguration": "production"
-    }
-  },
-  "generators": {
-    "@schematics/angular:component": {
-      "style": "scss",
-      "changeDetection": "OnPush",
-      "displayBlock": true
     }
   }
 }

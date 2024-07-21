@@ -1,12 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    // To ensure dependency injection works correctly without issues, we are
-    //  using the inject() method instead of constructor-based injection. This
-    // is necessary because, with the current settings (ES2022 or higher),
-    // constructor-based injection requires a workaround in the tsconfig.json
-    // file, where the "useDefineForClassFields" option must be set to false.
-    "useDefineForClassFields": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
