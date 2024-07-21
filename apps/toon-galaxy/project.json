@@ -22,18 +22,15 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath.base}"],
+      "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": {
-          "base": "dist/apps/toon-galaxy"
-        },
+        "outputPath": "dist/apps/toon-galaxy",
         "index": "apps/toon-galaxy/src/index.html",
+        "browser": "apps/toon-galaxy/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/toon-galaxy/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/toon-galaxy/src/favicon.ico",
-          "apps/toon-galaxy/src/assets",
           "apps/toon-galaxy/src/robots.txt",
           {
             "glob": "**/*",
@@ -54,7 +51,6 @@
           "includePaths": ["scss"]
         },
         "scripts": [],
-        "browser": "apps/toon-galaxy/src/main.ts",
         "server": "apps/toon-galaxy/src/main.server.ts",
         "prerender": true,
         "ssr": {
@@ -81,7 +77,6 @@
           "optimization": false,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true,
           "fileReplacements": [
             {
               "replace": "libs/shared/util-common/src/lib/environments/environment.ts",
@@ -125,6 +120,7 @@
       "options": {
         "buildTarget": "toon-galaxy:build",
         "port": 4200,
+        "staticFilePath": "dist/apps/toon-galaxy/browser",
         "spa": true
       }
     }
