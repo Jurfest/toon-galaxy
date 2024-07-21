@@ -1,14 +1,15 @@
 <section class="flex flex-col items-center px-6 py-12 md:px-5">
+  @let isFavorites = isFavorites$ | async;
   <header
     class="flex gap-4 justify-between max-w-full whitespace-nowrap w-[720px] md:flex-wrap max-xs:flex-wrap"
   >
     <design-system-heading
-      [label]="(isFavorites$ | async) ? 'Favoritos' : 'Início'"
+      [label]="isFavorites ? 'Favoritos' : 'Início'"
       [withBorder]="true"
       font="creepster"
     ></design-system-heading>
 
-    @if ((isFavorites$ | async) === false) {
+    @if (!isFavorites) {
       <form
         [formGroup]="searchCharactersForm"
         class="search-form md:w-auto max-xs:w-auto"
@@ -22,7 +23,7 @@
     }
   </header>
 
-  @if ((isFavorites$ | async) === false) {
+  @if (!isFavorites) {
     <!-- TODO: - Evaluate use of @let NG 18.1 -->
     @if (((characterViewModelList$ | async) || []).length > 0) {
       <design-system-card-list
