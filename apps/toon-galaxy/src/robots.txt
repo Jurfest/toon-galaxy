@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /private/
+Allow: /public/
+Allow: /
+
+Sitemap: https://rick-morty-427511.rj.r.appspot.com/sitemap.xml

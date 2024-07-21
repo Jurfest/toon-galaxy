@@ -1,4 +1,4 @@
-import 'zone.js/node';
+import 'zone.js/node'; // TODO: - Remove when use zoneless
 
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine } from '@angular/ssr';
@@ -29,6 +29,21 @@ export function app(): express.Express {
       maxAge: '1y',
     }),
   );
+
+  // Serve sitemap.xml
+  server.get('/sitemap.xml', (req, res) => {
+    res.sendFile(join(distFolder, 'sitemap.xml'));
+  });
+
+  // Serve sitemap.xsl
+  server.get('/sitemap.xsl', (req, res) => {
+    res.sendFile(join(distFolder, 'sitemap.xsl'));
+  });
+
+  // Serve robots.txt
+  server.get('/robots.txt', (req, res) => {
+    res.sendFile(join(distFolder, 'robots.txt'));
+  });
 
   // All regular routes use the Angular engine
   server.get('*', (req, res, next) => {

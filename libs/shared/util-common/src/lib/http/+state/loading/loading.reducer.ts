@@ -32,3 +32,12 @@ export const loadingFeature = createFeature({
   name: loadingFeatureKey,
   reducer,
 });
+
+// TODO: - Simplify
+// export const {
+//   name, // feature name
+//   reducer: loadingReducer, // feature reducer
+//   selectLoadingState, // selector for the entire loading feature state
+//   selectLoading, // selector for the loading property
+//   selectActiveRequests, // selector for the activeRequests property
+// } = loadingFeature;

@@ -26,6 +26,7 @@
         "assets": [
           "apps/toon-galaxy/src/favicon.ico",
           "apps/toon-galaxy/src/assets",
+          "apps/toon-galaxy/src/robots.txt",
           {
             "glob": "**/*",
             "input": "libs/shared/ui-design-system/src/assets",

@@ -99,6 +99,8 @@ export class CharacterComponent implements OnInit {
     return this.characterFacade.load(characterName);
   }
 
+  // REFACTOR: - For a large list this could be seen as a heavy computation or operation
+  // From the component point of view this could be directly load from the facade as well
   private loadCharacterViewModelList(): void {
     this.characterViewModelList$ = combineLatest([
       this.characterList$,

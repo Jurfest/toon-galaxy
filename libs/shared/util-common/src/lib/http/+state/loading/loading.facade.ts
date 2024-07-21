@@ -10,6 +10,7 @@ export class LoadingFacade {
   private readonly store = inject(Store);
 
   isLoading$ = this.store.pipe(select(LoadingSelectors.isLoading));
+  // isLoading$ = this.store.select(selectLoading);
   // TODO: NgRx Signal Store
   // isLoading$ = this.store.selectSignal(selectLoadingState.selectLoading);
 
