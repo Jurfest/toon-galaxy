@@ -1,4 +1,4 @@
-// import { getGreeting } from '../support/app.po';
+import { getH1 } from '../support/app.po';
 
 // describe('Toon Galaxy E2E', () => {
 //   beforeEach(() => cy.visit('/'));
@@ -18,7 +18,7 @@ describe('Toon Galaxy App', () => {
 
     it('should initially display the home page', () => {
       cy.url().should('include', '/manage-characters/search');
-      cy.contains('h1', 'Início');
+      getH1().contains('Início');
     });
 
     it('should display the toggle button', () => {
@@ -162,9 +162,15 @@ describe('Toon Galaxy App', () => {
       cy.visit('/');
 
       const addToFavorites = (character: string) => {
+        // Intercept the API request
+        cy.intercept('GET', '**/api/character?name=*').as('getCharacter');
+
         cy.get('[data-testid=search-input]').type(`${character}{enter}`);
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(300); // Wait for debounce
+
+        // Wait for the API request to complete
+        cy.wait('@getCharacter', { timeout: 10000 });
 
         cy.get('[data-testid=card]')
           .first()
@@ -186,10 +192,20 @@ describe('Toon Galaxy App', () => {
 
       cy.get('[data-testid=card]').should('have.length', 3);
 
-      cy.get('[data-testid=card]').each(() => {
-        cy.get('[data-testid=card-name]').should('contain', 'Morty');
-        cy.get('[data-testid=card-name]').should('contain', 'Rick');
-        cy.get('[data-testid=card-name]').should('contain', 'Snuffles');
+      cy.get('[data-testid=card]').each((card, index) => {
+        if (index === 0) {
+          cy.wrap(card)
+            .find('[data-testid=card-name]')
+            .should('contain', 'Morty');
+        } else if (index === 1) {
+          cy.wrap(card)
+            .find('[data-testid=card-name]')
+            .should('contain', 'Rick');
+        } else if (index === 2) {
+          cy.wrap(card)
+            .find('[data-testid=card-name]')
+            .should('contain', 'Snuffles');
+        }
       });
     });
 
@@ -257,5 +273,28 @@ describe('Toon Galaxy App', () => {
       );
     });
     //
+  });
+
+  // Performance
+  describe('performance', () => {
+    beforeEach(() => cy.visit('/'));
+
+    it('should load page below 1 second', () => {
+      cy.visit('/', {
+        onBeforeLoad: (win) => {
+          win.performance.mark('start-loading');
+        },
+        onLoad: (win) => {
+          win.performance.mark('end-loading');
+        },
+      })
+
+        .its('performance')
+        .then((p) => {
+          p.measure('pageLoad', 'start-loading', 'end-loading');
+          const measure = p.getEntriesByName('pageLoad')[0];
+          expect(measure.duration).to.be.most(1000);
+        });
+    });
   });
 });
