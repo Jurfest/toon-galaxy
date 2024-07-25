@@ -53,7 +53,7 @@ $ npm run e2e:open
 ## Dependancy Graph
 
 <h1 align="center">
-  <img alt="Dependency Graph" src="./libs/shared/ui-design-system/src/assets/images/graph.png" width="100%"/>
+  <img alt="Dependency Graph" src="./public/images/graph.png" width="100%"/>
 </h1>
 
 ## Web Auditing Metrics
@@ -67,10 +67,10 @@ Lighthouse, integrated with Chrome DevTools, audits web pages by providing insig
 <table>
   <tr>
     <td>
-      <img src="./libs/shared/ui-design-system/src/assets/images/lighthouse-prod.png" alt="Lighthouse Metrics" width="100%">
+      <img src="./public/images//lighthouse-prod.png" alt="Lighthouse Metrics" width="100%">
     </td>
     <td>
-      <img src="./libs/shared/ui-design-system/src/assets/images/page-speed-insights.png" alt="PageSpeed Insights" width="100%">
+      <img src="./public/images/page-speed-insights.png" alt="PageSpeed Insights" width="100%">
     </td>
   </tr>
 </table>
