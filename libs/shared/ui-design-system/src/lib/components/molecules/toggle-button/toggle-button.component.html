@@ -64,7 +64,11 @@
 } @else {
   <!-- Handset Menu -->
   <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>menu</mat-icon>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="menu icon"
+      fontIcon="menu"
+    ></mat-icon>
   </button>
   <mat-menu #menu="matMenu">
     <button
