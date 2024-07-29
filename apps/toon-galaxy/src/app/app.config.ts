@@ -7,6 +7,7 @@ import {
   ApplicationConfig,
   ENVIRONMENT_INITIALIZER,
   isDevMode,
+  provideZoneChangeDetection,
 } from '@angular/core';
 import {
   provideClientHydration,
@@ -118,7 +119,7 @@ export const appConfig: ApplicationConfig = {
      * the Angular CLI, Zone.js is typically included in the "polyfills" section of the
      * angular.json file.
      */
-    // provideZoneChangeDetection({ eventCoalescing: true }), // Also triggers requestAnimationFrame warning,
+    provideZoneChangeDetection({ eventCoalescing: true }), // Also triggers requestAnimationFrame warning,
     // but not in initial load
     // provideExperimentalZonelessChangeDetection(), // Currently experimental zoneless support (NG 18)
     // provideExperimentalCheckNoChangesForDebug({
