@@ -7,6 +7,7 @@ import {
   input,
 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { QuicklinkModule } from 'ngx-quicklink';
 import { filter, map, Observable, shareReplay, startWith } from 'rxjs';
 
 import { TabName } from '../../../models/tab-name';
@@ -16,7 +17,12 @@ import { ToggleButtonComponent } from '../../molecules/toggle-button/toggle-butt
 @Component({
   selector: 'design-system-navbar',
   standalone: true,
-  imports: [CommonModule, LogoComponent, ToggleButtonComponent],
+  imports: [
+    CommonModule,
+    LogoComponent,
+    ToggleButtonComponent,
+    QuicklinkModule,
+  ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

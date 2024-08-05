@@ -1,5 +1,12 @@
 @if (!isHandset()) {
+  <!--
+  NOTE: - commonAppShellNoRender custom structural directive prevents
+  layout shift in Handset mode, but delays a little rendering in desktop mode.
+  General performance score impact, nevertheless, is negletible in desktop but
+  is much improved in mobile.
+  -->
   <div
+    *commonAppShellNoRender
     class="flex items-start m-auto w-[255px] h-[41px] border border-color-core-border rounded-xl"
   >
     <button
@@ -64,7 +71,11 @@
 } @else {
   <!-- Handset Menu -->
   <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>menu</mat-icon>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="menu icon"
+      fontIcon="menu"
+    ></mat-icon>
   </button>
   <mat-menu #menu="matMenu">
     <button

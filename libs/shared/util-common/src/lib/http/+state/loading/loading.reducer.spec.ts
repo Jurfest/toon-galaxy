@@ -1,7 +1,23 @@
-import { initialState, LoadingState, reducer } from './loading.reducer';
+import { Action } from '@ngrx/store';
+
 import { LoadingActions } from './loading.actions';
+import {
+  initialState,
+  loadingFeature,
+  LoadingState,
+  reducer,
+  selectActiveRequests,
+} from './loading.reducer';
 
 describe('Loading Reducer', () => {
+  it('should return the initial state whithin an unknown action', () => {
+    const action = {} as Action;
+
+    const result = reducer(initialState, action);
+
+    expect(result).toBe(initialState);
+  });
+
   it('should handle loadStart action', () => {
     const requestId = 'request123';
 
@@ -18,7 +34,7 @@ describe('Loading Reducer', () => {
     expect(nextState.activeRequests).toContain(requestId);
   });
 
-  it('should handle loadStop action', () => {
+  it('should handle loadStop action for single request', () => {
     const requestId = 'request123';
     const state: LoadingState = {
       ...initialState,
@@ -47,5 +63,33 @@ describe('Loading Reducer', () => {
 
     expect(nextState.loading).toEqual(true);
     expect(nextState.activeRequests).toEqual([requestId2]);
+  });
+
+  describe('selectors', () => {
+    let state: LoadingState;
+
+    beforeEach(() => {
+      state = initialState;
+    });
+
+    it('should select the loading state', () => {
+      const result = loadingFeature.selectLoadingState.projector(state);
+      expect(result).toEqual(state);
+    });
+
+    it('should return the loaded flag', () => {
+      const result = loadingFeature.selectLoading.projector(state);
+      expect(result).toBe(state.loading);
+    });
+
+    it('should return active requests', () => {
+      const requestId = 'request123';
+      const loadStartAction = LoadingActions.loadStart({ requestId });
+      const nextState = reducer(initialState, loadStartAction);
+
+      const allProducts = selectActiveRequests.projector(nextState);
+      expect(allProducts.length).toBe(1);
+      expect(allProducts).toEqual([requestId]);
+    });
   });
 });

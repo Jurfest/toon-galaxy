@@ -7,6 +7,7 @@ import {
   ApplicationConfig,
   ENVIRONMENT_INITIALIZER,
   isDevMode,
+  provideZoneChangeDetection,
 } from '@angular/core';
 import {
   provideClientHydration,
@@ -14,7 +15,6 @@ import {
 } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
-  NoPreloading,
   provideRouter,
   withEnabledBlockingInitialNavigation,
   withInMemoryScrolling,
@@ -30,6 +30,7 @@ import {
   provideSharedUtilCommon,
 } from '@toon-galaxy/shared/util-common';
 import { provideToonGalaxyDomain } from '@toon-galaxy/toon-galaxy/domain';
+import { quicklinkProviders, QuicklinkStrategy } from 'ngx-quicklink';
 
 import { appRoutes } from './app.routes';
 
@@ -63,7 +64,7 @@ export const appConfig: ApplicationConfig = {
       // Uncomment for smother view transitions
       // withViewTransitions(),
 
-      withPreloading(NoPreloading),
+      withPreloading(QuicklinkStrategy),
       // withRouterConfig({
       //   onSameUrlNavigation: 'reload',
       // }),
@@ -75,6 +76,7 @@ export const appConfig: ApplicationConfig = {
       }),
       // withDebugTracing(), // should be disabled in production
     ),
+    quicklinkProviders,
     provideAnimationsAsync(),
 
     /**
@@ -118,7 +120,7 @@ export const appConfig: ApplicationConfig = {
      * the Angular CLI, Zone.js is typically included in the "polyfills" section of the
      * angular.json file.
      */
-    // provideZoneChangeDetection({ eventCoalescing: true }), // Also triggers requestAnimationFrame warning,
+    provideZoneChangeDetection({ eventCoalescing: true }), // Also triggers requestAnimationFrame warning,
     // but not in initial load
     // provideExperimentalZonelessChangeDetection(), // Currently experimental zoneless support (NG 18)
     // provideExperimentalCheckNoChangesForDebug({

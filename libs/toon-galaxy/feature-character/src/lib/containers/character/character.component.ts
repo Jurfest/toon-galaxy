@@ -81,9 +81,10 @@ export class CharacterComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    const debounceSearchInput$ = this.searchCharactersForm.controls[
-      'search'
-    ].valueChanges.pipe(debounceTime(300));
+    const debounceSearchInput$ =
+      this.searchCharactersForm.controls.search.valueChanges.pipe(
+        debounceTime(300),
+      );
 
     this.characterList$ = debounceSearchInput$.pipe(
       startWith(''),

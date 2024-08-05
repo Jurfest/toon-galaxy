@@ -10,9 +10,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { AppShellNoRenderDirective } from '@toon-galaxy/shared/util-common';
 
-import { IconComponent } from '../../atoms/icon/icon.component';
 import { TabName } from '../../../models/tab-name';
+import { IconComponent } from '../../atoms/icon/icon.component';
 
 @Component({
   selector: 'design-system-toggle-button',
@@ -24,6 +25,7 @@ import { TabName } from '../../../models/tab-name';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+    AppShellNoRenderDirective,
   ],
   templateUrl: './toggle-button.component.html',
   styleUrl: './toggle-button.component.scss',
