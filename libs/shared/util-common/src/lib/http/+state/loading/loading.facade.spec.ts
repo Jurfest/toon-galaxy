@@ -1,11 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { Store } from '@ngrx/store';
-import { v4 as uuidv4 } from 'uuid';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { v4 as uuidv4 } from 'uuid';
 
-import { LoadingFacade } from './loading.facade';
 import { LoadingActions } from './loading.actions';
-import * as LoadingSelectors from './loading.selectors';
+import { LoadingFacade } from './loading.facade';
+import { loadingFeature } from './loading.reducer';
 
 describe('LoadingFacade', () => {
   let loadingFacade: LoadingFacade;
@@ -25,7 +25,7 @@ describe('LoadingFacade', () => {
     store = TestBed.inject(Store) as MockStore;
 
     // Mock the selectors
-    store.overrideSelector(LoadingSelectors.isLoading, true);
+    store.overrideSelector(loadingFeature.selectLoading, true);
   });
 
   it('should be created', () => {

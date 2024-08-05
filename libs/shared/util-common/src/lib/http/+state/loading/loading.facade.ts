@@ -2,15 +2,14 @@ import { inject, Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { v4 as uuidv4 } from 'uuid';
 
-import * as LoadingSelectors from './loading.selectors';
 import { LoadingActions } from './loading.actions';
+import { loadingFeature } from './loading.reducer';
 
 @Injectable({ providedIn: 'root' })
 export class LoadingFacade {
   private readonly store = inject(Store);
 
-  isLoading$ = this.store.pipe(select(LoadingSelectors.isLoading));
-  // isLoading$ = this.store.select(selectLoading);
+  isLoading$ = this.store.pipe(select(loadingFeature.selectLoading));
   // TODO: NgRx Signal Store
   // isLoading$ = this.store.selectSignal(selectLoadingState.selectLoading);
 
