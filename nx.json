@@ -63,6 +63,9 @@
     },
     "build-storybook": {
       "cache": true
+    },
+    "e2e-ci--**/*": {
+      "dependsOn": ["^toon-galaxy:build"]
     }
   },
   "plugins": [
