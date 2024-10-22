@@ -111,5 +111,6 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "toon-galaxy"
+  "defaultProject": "toon-galaxy",
+  "useLegacyCache": true
 }
