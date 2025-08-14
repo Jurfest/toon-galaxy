@@ -44,7 +44,7 @@ describe('AppComponent', () => {
 
   it('should have totalFavoriteCharacters$ observable from CharacterFacade', (done) => {
     component.totalFavoriteCharacters$.subscribe((value) => {
-      expect(value).toEqual(5); // example value
+      expect(value).toEqual(5);
       done();
     });
   });

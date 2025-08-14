@@ -58,6 +58,10 @@ export const appConfig: ApplicationConfig = {
        * NOTE: event replay is in developer preview in NG 18
        */
       withEventReplay(),
+      /**
+       * NOTE: incremental / partial hydration is a NG 19 preview feature
+       */
+      // withPartialHydration()
     ),
     provideRouter(
       appRoutes,

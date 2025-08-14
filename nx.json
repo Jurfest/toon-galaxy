@@ -63,6 +63,9 @@
     },
     "build-storybook": {
       "cache": true
+    },
+    "e2e-ci--**/*": {
+      "dependsOn": ["^toon-galaxy:build"]
     }
   },
   "plugins": [
@@ -108,5 +111,6 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "toon-galaxy"
+  "defaultProject": "toon-galaxy",
+  "useLegacyCache": true
 }

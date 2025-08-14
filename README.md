@@ -8,7 +8,7 @@ The aplication link: [toon-galaxy](https://rick-morty-427511.rj.r.appspot.com).
 
 The Storybook for this project can be found at: [design-insights.toongalaxy.toon](https://66739ea5b581c33ced2d5fbc-tdssmzhumt.chromatic.com/).
 
-Additional application link (static deploy version): [toon-galaxy-static](http://toon-galaxy.s3-website-sa-east-1.amazonaws.com).
+<!-- Additional application link (static deploy version): [toon-galaxy-static](http://toon-galaxy.s3-website-sa-east-1.amazonaws.com). -->
 
 ## Instructions
 

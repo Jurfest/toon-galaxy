@@ -7,28 +7,33 @@ mat-form-field.search-form-field {
     height: 48px !important;
   }
 
-  /* Input label height */
-  --mat-form-field-container-height: 48px;
-  /* Text input height */
-  --mat-form-field-container-vertical-padding: 13px;
-  --mdc-outlined-text-field-container-shape: 0.75rem;
+  & {
+    /* Input label height */
+    --mat-form-field-container-height: 48px;
+    /* Text input height */
+    --mat-form-field-container-vertical-padding: 13px;
+    --mdc-outlined-text-field-container-shape: 0.75rem;
 
-  --mdc-outlined-text-field-focus-outline-width: 1px;
+    --mdc-outlined-text-field-focus-outline-width: 1px;
 
-  --mdc-outlined-text-field-label-text-font: 'Poppins', sans-serif;
-  /* Text input font */
-  --mat-form-field-container-text-font: 'Poppins', sans-serif;
+    --mdc-outlined-text-field-label-text-font: 'Poppins', sans-serif;
+    /* Text input font */
+    --mat-form-field-container-text-font: 'Poppins', sans-serif;
 
-  --mdc-outlined-text-field-input-text-color: var(
-    --color-neutral-content-higher,
-    #f2f2f2
-  );
-  --mdc-outlined-text-field-label-text-color: var(
-    --color-neutral-content-high,
-    #cacaca
-  );
+    --mdc-outlined-text-field-input-text-color: var(
+      --color-neutral-content-higher,
+      #f2f2f2
+    );
+    --mdc-outlined-text-field-label-text-color: var(
+      --color-neutral-content-high,
+      #cacaca
+    );
 
-  --mdc-outlined-text-field-outline-color: var(--color-neutral-border, #3d3d3d);
+    --mdc-outlined-text-field-outline-color: var(
+      --color-neutral-border,
+      #3d3d3d
+    );
+  }
 
   &.has-text {
     --mdc-outlined-text-field-outline-color: var(
