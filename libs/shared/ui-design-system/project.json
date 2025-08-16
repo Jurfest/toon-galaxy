@@ -17,8 +17,7 @@
       "executor": "@nx/angular:ng-packagr-lite",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "libs/shared/ui-design-system/ng-package.json",
-        "tailwindConfig": "libs/shared/ui-design-system/tailwind.config.js"
+        "project": "libs/shared/ui-design-system/ng-package.json"
       },
       "configurations": {
         "production": {

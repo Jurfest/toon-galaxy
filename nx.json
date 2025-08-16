@@ -21,7 +21,7 @@
     "sharedGlobals": []
   },
   "targetDefaults": {
-    "@angular-devkit/build-angular:browser": {
+    "@angular/build:application": {
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
@@ -52,11 +52,6 @@
       "cache": true
     },
     "@nx/angular:ng-packagr-lite": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    },
-    "@angular-devkit/build-angular:application": {
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
